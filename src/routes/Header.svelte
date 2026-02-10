@@ -60,13 +60,21 @@
 			</li>
 
 			<!-- Calculator page -->
-            <li><a href="/calculator">Calculator</a></li>
+            <li aria-current={page.url.pathname === '/calculator' ? 'page' : undefined}>
+                <a href="/calculator">Calculator</a>
+            </li>
 
             <!-- Transparency & legal page -->
             <li aria-current={page.url.pathname === '/policy' ? 'page' : undefined}>
                 <a href={resolve('/policy')}>Policy</a>
             </li>
-		</ul>
+
+            <!-- Dark/Light theme toggle -->
+            <button class="theme-toggle" on:click={toggle}>
+                {uiTheme === "dark" ? "Light mode" : "Dark mode"}
+            </button>
+
+        </ul>
 
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
@@ -74,9 +82,7 @@
 	</nav>
 
 	<div class="corner">
-        <button on:click={toggle}>
-            {uiTheme === "dark" ? "Light mode" : "Dark mode"}
-        </button>
+
     </div>
 </header>
 
@@ -174,4 +180,24 @@
 	a:hover {
 		color: var(--color-theme-1);
 	}
+
+    .theme-toggle {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 0 0.5rem;
+
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+
+        color: var(--color-text);
+        cursor: pointer;
+    }
+
+    .theme-toggle:hover {
+        color: var(--color-theme-1);
+    }
+
 </style>
