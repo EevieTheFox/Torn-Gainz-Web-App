@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { ABOUT_TEXT} from "$lib/About/about";
+    import { ABOUT_TEXT} from "$lib/about/about";
 </script>
 
 <svelte:head>
