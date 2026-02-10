@@ -1,27 +1,59 @@
-# dependencies
+# =========================
+# Dependencies
+# =========================
 node_modules/
 
-# build output (future-proofing)
-dist/
-.build/
+# =========================
+# SvelteKit / Build Output
+# =========================
 .svelte-kit/
-.vercel/
-.cloudflare/
+build/
+dist/
+.output/
 
-# environment files
+# =========================
+# Deployment Platforms
+# =========================
+.vercel/
+.netlify/
+.cloudflare/
+.wrangler/
+
+# =========================
+# Environment / Secrets
+# =========================
 .env
 .env.*
+!.env.example
+!.env.test
 
-# logs
+# =========================
+# Logs
+# =========================
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
+pnpm-debug.log*
 
-# OS / editor junk
+# =========================
+# OS Junk
+# =========================
 .DS_Store
+Thumbs.db
+
+# =========================
+# IDE / Editor Junk
+# =========================
 .idea/
 .vscode/
 *.iml
 
-# misc
+# =========================
+# Vite
+# =========================
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# =========================
+# Coverage / Tests
+# =========================
 coverage/
