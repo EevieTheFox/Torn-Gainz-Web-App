@@ -14,7 +14,7 @@
 
 	<footer>
 		<p>
-			visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to learn about SvelteKit
+			Developed and maintained by EevieTheFox [3942777] - 2026
 		</p>
 	</footer>
 </div>

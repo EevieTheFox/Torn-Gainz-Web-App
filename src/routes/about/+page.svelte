@@ -28,10 +28,6 @@
         margin: 0 0 8px;
     }
 
-    .meta {
-        margin: 0 0 24px;
-        opacity: 0.8;
-    }
 
     .policy {
         border: 1px solid rgba(255,255,255,0.12);
