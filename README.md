@@ -77,7 +77,6 @@ No external UI frameworks — layout and components are intentionally lightweigh
 
 ## Local Development
 
-```bash
 npm install
 npm run dev
 Then open:
