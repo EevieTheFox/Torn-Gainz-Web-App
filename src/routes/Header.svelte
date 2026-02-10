@@ -27,6 +27,12 @@
 				<a href={resolve('/sverdle')}>Sverdle</a>
 			</li>
 		</ul>
+		<ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/calculator">Calculator</a></li>
+          <li><a href="/policy">Policy</a></li>
+        </ul>
+
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
 		</svg>
