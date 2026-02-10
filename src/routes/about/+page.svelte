@@ -1,30 +1,49 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
+    import { ABOUT_TEXT} from "$lib/About/about";
 </script>
 
 <svelte:head>
-	<title>About</title>
-	<meta name="description" content="About this app" />
+    <title>About Torn Gainz</title>
 </svelte:head>
 
-<div class="text-column">
-	<h1>About this app</h1>
+<main class="wrap">
+    <header class="header">
+        <h1>About Torn Gainz</h1>
+    </header>
 
-	<p>
-		This is a <a href="https://svelte.dev/docs/kit">SvelteKit</a> app. You can make your own by typing
-		the following into your command line and following the prompts:
-	</p>
+    <article class="policy">
+        <!-- preserves spacing + line breaks exactly -->
+        <pre>{ABOUT_TEXT}</pre>
+    </article>
+</main>
 
-	<pre>npx sv create</pre>
+<style>
+    .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 24px 16px 64px;
+    }
 
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
+    .header h1 {
+        margin: 0 0 8px;
+    }
 
-	<p>
-		The <a href={resolve('/sverdle')}>Sverdle</a> page illustrates SvelteKit's data loading and form handling.
-		Try using it with JavaScript disabled!
-	</p>
-</div>
+    .meta {
+        margin: 0 0 24px;
+        opacity: 0.8;
+    }
+
+    .policy {
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 12px;
+        padding: 16px;
+    }
+
+    pre {
+        margin: 0;
+        white-space: pre-wrap;  /* wrap long lines */
+        word-break: break-word; /* avoid horizontal scroll */
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        line-height: 1.4;
+    }
+</style>
