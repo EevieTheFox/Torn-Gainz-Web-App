@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { ABOUT_TEXT} from "$lib/about/about";
+    import { ABOUT_TEXT } from "$lib/about/about";
 </script>
 
 <svelte:head>
@@ -11,7 +11,7 @@
         <h1>About Torn Gainz</h1>
     </header>
 
-    <article class="policy">
+    <article class="about">
         <!-- preserves spacing + line breaks exactly -->
         <pre>{ABOUT_TEXT}</pre>
     </article>
@@ -29,7 +29,7 @@
     }
 
 
-    .policy {
+    .about {
         border: 1px solid rgba(255,255,255,0.12);
         border-radius: 12px;
         padding: 16px;
