@@ -17,20 +17,21 @@
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
+
+            <!-- Home page -->
 			<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
 				<a href={resolve('/')}>Home</a>
 			</li>
+
+            <!-- About page -->
 			<li aria-current={page.url.pathname === '/about' ? 'page' : undefined}>
 				<a href={resolve('/about')}>About</a>
 			</li>
-			<li aria-current={page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href={resolve('/sverdle')}>Sverdle</a>
-			</li>
-			<!-- Main Pages -->
-			<li><a href="/">Home</a></li>
+
+			<!-- Calculator page -->
             <li><a href="/calculator">Calculator</a></li>
 
-            <!-- Transparency & legal -->
+            <!-- Transparency & legal page -->
             <li><a href="/policy">Policy</a></li>
 		</ul>
 
