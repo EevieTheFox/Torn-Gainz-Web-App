@@ -77,10 +77,12 @@ No external UI frameworks — layout and components are intentionally lightweigh
 
 ## Local Development
 
-```bash
 npm install
+
 npm run dev
+
 Then open:
+
 http://localhost:5173
 
 ## Roadmap (Short Term)
@@ -94,6 +96,7 @@ http://localhost:5173
 ## Credits
 
 Developed and maintained by EevieTheFox [3942777]
+
 © 2026
 
 ## Disclaimer
