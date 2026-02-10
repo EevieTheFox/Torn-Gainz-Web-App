@@ -410,8 +410,7 @@
     .btn {
         padding: 12px 14px;
         border-radius: 10px;
-        border: 1px solid rgba(255,255,255,0.18);
-        border-color: rgba(0, 0, 0, 0.60);
+        border: 1px solid rgba(0, 0, 0, 0.60));
         background: rgba(0,0,0,0.06);
         color: inherit;
         cursor: pointer;
@@ -496,8 +495,7 @@
     .btnGhost {
         padding: 6px 8px;
         border-radius: 10px;
-        border: 1px solid rgba(255,255,255,0.18);
-        border-color: rgba(0, 0, 0, 0.20);
+        border: 1px solid rgba(0, 0, 0, 0.20);
         background: rgba(219,179,114,0.30);
         color: inherit;
         cursor: pointer;
