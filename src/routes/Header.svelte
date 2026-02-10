@@ -1,9 +1,40 @@
 <script lang="ts">
-	import { resolve } from '$app/paths';
-	import { page } from '$app/state';
-	import github from '$lib/images/github.svg';
-	import logo from '$lib/images/svelte-logo.svg';
+    import { resolve } from '$app/paths';
+    import { page } from '$app/state';
+    import github from '$lib/images/github.svg';
+    import logo from '$lib/images/svelte-logo.svg';
+    import { onMount } from "svelte";
+
+    type UiTheme = "light" | "dark";
+    const KEY = "tg_theme";
+
+    let uiTheme: UiTheme = "light";
+
+    function apply(t: UiTheme) {
+        document.documentElement.dataset.theme = t;
+    }
+
+    function toggle() {
+        uiTheme = uiTheme === "dark" ? "light" : "dark";
+        apply(uiTheme);
+        localStorage.setItem(KEY, uiTheme);
+    }
+
+    onMount(() => {
+        const saved = localStorage.getItem(KEY);
+        const systemDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+
+        uiTheme =
+            saved === "light" || saved === "dark"
+                ? (saved as UiTheme)
+                : systemDark
+                    ? "dark"
+                    : "light";
+
+        apply(uiTheme);
+    });
 </script>
+
 
 <header>
 	<div class="corner">
@@ -32,7 +63,9 @@
             <li><a href="/calculator">Calculator</a></li>
 
             <!-- Transparency & legal page -->
-            <li><a href="/policy">Policy</a></li>
+            <li aria-current={page.url.pathname === '/policy' ? 'page' : undefined}>
+                <a href={resolve('/policy')}>Policy</a>
+            </li>
 		</ul>
 
 		<svg viewBox="0 0 2 3" aria-hidden="true">
@@ -41,10 +74,10 @@
 	</nav>
 
 	<div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
-	</div>
+        <button on:click={toggle}>
+            {uiTheme === "dark" ? "Light mode" : "Dark mode"}
+        </button>
+    </div>
 </header>
 
 <style>
@@ -72,13 +105,19 @@
 		object-fit: contain;
 	}
 
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
-	}
+    nav {
+        display: flex;
+        justify-content: center;
+        --background: rgba(255, 255, 255, 0.22);
+    }
 
-	svg {
+    /* Dark mode override */
+    :global(html[data-theme="dark"]) nav {
+        --background: rgba(255, 255, 255, 0.08);
+    }
+
+
+    svg {
 		width: 2em;
 		height: 3em;
 		display: block;

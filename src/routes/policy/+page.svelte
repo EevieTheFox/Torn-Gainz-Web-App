@@ -30,8 +30,9 @@
   }
 
   .meta {
-    margin: 0 0 24px;
-    opacity: 0.8;
+      text-align: center;
+      margin: 0 0 24px;
+      opacity: 0.8;
   }
 
   .policy {

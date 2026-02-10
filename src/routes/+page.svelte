@@ -187,7 +187,7 @@
                         Test
                     </button>
 
-                    <button type="button" class="btn btnDanger" on:click={clearApiKey}>
+                    <button type="button" class="btn btnDanger clearBtn" on:click={clearApiKey}>
                         Clear
                     </button>
                 </div>
@@ -201,8 +201,8 @@
                 {/if}
 
                 {#if !hasApiKey}
-                    <div class="row">
-                        <button type="button" class="btn btnCalcNoApi" on:click={openCalculator()}>
+                    <div class="centerRow">
+                        <button type="button" class="btn btnCalc" on:click={openCalculator()}>
                             Go to calculator
                         </button>
                     </div>
@@ -297,7 +297,7 @@
                     {/if}
                 </div>
                 <div class="row">
-                    <button type="button" class="btn btnCalcApi" on:click={openCalculator()}>
+                    <button type="button" class="btn btnCalc" on:click={openCalculator()}>
                         Go to calculator
                     </button>
                 </div>
@@ -371,10 +371,12 @@
     }
 
     .card {
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        border: 1px solid var(--card-border);
+        background: var(--card-bg);
         border-radius: 12px;
         padding: 16px;
     }
+
 
     h2 {
         margin: 0 0 12px;
@@ -482,9 +484,13 @@
 
     .actions {
         display: flex;
-        gap: 10px;
+        gap: 12px;
         flex-wrap: wrap;
         margin-top: 10px;
+    }
+
+    .clearBtn {
+        margin-left: 122px;
     }
 
     .btnGhost {
@@ -497,24 +503,15 @@
         cursor: pointer;
     }
 
-    .btnCalcApi {
+    .btnCalc {
         padding: 16px 18px;
         font-size: 1.2rem;
-        border-color: rgba(81, 174, 181, 0.60);
+        border: 1px solid rgba(81, 174, 181, 0.60);
         background: rgba(81, 174, 181, 0.30);
         color: inherit;
         cursor: pointer;
     }
 
-    .btnCalcNoApi {
-        padding: 16px 18px;
-        margin-left: 85px;
-        font-size: 1.2rem;
-        border-color: rgba(81, 174, 181, 0.60);
-        background: rgba(81, 174, 181, 0.30);
-        color: inherit;
-        cursor: pointer;
-    }
 
     .btnDanger {
         background: rgba(255, 80, 80, 0.20);;
@@ -525,9 +522,7 @@
         margin-top: 10px;
         padding: 8px 10px;
         border-radius: 10px;
-        width: 73%;
-        border: 1px solid rgba(255,255,255,0.18);
-        border-color: rgba(67, 150, 79, 0.60);
+        border: 1px solid rgba(67, 150, 79, 0.60);
         background: rgba(67, 150, 79, 0.30);
         opacity: 0.95;
         text-align: center;
