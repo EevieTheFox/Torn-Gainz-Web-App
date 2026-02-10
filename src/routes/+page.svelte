@@ -94,6 +94,17 @@
         consent.policyViewedAt = nowIso();
     }
 
+    function openCalculator() {
+        // Open calculator page
+        window.open("/calculator", "_blank", "noopener,noreferrer");
+
+        // Mark as viewed (this is your “hyperlink checked” concept)
+        hasOpenedPolicy = true;
+
+        // Store timestamp in consent state (useful for later auditing)
+        consent.policyViewedAt = nowIso();
+    }
+
     // Trigger for showing telemetry+consent UI: typed OR saved
     $: hasApiKey = apiKeyInput.trim().length > 0 || apiKeySaved != null;
 
@@ -188,6 +199,14 @@
                 {#if apiKeySaved}
                     <p class="tiny">Saved key: <code class="code">••••••••</code> (stored locally)</p>
                 {/if}
+
+                {#if !hasApiKey}
+                    <div class="row">
+                        <button type="button" class="btn btnCalcNoApi" on:click={openCalculator()}>
+                            Go to calculator
+                        </button>
+                    </div>
+                {/if}
             </div>
         </div>
 
@@ -277,7 +296,13 @@
                         <p class="hint">Disabled until you open the policy page.</p>
                     {/if}
                 </div>
+                <div class="row">
+                    <button type="button" class="btn btnCalcApi" on:click={openCalculator()}>
+                        Go to calculator
+                    </button>
+                </div>
             {/if}
+
 
             <hr />
 
@@ -357,6 +382,12 @@
 
     .row {
         margin: 12px 0;
+    }
+
+    .centerRow {
+        display: flex;
+        justify-content: center;
+        margin-top: 12px;
     }
 
     .label {
@@ -466,6 +497,25 @@
         cursor: pointer;
     }
 
+    .btnCalcApi {
+        padding: 16px 18px;
+        font-size: 1.2rem;
+        border-color: rgba(81, 174, 181, 0.60);
+        background: rgba(81, 174, 181, 0.30);
+        color: inherit;
+        cursor: pointer;
+    }
+
+    .btnCalcNoApi {
+        padding: 16px 18px;
+        margin-left: 85px;
+        font-size: 1.2rem;
+        border-color: rgba(81, 174, 181, 0.60);
+        background: rgba(81, 174, 181, 0.30);
+        color: inherit;
+        cursor: pointer;
+    }
+
     .btnDanger {
         background: rgba(255, 80, 80, 0.20);;
         border-color: rgba(255, 80, 80, 0.60);
@@ -475,7 +525,7 @@
         margin-top: 10px;
         padding: 8px 10px;
         border-radius: 10px;
-        width: 70%;
+        width: 73%;
         border: 1px solid rgba(255,255,255,0.18);
         border-color: rgba(67, 150, 79, 0.60);
         background: rgba(67, 150, 79, 0.30);
