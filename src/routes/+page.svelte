@@ -5,14 +5,83 @@
     // Helper to create ISO timestamps
     const nowIso = () => new Date().toISOString();
 
+    // Default consent state
     let consent: ConsentState = {
         policyVersion: "1.0.0",
         telemetryLevel: "none"
     };
 
-    // UI state: policy must be opened before checkbox can be ticked
+    // --- API key state (optional) ---
+    let apiKeyInput = "";
+    let apiKeySaved: string | null = null; // TODO: load/save via encrypted local storage
+    let showApiKey = false;
+    type ApiStatusKind = "idle" | "ok" | "error" | "testing";
+    let apiStatus: { kind: ApiStatusKind; message: string } = {
+        kind: "idle",
+        message: "Optional: add a key for auto-fill and tracking. Manual mode works without it.",
+    };
+
+    // Consent UI state: policy must be opened before checkbox can be ticked
     let hasOpenedPolicy = false;
     let policyConsentChecked = false;
+
+    // Actions
+    function looksLikeApiKey(key: string): boolean {
+        const k = key.trim();
+        if (!k) return false;
+        if (k.length < 16) return false; // lenient sanity check
+        return /^[a-fA-F0-9]+$/.test(k);
+    }
+
+    function saveApiKeyLocal() {
+        const k = apiKeyInput.trim();
+
+        // Blank means "no key" (still valid for manual mode)
+        if (!k) {
+            apiKeySaved = null;
+            apiStatus = { kind: "idle", message: "No key saved. Manual mode is fully available." };
+            return;
+        }
+
+        if (!looksLikeApiKey(k)) {
+            apiStatus = { kind: "error", message: "Invalid API key. Please check your key and try again." };
+            return;
+        }
+
+        // TODO: replace with encrypted storage per spec
+        apiKeySaved = k;
+        apiStatus = { kind: "ok", message: "Key saved locally. You can test it any time." };
+    }
+
+    function clearApiKey() {
+        apiKeyInput = "";
+        apiKeySaved = null;
+        apiStatus = { kind: "idle", message: "Key cleared. Manual mode is still fully available." };
+    }
+
+    async function testApiKey() {
+        const k = (apiKeySaved ?? apiKeyInput).trim();
+
+        if (!k) {
+            apiStatus = { kind: "idle", message: "No key to test — and that’s totally fine." };
+            return;
+        }
+        if (!looksLikeApiKey(k)) {
+            apiStatus = { kind: "error", message: "Invalid API key. Please check your key and try again." };
+            return;
+        }
+
+        apiStatus = { kind: "testing", message: "Testing key…" };
+
+        try {
+            // TODO: wire real Torn API call
+            await new Promise((r) => setTimeout(r, 350));
+            apiStatus = { kind: "ok", message: "Key looks good ✅ (wire the real test call next)" };
+        } catch (err) {
+            const msg = err instanceof Error ? err.message : "Unknown error";
+            apiStatus = { kind: "error", message: `Key test failed: ${msg}` };
+        }
+    }
 
     function openPolicy() {
         // Open policy page
@@ -25,6 +94,9 @@
         consent.policyViewedAt = nowIso();
     }
 
+    // Trigger for showing telemetry+consent UI: typed OR saved
+    $: hasApiKey = apiKeyInput.trim().length > 0 || apiKeySaved != null;
+
     // When user checks consent, set consentGivenAt; when they uncheck, clear it
     $: {
         if (policyConsentChecked) {
@@ -35,6 +107,14 @@
         }
     }
 
+    // If consent is not checked, force telemetry back to none
+    $: {
+        if (!policyConsentChecked && consent.telemetryLevel !== "none") {
+            consent.telemetryLevel = "none";
+        }
+    }
+
+
     $: caps = capabilitiesFromConsent(consent);
 
     // Rich telemetry toggle rules (matches your intent):
@@ -44,68 +124,179 @@
 </script>
 
 <svelte:head>
-    <title>Torn Gainz — Dev Playground</title>
+    <title>Torn Gainz | Home</title>
 </svelte:head>
 
 <main class="wrap">
     <header class="header">
-        <h1>Torn Gainz — Dev Playground</h1>
-        <p class="sub">Wiring the policy page into the consent flow.</p>
+        <h1>Welcome to Torn Gainz</h1>
+        <p class="sub">The only tool you need to optimize your gym gain!</p>
     </header>
 
     <section class="grid">
+
+        <!-- API UI -->
         <div class="card">
-            <h2>Consent Controls</h2>
+            <label class="label">Optional API Key</label>
 
             <div class="row">
-                <label class="label">Telemetry level</label>
-                <select bind:value={consent.telemetryLevel}>
-                    <option value="none">none</option>
-                    <option value="basic">basic</option>
-                    <option value="rich">rich</option>
-                </select>
-            </div>
+                <p class="hint" style="margin-top:0">
+                    Manual calculator mode works without a key. Add one only if you want auto-fill and (later) tracking.
+                </p>
 
-            <div class="row">
-                <label class="label">Read the policy</label>
-                <button type="button" class="btn" on:click={openPolicy}>
-                    View Data Retention & API Usage Policy (/policy)
-                </button>
-            </div>
+                <label class="label" for="apiKey">Torn API key (optional)</label>
 
-            <div class="row">
-                <label class="label">Consent to data policy</label>
-                <label class="check">
+                <div class="inputRow">
                     <input
-                            type="checkbox"
-                            bind:checked={policyConsentChecked}
-                            disabled={!hasOpenedPolicy}
+                            id="apiKey"
+                            type={showApiKey ? "text" : "password"}
+                            bind:value={apiKeyInput}
+                            placeholder="enter API key here (for auto-filled stats)"
+                            autocomplete="off"
+                            spellcheck="false"
+                            inputmode="text"
                     />
-                    <span>
-            I have read and agree to the Data Retention, Fair Use, and API Usage Policy
-          </span>
-                </label>
-                {#if !hasOpenedPolicy}
-                    <p class="hint">Disabled until you open the policy page.</p>
+
+                    <button type="button" class="btn" on:click={() => (showApiKey = !showApiKey)}>
+                        {showApiKey ? "Hide" : "Show"}
+                    </button>
+                </div>
+
+                <div class="actions">
+                    <button type="button" class="btn" on:click={saveApiKeyLocal}>
+                        Save
+                    </button>
+
+                    <button
+                            type="button"
+                            class="btn"
+                            on:click={testApiKey}
+                            disabled={!apiKeyInput.trim() && !apiKeySaved}
+                    >
+                        Test
+                    </button>
+
+                    <button type="button" class="btn btnDanger" on:click={clearApiKey}>
+                        Clear
+                    </button>
+                </div>
+
+                <div class={"status " + apiStatus.kind}>
+                    {apiStatus.message}
+                </div>
+
+                {#if apiKeySaved}
+                    <p class="tiny">Saved key: <code class="code">••••••••</code> (stored locally)</p>
                 {/if}
             </div>
+        </div>
+
+        <!-- Consent UI - Only show once user types or enters an API Key -->
+        <div class="card">
+            {#if hasApiKey}
+
+                <div class="row">
+                    <label class="label">Optional analytics (off by default)</label>
+
+                    <div class="telemetryGroup">
+                        <label class="telemetryOption">
+                            <input type="radio" name="telemetry" value="none" bind:group={consent.telemetryLevel} />
+                            <div class="telemetryText">
+                                <div class="telemetryTitle">Off</div>
+                                <div class="telemetryDesc">No analytics. Manual mode and local-only storage still work.</div>
+                            </div>
+                        </label>
+
+                        <label class={"telemetryOption " + (!policyConsentChecked ? "disabled" : "")}>
+                            <input
+                                    type="radio"
+                                    name="telemetry"
+                                    value="basic"
+                                    bind:group={consent.telemetryLevel}
+                                    disabled={!policyConsentChecked}
+                            />
+                            <div class="telemetryText">
+                                <div class="telemetryTitle">Save my stats</div>
+                                <div class="telemetryDesc">
+                                    Share minimal, anonymized buckets to improve accuracy and defaults.
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class={"telemetryOption " + (!policyConsentChecked ? "disabled" : "")}>
+                            <input
+                                    type="radio"
+                                    name="telemetry"
+                                    value="rich"
+                                    bind:group={consent.telemetryLevel}
+                                    disabled={!policyConsentChecked}
+                            />
+                            <div class="telemetryText">
+                                <div class="telemetryTitle">Track my gains</div>
+                                <div class="telemetryDesc">
+                                    Share richer daily deltas (still opt-in) to improve comparisons and long-term insights.
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+                    {#if !policyConsentChecked && consent.telemetryLevel !== "none"}
+                        <p class="hint">Pick “Off” or agree to the policy to enable analytics options.</p>
+                    {/if}
+                </div>
+            {:else}
+                <div class="row">
+                    <label class="label">Optional analytics</label>
+                    <p class="hint">
+                        Add an API key to see analytics options. Manual mode doesn’t need telemetry settings.
+                    </p>
+                </div>
+            {/if}
+
+            {#if hasApiKey}
+                <div class="row">
+                    <label class="label">Read the policy</label>
+                    <button type="button" class="btn btnGhost" on:click={openPolicy}>
+                        View Data Retention & API Usage Policy
+                    </button>
+                </div>
+
+                <div class="row">
+                    <label class="label">Consent to data policy</label>
+                    <label class="check">
+                        <input
+                                type="checkbox"
+                                bind:checked={policyConsentChecked}
+                                disabled={!hasOpenedPolicy}
+                        />
+                        <span>
+                            I have read and agree to the Data Retention, Fair Use, and API Usage Policy
+                        </span>
+                    </label>
+                    {#if !hasOpenedPolicy}
+                        <p class="hint">Disabled until you open the policy page.</p>
+                    {/if}
+                </div>
+            {/if}
 
             <hr />
 
-            <div class="row">
-                <label class="label">Policy viewed at</label>
-                <code class="code">{consent.policyViewedAt ?? "—"}</code>
-            </div>
+            {#if hasApiKey}
+                <div class="row">
+                    <label class="label">Policy viewed at</label>
+                    <code class="code">{consent.policyViewedAt ?? "—"}</code>
+                </div>
 
-            <div class="row">
-                <label class="label">Consent given at</label>
-                <code class="code">{consent.consentGivenAt ?? "—"}</code>
-            </div>
+                <div class="row">
+                    <label class="label">Consent given at</label>
+                    <code class="code">{consent.consentGivenAt ?? "—"}</code>
+                </div>
 
-            <div class="row">
-                <label class="label">Revoked at</label>
-                <code class="code">{consent.revokedAt ?? "—"}</code>
-            </div>
+                <div class="row">
+                    <label class="label">Revoked at</label>
+                    <code class="code">{consent.revokedAt ?? "—"}</code>
+                </div>
+            {/if}
 
             {#if richEnabled && !policyConsentChecked}
                 <p class="warn">
@@ -115,10 +306,13 @@
             {/if}
         </div>
 
-        <div class="card">
-            <h2>Derived Capabilities</h2>
-            <pre>{JSON.stringify(caps, null, 2)}</pre>
-        </div>
+        {#if hasApiKey}
+            <div class="card">
+                <h2>Derived Capabilities</h2>
+                <pre>{JSON.stringify(caps, null, 2)}</pre>
+            </div>
+        {/if}
+
     </section>
 </main>
 
@@ -134,6 +328,7 @@
     }
 
     .sub {
+        text-align: center;
         margin: 0 0 20px;
         opacity: 0.8;
     }
@@ -180,10 +375,11 @@
     }
 
     .btn {
-        padding: 8px 10px;
+        padding: 12px 14px;
         border-radius: 10px;
         border: 1px solid rgba(255,255,255,0.18);
-        background: rgba(255,255,255,0.06);
+        border-color: rgba(0, 0, 0, 0.60);
+        background: rgba(0,0,0,0.06);
         color: inherit;
         cursor: pointer;
     }
@@ -200,7 +396,6 @@
     }
 
     .hint {
-        margin: 6px 0 0;
         opacity: 0.75;
         font-size: 0.95rem;
     }
@@ -228,4 +423,124 @@
         border-top: 1px solid rgba(255, 255, 255, 0.12);
         margin: 16px 0;
     }
+
+    inputRow {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .inputRow input {
+        flex: 1;
+        width: 70%;
+
+        /* ~2x “presence” */
+        padding: 16px 18px;
+        font-size: 1.1rem;
+        line-height: 1.1;
+
+        border-radius: 18px;
+
+        border: 1px solid rgba(0,0,0,0.60);
+        background: rgba(255,255,255,0.08);
+        color: inherit;
+
+        outline: none;
+    }
+
+
+    .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    .btnGhost {
+        padding: 6px 8px;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.18);
+        border-color: rgba(0, 0, 0, 0.20);
+        background: rgba(219,179,114,0.30);
+        color: inherit;
+        cursor: pointer;
+    }
+
+    .btnDanger {
+        background: rgba(255, 80, 80, 0.20);;
+        border-color: rgba(255, 80, 80, 0.60);
+    }
+
+    .status {
+        margin-top: 10px;
+        padding: 8px 10px;
+        border-radius: 10px;
+        width: 70%;
+        border: 1px solid rgba(255,255,255,0.18);
+        border-color: rgba(67, 150, 79, 0.60);
+        background: rgba(67, 150, 79, 0.30);
+        opacity: 0.95;
+        text-align: center;
+    }
+
+    .status.ok {
+        border-color: rgba(67, 150, 79, 0.60);
+        background: rgba(67, 150, 79, 0.30);
+    }
+
+    .status.error {
+        border-color: rgba(255, 80, 80, 0.60);
+        background: rgba(255, 80, 80, 0.20);
+    }
+
+    .status.testing {
+        opacity: 0.85;
+    }
+
+    .telemetryGroup {
+        display: grid;
+        gap: 10px;
+        margin-top: 6px;
+    }
+
+    .telemetryOption {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.18);
+        background: rgba(255,255,255,0.04);
+        cursor: pointer;
+    }
+
+    .telemetryOption input {
+        margin-top: 2px;
+    }
+
+    .telemetryText {
+        display: grid;
+        gap: 4px;
+    }
+
+    .telemetryTitle {
+        font-weight: 700;
+    }
+
+    .telemetryDesc {
+        opacity: 0.85;
+        line-height: 1.25rem;
+    }
+
+    .telemetryOption.disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    .tiny {
+        margin: 8px 0 0;
+        font-size: 0.9rem;
+        opacity: 0.75;
+    }
+
 </style>
