@@ -26,6 +26,12 @@
 			<li aria-current={page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
 				<a href={resolve('/sverdle')}>Sverdle</a>
 			</li>
+			<!-- Main Pages -->
+			<li><a href="/">Home</a></li>
+            <li><a href="/calculator">Calculator</a></li>
+
+            <!-- Transparency & legal -->
+            <li><a href="/policy">Policy</a></li>
 		</ul>
 		<ul>
           <li><a href="/">Home</a></li>
