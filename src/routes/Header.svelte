@@ -61,7 +61,7 @@
 
 			<!-- Calculator page -->
             <li aria-current={page.url.pathname === '/calculator' ? 'page' : undefined}>
-                <a href="/calculator">Calculator</a>
+                <a href={resolve('/calculator')}>Calculator</a>
             </li>
 
             <!-- Transparency & legal page -->
