@@ -330,14 +330,6 @@
                 </p>
             {/if}
         </div>
-
-        {#if hasApiKey}
-            <div class="card">
-                <h2>Derived Capabilities</h2>
-                <pre>{JSON.stringify(caps, null, 2)}</pre>
-            </div>
-        {/if}
-
     </section>
 </main>
 
@@ -410,8 +402,8 @@
     .btn {
         padding: 12px 14px;
         border-radius: 10px;
-        border: 1px solid rgba(0, 0, 0, 0.60));
-        background: rgba(0,0,0,0.06);
+        border: 1px solid var(--card-border);
+        background: var(--seg-selected-bg);
         color: inherit;
         cursor: pointer;
     }
@@ -465,18 +457,14 @@
     .inputRow input {
         flex: 1;
         width: 70%;
-
         /* ~2x “presence” */
         padding: 16px 18px;
         font-size: 1.1rem;
         line-height: 1.1;
-
         border-radius: 18px;
-
-        border: 1px solid rgba(0,0,0,0.60);
-        background: rgba(255,255,255,0.08);
+        border: 1px solid var(--card-border);
+        background: var(--card-bg);
         color: inherit;
-
         outline: none;
     }
 
@@ -504,8 +492,8 @@
     .btnCalc {
         padding: 16px 18px;
         font-size: 1.2rem;
-        border: 1px solid rgba(81, 174, 181, 0.60);
-        background: rgba(81, 174, 181, 0.30);
+        border: 1px solid var(--card-border);
+        background: var(--seg-selected-bg);
         color: inherit;
         cursor: pointer;
     }
