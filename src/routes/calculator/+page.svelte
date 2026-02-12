@@ -443,7 +443,7 @@
     }
 
     .subcard {
-        border: 1px dashed rgba(255,255,255,0.16);
+        border: 1px dashed var(--subcard-border);
         border-radius: 14px;
         padding: 12px;
         min-height: 110px;

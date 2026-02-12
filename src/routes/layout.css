@@ -17,6 +17,7 @@
     --card-bg: rgba(255, 255, 255, 0.55);
     --seg-hover-bg: rgba(81, 154, 181, 0.40);
     --seg-selected-bg: rgba(81,154,181,0.70);
+    --subcard-border: rgba(0, 0, 0, 0.16);
 	font-family: var(--font-body);
 	color: var(--color-text);
 }
@@ -30,6 +31,7 @@ html[data-theme="dark"] {
     --hover-bg: rgba(255, 255, 255, 0.10);
     --seg-hover-bg: rgba(81, 154, 181, 0.40);
     --seg-selected-bg: rgba(81, 154, 181, 0.70);
+    --subcard-border: rgba(255,255,255,0.16);
     --color-theme-1: #519ab5;
     --color-theme-2: #7bb2ff;
 
