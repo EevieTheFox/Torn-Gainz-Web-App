@@ -66,6 +66,7 @@
         <h1>Calculator</h1>
 
         <div class="chips">
+            <span class="chips-label">Privacy</span>
             <span class="chip">{uiConsent.consentLevelLabel}</span>
             <span class="chip">{state.hasApiKey ? 'API Key: Present' : 'API Key: Missing'}</span>
         </div>
@@ -464,6 +465,12 @@
         font-size: 0.85em;
         opacity: 0.9;
         white-space: nowrap;
+    }
+
+    .chips-label {
+        opacity: 0.6;
+        font-size: 0.8em;
+        margin-right: 4px;
     }
 
     .placeholder {
