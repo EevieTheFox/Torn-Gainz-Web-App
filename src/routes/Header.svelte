@@ -50,7 +50,7 @@
 		<ul>
 
             <!-- Home page -->
-			<li aria-current={page.url.pathname === '/' ? 'page' : undefined}>
+			<li aria-current={page.url.pathname === '/homepage' ? 'page' : undefined}>
 				<a href={resolve('/')}>Home</a>
 			</li>
 
