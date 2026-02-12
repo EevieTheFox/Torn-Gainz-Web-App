@@ -446,7 +446,6 @@
         border: 1px dashed var(--subcard-border);
         border-radius: 14px;
         padding: 12px;
-        min-height: 110px;
     }
 
     .chips {
@@ -485,8 +484,8 @@
     }
 
     .primary {
-        border: 1px solid rgba(255,255,255,0.18);
-        background: rgba(255,255,255,0.08);
+        border: 1px solid var(--card-border);
+        background: var(--seg-selected-bg);
         color: inherit;
         padding: 10px 14px;
         border-radius: 12px;
