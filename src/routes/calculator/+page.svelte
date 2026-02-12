@@ -326,8 +326,8 @@
         width: 84px;
         padding: 8px 10px;
         border-radius: 10px;
-        border: 1px solid rgba(255,255,255,0.12);
-        background: rgba(255,255,255,0.03);
+        border: 1px solid var(--card-border);
+        background: var(--card-bg);
         color: inherit;
     }
 
@@ -349,10 +349,10 @@
 
     .seg-wrap {
         display: inline-flex;
-        border: 1px solid rgba(255,255,255,0.12);
+        border: 1px solid var(--card-border);
+        background: var(--card-bg);
         border-radius: 14px;
         overflow: hidden;
-        background: rgba(255,255,255,0.03);
     }
     .seg-wrap.small {
         border-radius: 12px;
@@ -373,11 +373,11 @@
     }
 
     .segbtn:hover {
-        background: rgba(255,255,255,0.05);
+        background: var(--seg-hover-bg);
     }
 
     .segbtn.selected {
-        background: rgba(255,255,255,0.10);
+        background: var(--seg-selected-bg);
         opacity: 1;
     }
 
@@ -409,8 +409,8 @@
     }
 
     .card {
-        border: 1px solid rgba(255,255,255,0.12);
-        background: rgba(255,255,255,0.03);
+        border: 1px solid var(--card-border);
+        background: var(--card-bg);
         border-radius: 16px;
         padding: 14px;
     }
@@ -457,8 +457,8 @@
     }
 
     .chip {
-        border: 1px solid rgba(255,255,255,0.14);
-        background: rgba(255,255,255,0.04);
+        border: 1px solid var(--card-border);
+        background: var(--card-bg);
         padding: 6px 10px;
         border-radius: 999px;
         font-size: 0.85em;

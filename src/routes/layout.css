@@ -15,6 +15,8 @@
 	--column-margin-top: 4rem;
     --card-border: rgba(0, 0, 0, 0.12);
     --card-bg: rgba(255, 255, 255, 0.55);
+    --seg-hover-bg: rgba(81, 154, 181, 0.40);
+    --seg-selected-bg: rgba(81,154,181,0.70);
 	font-family: var(--font-body);
 	color: var(--color-text);
 }
@@ -25,6 +27,9 @@ html[data-theme="dark"] {
     --color-bg-2: rgb(18, 22, 32);
     --card-border: rgba(255, 255, 255, 0.12);
     --card-bg: rgba(255, 255, 255, 0.04);
+    --hover-bg: rgba(255, 255, 255, 0.10);
+    --seg-hover-bg: rgba(81, 154, 181, 0.40);
+    --seg-selected-bg: rgba(81, 154, 181, 0.70);
     --color-theme-1: #519ab5;
     --color-theme-2: #7bb2ff;
 

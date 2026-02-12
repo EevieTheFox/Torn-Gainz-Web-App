@@ -188,13 +188,11 @@ function applyManualScaffoldStub(state: CalcUIState, scaffold: ManualScaffold) {
 
     // For now, just clear snapshot since this is manual scaffolding (optional)
     state.snapshotAt = null;
-    state.lastNotice = `Manual scaffold set: ${scaffold.toUpperCase()}`;
 }
 
 function runAutoBatchPullStub(state: CalcUIState) {
     // Placeholder for stats/perks/prices API calls. We only need UI behavior now.
     state.snapshotAt = new Date();
-    state.lastNotice = `Auto data refreshed (${state.snapshotAt.toLocaleString()})`;
 }
 
 function clone(state: CalcUIState): CalcUIState {
