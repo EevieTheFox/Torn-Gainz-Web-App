@@ -72,24 +72,31 @@
 
         <div class="control-area">
             <div class="row row-center">
-                <div class="row-label">Jump Calculation Type</div>
-                <div class="row-controls">
-                    <div class="center">
-                        <!-- We’ll wire clicks manually for clarity -->
-                        <div class="seg-wrap">
-                            {#each jumpTypeOptions as opt (opt.value)}
-                                <button
-                                        type="button"
-                                        class="segbtn {state.jumpType === opt.value ? 'selected' : ''}"
-                                        on:click={() => onSelectJumpType(opt.value)}
-                                >
-                                    {opt.label}
-                                </button>
-                            {/each}
+                <div class="control-row">
+                    <div class="left"></div>
+                    <div class="mid">
+                        <div class="row-label centered">Jump Calculation Type</div>
+                        <div class="row-controls">
+                            <div class="center">
+                                <!-- We’ll wire clicks manually for clarity -->
+                                <div class="seg-wrap">
+                                    {#each jumpTypeOptions as opt (opt.value)}
+                                        <button
+                                            type="button"
+                                            class="segbtn {state.jumpType === opt.value ? 'selected' : ''}"
+                                            on:click={() => onSelectJumpType(opt.value)}
+                                        >
+                                            {opt.label}
+                                        </button>
+                                    {/each}
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
 
-                    <div class="right">
+                    <div class="right-jumps">
                         <label class="mini-label" for="jumps"># of jumps</label>
                         <input
                                 id="jumps"
@@ -106,9 +113,10 @@
 
             <div class="row row-center">
                 {#if state.jumpType === 'manual'}
-                    <div class="row-label">Recipe Scaffold</div>
-                    <div class="row-controls">
-                        <div class="center">
+                    <div class="control-row">
+                        <div class="left"></div>
+                        <div class="mid">
+                            <div class="row-label centered">Jump Style</div>
                             <div class="seg-wrap small">
                                 {#each scaffoldOptions as opt (opt.value)}
                                     <button
@@ -126,39 +134,46 @@
                             <span class="meta-item">Manual inputs (no live snapshot)</span>
                         </div>
                     </div>
+
                 {:else}
-                    <div class="row-label">Input Mode</div>
                     <div class="row-controls">
                         <div class="center">
-                            <div class="seg-wrap small">
-                                <button
-                                        type="button"
-                                        class="segbtn sm {state.inputMode === 'auto' ? 'selected' : ''}"
-                                        disabled={!uiConsent.canUseAutoMode}
-                                        on:click={() => onSelectInputMode('auto')}
-                                >
-                                    Auto
-                                </button>
-                                <button
-                                        type="button"
-                                        class="segbtn sm {state.inputMode === 'manual' ? 'selected' : ''}"
-                                        on:click={() => onSelectInputMode('manual')}
-                                >
-                                    Manual
-                                </button>
+                            <div class="control-row">
+                                <div class="left"></div>
+
+                                <div class="mid">
+                                    <div class="row-label centered">Input Mode</div>
+                                    <div class="seg-wrap small">
+                                        <button
+                                                type="button"
+                                                class="segbtn sm {state.inputMode === 'auto' ? 'selected' : ''}"
+                                                disabled={!uiConsent.canUseAutoMode}
+                                                on:click={() => onSelectInputMode('auto')}
+                                        >
+                                            Auto
+                                        </button>
+                                        <button
+                                                type="button"
+                                                class="segbtn sm {state.inputMode === 'manual' ? 'selected' : ''}"
+                                                on:click={() => onSelectInputMode('manual')}
+                                        >
+                                            Manual
+                                        </button>
+                                    </div>
+
+                                    {#if !uiConsent.canUseAutoMode}
+                                        <div class="hint centered">API key required for Auto</div>
+                                    {/if}
+                                </div>
+
+                                <div class="right metaAuto">
+                                    {#if state.snapshotAt}
+                                        <span class="meta-item">Accurate as of: {state.snapshotAt.toLocaleString()}</span>
+                                    {:else}
+                                        <span class="meta-item">No snapshot yet</span>
+                                    {/if}
+                                </div>
                             </div>
-                        </div>
-
-                        {#if !uiConsent.canUseAutoMode}
-                            <span class="hint">API key required for Auto</span>
-                        {/if}
-
-                        <div class="right meta">
-                            {#if state.snapshotAt}
-                                <span class="meta-item">Accurate as of: {state.snapshotAt.toLocaleString()}</span>
-                            {:else}
-                                <span class="meta-item">No snapshot yet</span>
-                            {/if}
                         </div>
                     </div>
                 {/if}
@@ -167,6 +182,7 @@
             {#if state.lastNotice}
                 <div class="notice">{state.lastNotice}</div>
             {/if}
+
         </div>
     </header>
 
@@ -213,7 +229,7 @@
                     <div class="placeholder">Right: totals + grand total gains + gains/million + Calculate/Recalculate</div>
                     <div class="cta">
                         <button type="button" class="primary">
-                            {state.jumpType === 'manual' ? 'Calculate' : 'Recalculate'}
+                            {state.jumpType === 'manual' || !state.snapshotAt ? 'Calculate' : 'Recalculate'}
                         </button>
                     </div>
                 </div>
@@ -240,12 +256,6 @@
         opacity: 0.65;
     }
 
-    .control-area {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
     .row {
         display: flex;
         flex-direction: column;
@@ -257,19 +267,50 @@
         font-size: 0.95em;
     }
 
-    .row-controls {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 12px;
-        align-items: center;
+    .control-area {
+        display: flex;
+        flex-direction: column;
+        gap: 16px; /* a bit more breathing room */
     }
 
-    .center {
+    .control-row {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .control-row .mid {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .control-row .left {
+        /* intentional spacer */
+    }
+
+    .control-row .right {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .row-label.centered {
+        text-align: center;
     }
 
     .right {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .right-jumps{
+        margin-top: auto;
         display: flex;
         gap: 10px;
         align-items: center;
@@ -291,6 +332,13 @@
     }
 
     .meta {
+        margin-top: 25px;
+        opacity: 0.75;
+        font-size: 0.9em;
+    }
+
+    .metaAuto {
+        margin-top: 10px;
         opacity: 0.75;
         font-size: 0.9em;
     }
