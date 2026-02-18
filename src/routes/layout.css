@@ -164,7 +164,7 @@ button:focus:not(:focus-visible) {
     }
 }
 
-/* Page Elements */
+/* ---------- Page primitives ---------- */
 .page {
     max-width: 900px;
     margin: 0 auto;
@@ -175,6 +175,7 @@ button:focus:not(:focus-visible) {
     margin: 0 0 8px;
 }
 
+/* Cards */
 .card {
     border: 1px solid var(--card-border);
     background: var(--card-bg);
@@ -182,6 +183,24 @@ button:focus:not(:focus-visible) {
     padding: 16px;
 }
 
+.card.compact {
+    border-radius: 12px;
+    padding: 12px;
+}
+
+/* Small text helpers */
+.hint {
+    opacity: 0.75;
+    font-size: 0.95rem;
+}
+
+.meta {
+    text-align: center;
+    margin: 0 0 24px;
+    opacity: 0.8;
+}
+
+/* For long policy/about text */
 .preWrap {
     margin: 0;
     white-space: pre-wrap;

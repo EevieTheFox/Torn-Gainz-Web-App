@@ -6,13 +6,12 @@
     <title>About Torn Gainz</title>
 </svelte:head>
 
-<main class="wrap">
-    <header class="header">
+<main class="page">
+    <header class="pageHeader">
         <h1>About Torn Gainz</h1>
     </header>
 
-    <article class="about">
-        <!-- preserves spacing + line breaks exactly -->
-        <pre>{ABOUT_TEXT}</pre>
+    <article class="card">
+        <pre class="preWrap">{ABOUT_TEXT}</pre>
     </article>
 </main>

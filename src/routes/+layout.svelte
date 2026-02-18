@@ -12,7 +12,7 @@
 		{@render children()}
 	</main>
 
-	<footer>
+	<footer class="footer">
 		<p>
 			Developed and maintained by EevieTheFox [3942777] - 2026
 		</p>
