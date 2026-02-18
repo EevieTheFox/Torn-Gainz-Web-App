@@ -61,7 +61,7 @@
     <title>Torn Gainz | Home</title>
 </svelte:head>
 
-<section class="calc-page">
+<section class="page wide">
     <header class="calc-header">
         <h1>Calculator</h1>
 
@@ -72,11 +72,11 @@
         </div>
 
         <div class="control-area">
-            <div class="row row-center">
+            <div class="field row-center">
                 <div class="control-row">
                     <div class="left"></div>
                     <div class="mid">
-                        <div class="row-label centered">Jump Calculation Type</div>
+                        <div class="fieldLabel centered">Jump Calculation Type</div>
                         <div class="row-controls">
                             <div class="center">
                                 <!-- We’ll wire clicks manually for clarity -->
@@ -92,8 +92,6 @@
                                     {/each}
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
 
@@ -112,12 +110,12 @@
                 </div>
             </div>
 
-            <div class="row row-center">
+            <div class="field row-center">
                 {#if state.jumpType === 'manual'}
                     <div class="control-row">
                         <div class="left"></div>
                         <div class="mid">
-                            <div class="row-label centered">Jump Style</div>
+                            <div class="fieldLabel centered">Jump Style</div>
                             <div class="seg-wrap small">
                                 {#each scaffoldOptions as opt (opt.value)}
                                     <button
@@ -135,46 +133,41 @@
                             <span class="meta-item">Manual inputs (no live snapshot)</span>
                         </div>
                     </div>
-
                 {:else}
-                    <div class="row-controls">
-                        <div class="center">
-                            <div class="control-row">
-                                <div class="left"></div>
+                    <div class="control-row">
+                        <div class="left"></div>
 
-                                <div class="mid">
-                                    <div class="row-label centered">Input Mode</div>
-                                    <div class="seg-wrap small">
-                                        <button
-                                                type="button"
-                                                class="segbtn sm {state.inputMode === 'auto' ? 'selected' : ''}"
-                                                disabled={!uiConsent.canUseAutoMode}
-                                                on:click={() => onSelectInputMode('auto')}
-                                        >
-                                            Auto
-                                        </button>
-                                        <button
-                                                type="button"
-                                                class="segbtn sm {state.inputMode === 'manual' ? 'selected' : ''}"
-                                                on:click={() => onSelectInputMode('manual')}
-                                        >
-                                            Manual
-                                        </button>
-                                    </div>
-
-                                    {#if !uiConsent.canUseAutoMode}
-                                        <div class="hint centered">API key required for Auto</div>
-                                    {/if}
-                                </div>
-
-                                <div class="right metaAuto">
-                                    {#if state.snapshotAt}
-                                        <span class="meta-item">Accurate as of: {state.snapshotAt.toLocaleString()}</span>
-                                    {:else}
-                                        <span class="meta-item">No snapshot yet</span>
-                                    {/if}
-                                </div>
+                        <div class="mid">
+                            <div class="fieldLabel centered">Input Mode</div>
+                            <div class="seg-wrap small">
+                                <button
+                                        type="button"
+                                        class="segbtn sm {state.inputMode === 'auto' ? 'selected' : ''}"
+                                        disabled={!uiConsent.canUseAutoMode}
+                                        on:click={() => onSelectInputMode('auto')}
+                                >
+                                    Auto
+                                </button>
+                                <button
+                                        type="button"
+                                        class="segbtn sm {state.inputMode === 'manual' ? 'selected' : ''}"
+                                        on:click={() => onSelectInputMode('manual')}
+                                >
+                                    Manual
+                                </button>
                             </div>
+
+                            {#if !uiConsent.canUseAutoMode}
+                                <div class="hint centered">API key required for Auto</div>
+                            {/if}
+                        </div>
+
+                        <div class="right metaAuto">
+                            {#if state.snapshotAt}
+                                <span class="meta-item">Accurate as of: {state.snapshotAt.toLocaleString()}</span>
+                            {:else}
+                                <span class="meta-item">No snapshot yet</span>
+                            {/if}
                         </div>
                     </div>
                 {/if}
@@ -188,7 +181,7 @@
     </header>
 
     <!-- Cards layout skeleton -->
-    <div class="grid">
+    <div class="stack">
         <!-- Row 1: User Information -->
         <div class="row3">
             <div class="card"><h2>User Information</h2><div class="placeholder">Left: Max happy, property type/perks, preference</div></div>
@@ -208,7 +201,7 @@
             <div class="card full">
                 <div class="card-header">
                     <h2>Customization</h2>
-                    <button type="button" class="linkish">Expand</button>
+                    <button type="button" class="btn ghost">Expand</button>
                 </div>
                 <div class="placeholder">Collapsed overrides bar (stats / perks / items) for Auto modes</div>
             </div>
@@ -229,7 +222,7 @@
                 <div class="subcard">
                     <div class="placeholder">Right: totals + grand total gains + gains/million + Calculate/Recalculate</div>
                     <div class="cta">
-                        <button type="button" class="primary">
+                        <button type="button" class="btn primary">
                             {state.jumpType === 'manual' || !state.snapshotAt ? 'Calculate' : 'Recalculate'}
                         </button>
                     </div>
@@ -242,30 +235,9 @@
 </section>
 
 <style>
-    .calc-page {
-        padding: 18px 16px 28px;
-        max-width: 1240px;
-        margin: 0 auto;
-    }
 
     .calc-header h1 {
         margin: 6px 0 12px;
-    }
-
-    .hint {
-        font-size: 0.85em;
-        opacity: 0.65;
-    }
-
-    .row {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-    }
-
-    .row-label {
-        opacity: 0.8;
-        font-size: 0.95em;
     }
 
     .control-area {
@@ -299,7 +271,7 @@
         justify-content: flex-end;
     }
 
-    .row-label.centered {
+    .centered {
         text-align: center;
     }
 
@@ -348,82 +320,11 @@
         white-space: nowrap;
     }
 
-    .seg-wrap {
-        display: inline-flex;
-        border: 1px solid var(--card-border);
-        background: var(--card-bg);
-        border-radius: 14px;
-        overflow: hidden;
-    }
-    .seg-wrap.small {
-        border-radius: 12px;
-    }
-
-    .segbtn {
-        border: none;
-        background: transparent;
-        color: inherit;
-        padding: 10px 14px;
-        cursor: pointer;
-        font: inherit;
-        opacity: 0.9;
-    }
-    .segbtn.sm {
-        padding: 7px 10px;
-        font-size: 0.92em;
-    }
-
-    .segbtn:hover {
-        background: var(--seg-hover-bg);
-    }
-
-    .segbtn.selected {
-        background: var(--seg-selected-bg);
-        opacity: 1;
-    }
-
-    .segbtn:disabled {
-        opacity: 0.35;
-        cursor: not-allowed;
-    }
-
-    .notice {
-        border: 1px solid rgba(255,255,255,0.14);
-        background: rgba(255,255,255,0.04);
-        padding: 10px 12px;
-        border-radius: 12px;
-        font-size: 0.95em;
-        opacity: 0.9;
-    }
-
-    .grid {
-        display: flex;
-        flex-direction: column;
-        gap: 14px; margin-top: 16px;
-    }
-
     .row3 {
         display: grid;
         grid-template-columns:
                 repeat(3, 1fr);
         gap: 14px;
-    }
-
-    .card {
-        border: 1px solid var(--card-border);
-        background: var(--card-bg);
-        border-radius: 16px;
-        padding: 14px;
-    }
-
-    .card h2 {
-        margin: 0 0 10px;
-        font-size: 1.05em;
-        opacity: 0.95;
-    }
-
-    .card.full {
-        width: 97%;
     }
 
     .card-header {
@@ -433,43 +334,10 @@
         gap: 12px;
     }
 
-    .linkish {
-        border: none;
-        background: none;
-        color: inherit;
-        opacity: 0.8;
-        cursor: pointer;
-        text-decoration: underline;
-    }
-
     .subcard {
         border: 1px dashed var(--subcard-border);
         border-radius: 14px;
         padding: 12px;
-    }
-
-    .chips {
-        display: flex;
-        gap: 8px;
-        justify-content: flex-end;
-        align-items: center;
-        margin-top: 8px;
-    }
-
-    .chip {
-        border: 1px solid var(--card-border);
-        background: var(--card-bg);
-        padding: 6px 10px;
-        border-radius: 999px;
-        font-size: 0.85em;
-        opacity: 0.9;
-        white-space: nowrap;
-    }
-
-    .chips-label {
-        opacity: 0.6;
-        font-size: 0.8em;
-        margin-right: 4px;
     }
 
     .placeholder {
@@ -483,14 +351,6 @@
         justify-content: flex-end;
     }
 
-    .primary {
-        border: 1px solid var(--card-border);
-        background: var(--seg-selected-bg);
-        color: inherit;
-        padding: 10px 14px;
-        border-radius: 12px;
-        cursor: pointer;
-    }
     .primary:hover {
         background: rgba(255,255,255,0.12);
     }

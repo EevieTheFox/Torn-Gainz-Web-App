@@ -138,24 +138,24 @@
     <title>Torn Gainz | Home</title>
 </svelte:head>
 
-<main class="wrap">
-    <header class="header">
+<main class="page">
+    <header class="pageHeader">
         <h1>Welcome to Torn Gainz</h1>
-        <p class="sub">The only tool you need to optimize your gym gain!</p>
+        <p class="meta">The only tool you need to optimize your gym gain!</p>
     </header>
 
-    <section class="grid">
+    <section class="grid2">
 
         <!-- API UI -->
         <div class="card">
-            <label class="label">Optional API Key</label>
+            <label class="fieldLabel">Optional API Key</label>
 
             <div class="row">
                 <p class="hint" style="margin-top:0">
                     Manual calculator mode works without a key. Add one only if you want auto-fill and (later) tracking.
                 </p>
 
-                <label class="label" for="apiKey">Torn API key (optional)</label>
+                <label class="fieldLabel" for="apiKey">Torn API key (optional)</label>
 
                 <div class="inputRow">
                     <input
@@ -215,7 +215,7 @@
             {#if hasApiKey}
 
                 <div class="row">
-                    <label class="label">Optional analytics (off by default)</label>
+                    <label class="fieldLabel">Optional analytics (off by default)</label>
 
                     <div class="telemetryGroup">
                         <label class="telemetryOption">
@@ -265,7 +265,7 @@
                 </div>
             {:else}
                 <div class="row">
-                    <label class="label">Optional analytics</label>
+                    <label class="fieldLabel">Optional analytics</label>
                     <p class="hint">
                         Add an API key to see analytics options. Manual mode doesn’t need telemetry settings.
                     </p>
@@ -274,14 +274,14 @@
 
             {#if hasApiKey}
                 <div class="row">
-                    <label class="label">Read the policy</label>
+                    <label class="fieldLabel">Read the policy</label>
                     <button type="button" class="btn btnGhost" on:click={openPolicy}>
                         View Data Retention & API Usage Policy
                     </button>
                 </div>
 
                 <div class="row">
-                    <label class="label">Consent to data policy</label>
+                    <label class="fieldLabel">Consent to data policy</label>
                     <label class="check">
                         <input
                                 type="checkbox"
@@ -308,17 +308,17 @@
 
             {#if hasApiKey}
                 <div class="row">
-                    <label class="label">Policy viewed at</label>
+                    <label class="fieldLabel">Policy viewed at</label>
                     <code class="code">{consent.policyViewedAt ?? "—"}</code>
                 </div>
 
                 <div class="row">
-                    <label class="label">Consent given at</label>
+                    <label class="fieldLabel">Consent given at</label>
                     <code class="code">{consent.consentGivenAt ?? "—"}</code>
                 </div>
 
                 <div class="row">
-                    <label class="label">Revoked at</label>
+                    <label class="fieldLabel">Revoked at</label>
                     <code class="code">{consent.revokedAt ?? "—"}</code>
                 </div>
             {/if}
@@ -334,41 +334,6 @@
 </main>
 
 <style>
-    .wrap {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 24px 16px 64px;
-    }
-
-    .header h1 {
-        margin: 0 0 6px;
-    }
-
-    .sub {
-        text-align: center;
-        margin: 0 0 20px;
-        opacity: 0.8;
-    }
-
-    .grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    @media (min-width: 900px) {
-        .grid {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-
-    .card {
-        border: 1px solid var(--card-border);
-        background: var(--card-bg);
-        border-radius: 12px;
-        padding: 16px;
-    }
-
 
     h2 {
         margin: 0 0 12px;
@@ -390,38 +355,11 @@
         margin-bottom: 6px;
     }
 
-    select {
-        width: 100%;
-        padding: 8px 10px;
-        border-radius: 10px;
-        border: 1px solid rgba(255,255,255,0.18);
-        background: transparent;
-        color: inherit;
-    }
-
-    .btn {
-        padding: 12px 14px;
-        border-radius: 10px;
-        border: 1px solid var(--card-border);
-        background: var(--seg-selected-bg);
-        color: inherit;
-        cursor: pointer;
-    }
-
-    .btn:hover {
-        background: rgba(255,255,255,0.10);
-    }
-
     .check {
         display: flex;
         gap: 10px;
         align-items: flex-start;
         line-height: 1.3;
-    }
-
-    .hint {
-        opacity: 0.75;
-        font-size: 0.95rem;
     }
 
     .warn {
@@ -436,19 +374,7 @@
         background: rgba(255,255,255,0.06);
     }
 
-    pre {
-        margin: 0;
-        white-space: pre-wrap;
-        word-break: break-word;
-    }
-
-    hr {
-        border: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-        margin: 16px 0;
-    }
-
-    inputRow {
+    .inputRow {
         display: flex;
         gap: 12px;
         align-items: center;

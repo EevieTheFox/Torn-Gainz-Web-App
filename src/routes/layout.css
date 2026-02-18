@@ -15,6 +15,7 @@
 	--column-margin-top: 4rem;
     --card-border: rgba(0, 0, 0, 0.12);
     --card-bg: rgba(255, 255, 255, 0.55);
+    --hover-bg: rgba(0, 0, 0, 0.06);
     --seg-hover-bg: rgba(81, 154, 181, 0.40);
     --seg-selected-bg: rgba(81,154,181,0.70);
     --subcard-border: rgba(0, 0, 0, 0.16);
@@ -90,6 +91,12 @@ pre {
     padding: 0.5em;
     overflow-x: auto;
     color: var(--color-text);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--card-border);
+    margin: 16px 0;
 }
 
 .text-column {
@@ -171,6 +178,10 @@ button:focus:not(:focus-visible) {
     padding: 24px 16px 64px;
 }
 
+.page.wide {
+    max-width: 1240px;
+}
+
 .pageHeader h1 {
     margin: 0 0 8px;
 }
@@ -179,13 +190,17 @@ button:focus:not(:focus-visible) {
 .card {
     border: 1px solid var(--card-border);
     background: var(--card-bg);
-    border-radius: 12px;
-    padding: 16px;
+    border-radius: 16px;
+    padding: 14px;
 }
 
 .card.compact {
     border-radius: 12px;
     padding: 12px;
+}
+
+.card.full {
+    width: 97.5%;
 }
 
 /* Small text helpers */
@@ -206,4 +221,155 @@ button:focus:not(:focus-visible) {
     white-space: pre-wrap;
     word-break: break-word;
     line-height: 1.4;
+}
+
+/* Notices */
+.notice {
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.04);
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 0.95em;
+    opacity: 0.9;
+}
+
+/* ---------- Layout primitives ---------- */
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.grid2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+@media (min-width: 900px) {
+    .grid2 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ---------- Form primitives ---------- */
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.fieldLabel {
+    opacity: 0.8;
+    font-size: 0.95rem;
+}
+
+.control {
+    border: 1px solid var(--subcard-border);
+    background: color-mix(in srgb, var(--card-bg) 70%, transparent 30%);
+    color: inherit;
+    border-radius: 10px;
+    padding: 10px 12px;
+}
+
+.control:focus {
+    outline: 2px solid color-mix(in srgb, var(--seg-selected-bg) 35%, transparent 65%);
+    outline-offset: 2px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    border: 1px solid var(--subcard-border);
+    background: color-mix(in srgb, var(--card-bg) 75%, transparent 25%);
+    color: inherit;
+    border-radius: 10px;
+    padding: 10px 12px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: color-mix(in srgb, var(--hover-bg) 80%, transparent 20%);
+}
+
+.btn.primary {
+    border: 1px solid var(--card-border);
+    background: var(--seg-selected-bg);
+    color: inherit;
+    padding: 10px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.btn.ghost {
+    border: none;
+    background: none;
+    padding: 0;
+    text-decoration: underline;
+    opacity: 0.85;
+}
+
+/* ---------- Segmented Buttons ---------- */
+.seg-wrap {
+    display: inline-flex;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    border-radius: 14px;
+    overflow: hidden;
+}
+.seg-wrap.small {
+    border-radius: 12px;
+}
+
+.segbtn {
+    border: none;
+    background: transparent;
+    color: inherit;
+    padding: 10px 14px;
+    cursor: pointer;
+    font: inherit;
+    opacity: 0.9;
+}
+.segbtn.sm {
+    padding: 7px 10px;
+    font-size: 0.92em;
+}
+
+.segbtn:hover {
+    background: var(--seg-hover-bg);
+}
+
+.segbtn.selected {
+    background: var(--seg-selected-bg);
+    opacity: 1;
+}
+
+.segbtn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+/* ------------Chips------------ */
+.chips {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.chip {
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 0.85em;
+    opacity: 0.9;
+    white-space: nowrap;
+}
+
+.chips-label {
+    opacity: 0.6;
+    font-size: 0.8em;
+    margin-right: 4px;
 }

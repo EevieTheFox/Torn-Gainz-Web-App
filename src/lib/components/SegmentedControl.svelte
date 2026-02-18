@@ -1,72 +1,74 @@
 <script lang="ts">
-    export type SegOption<T extends string> = {
+    import { createEventDispatcher } from "svelte";
+
+    export type SegOption<T = string> = {
         value: T;
         label: string;
         disabled?: boolean;
+        title?: string;
     };
 
-    export let options: SegOption<any>[] = [];
-    export let value: string;
-    export let size: 'md' | 'sm' = 'md';
-    export let ariaLabel = 'Segmented control';
+    export let options: SegOption[] = [];
+    export let value: string;              // selected value
+    export let disabled: boolean = false;  // disables whole control
 
-    const sizes = {
-        md: 'seg seg-md',
-        sm: 'seg seg-sm'
-    };
+    // Size flags that map to your CSS selectors
+    // "small" affects the wrapper radius, "sm" affects button padding/font
+    export let small: boolean = false;     // adds .small to wrapper
+    export let sm: boolean = false;        // adds .sm to buttons
 
-    function onSelect(opt: SegOption<any>) {
-        if (opt.disabled) return;
-        // Dispatch a standard input event so parent can bind:value
-        value = opt.value;
-        const e = new Event('input', { bubbles: true });
-        // @ts-expect-error - Svelte binding pattern
-        dispatchEvent?.(e);
+    export let ariaLabel: string = "Segmented control";
+
+    const dispatch = createEventDispatcher<{ change: { value: string } }>();
+
+    function select(v: string) {
+        if (disabled) return;
+        if (v === value) return;
+        value = v;
+        dispatch("change", { value: v });
+    }
+
+    // Optional keyboard nav; remove if you want *exactly* prior behavior
+    function onKeydown(e: KeyboardEvent) {
+        if (disabled) return;
+
+        const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
+        if (!keys.includes(e.key)) return;
+
+        e.preventDefault();
+
+        const enabled = options.filter(o => !o.disabled);
+        if (enabled.length === 0) return;
+
+        const idx = enabled.findIndex(o => o.value === value);
+        let nextIdx = idx;
+
+        if (e.key === "ArrowLeft") nextIdx = idx <= 0 ? enabled.length - 1 : idx - 1;
+        if (e.key === "ArrowRight") nextIdx = idx >= enabled.length - 1 ? 0 : idx + 1;
+        if (e.key === "Home") nextIdx = 0;
+        if (e.key === "End") nextIdx = enabled.length - 1;
+
+        select(enabled[nextIdx].value);
     }
 </script>
 
-<div class={sizes[size]} role="radiogroup" aria-label={ariaLabel}>
+<div
+        class="seg-wrap {small ? 'small' : ''}"
+        role="radiogroup"
+        aria-label={ariaLabel}
+        on:keydown={onKeydown}
+>
     {#each options as opt (opt.value)}
         <button
                 type="button"
-                class:selected={opt.value === value}
-                class:disabled={!!opt.disabled}
-                disabled={!!opt.disabled}
+                class="segbtn {sm ? 'sm' : ''} {opt.value === value ? 'selected' : ''}"
                 role="radio"
                 aria-checked={opt.value === value}
-                on:click={() => onSelect(opt)}
+                disabled={disabled || opt.disabled}
+                title={opt.title}
+                on:click={() => select(opt.value)}
         >
             {opt.label}
         </button>
     {/each}
 </div>
-
-<style>
-    .seg {
-        display: inline-flex;
-        border: 1px solid var(--border, rgba(255,255,255,0.12));
-        border-radius: 14px;
-        overflow: hidden;
-        background: rgba(255,255,255,0.03);
-    }
-    .seg button {
-        border: none;
-        background: transparent;
-        color: inherit;
-        padding: 10px 14px;
-        cursor: pointer;
-        font: inherit;
-        opacity: 0.9;
-    }
-    .seg button:hover { background: rgba(255,255,255,0.05); }
-    .seg button.selected {
-        background: rgba(255,255,255,0.10);
-        opacity: 1;
-    }
-    .seg button.disabled {
-        opacity: 0.35;
-        cursor: not-allowed;
-    }
-    .seg-md button { padding: 10px 14px; }
-    .seg-sm button { padding: 7px 10px; font-size: 0.92em; }
-</style>
