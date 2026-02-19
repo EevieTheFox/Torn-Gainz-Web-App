@@ -436,15 +436,6 @@
         cursor: pointer;
     }
 
-    .btnCreate {
-        padding: 16px 18px;
-        font-size: 1.2rem;
-        border: 1px solid var(--card-border);
-        background: var(--card-bg);
-        color: inherit;
-        cursor: pointer;
-    }
-
     .btnDanger {
         background: rgba(255, 80, 80, 0.20);;
         border-color: rgba(255, 80, 80, 0.60);
