@@ -170,7 +170,7 @@
                             id="apiKey"
                             type={showApiKey ? "text" : "password"}
                             bind:value={apiKeyInput}
-                            placeholder="enter API key here (for auto fill)"
+                            placeholder="Enter Limited Access API Key Here"
                             autocomplete="off"
                             spellcheck="false"
                             inputmode="text"
