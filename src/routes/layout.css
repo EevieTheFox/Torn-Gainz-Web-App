@@ -23,6 +23,7 @@
 	--seg-hover-bg: rgba(81, 154, 181, 0.40);
 	--seg-selected-bg: rgba(81,154,181,0.70);
 	--subcard-border: rgba(0, 0, 0, 0.16);
+    --tbody-zebra-bg: rgba(0, 0, 0, 0.06);
 	font-family: var(--font-body);
 	color: var(--color-text);
 }
@@ -37,6 +38,7 @@ html[data-theme="dark"] {
 	--seg-hover-bg: rgba(81, 154, 181, 0.40);
 	--seg-selected-bg: rgba(81, 154, 181, 0.70);
 	--subcard-border: rgba(255,255,255,0.16);
+    --tbody-zebra-bg: rgba(255, 255, 255, 0.03);
 	--color-theme-1: #519ab5;
 	--color-theme-2: #7bb2ff;
 	--color-text: rgba(255, 255, 255, 0.88);
@@ -383,7 +385,7 @@ button:focus:not(:focus-visible) {
         font-size: 0.875rem;
         padding: 12px 14px;
         border-bottom: 1px solid var(--card-border);
-        background: rgba(255, 255, 255, 0.06); /* subtle header tint, works on dark */
+        background: var(--tbody-zebra-bg);
     }
 
     .prose tbody td {
@@ -404,7 +406,7 @@ button:focus:not(:focus-visible) {
 
     /* subtle zebra striping using your bg token */
     .prose tbody tr:nth-child(even) td {
-        background: rgba(255, 255, 255, 0.03);
+        background: var(--tbody-zebra-bg);
     }
 
     /* optional hover polish */

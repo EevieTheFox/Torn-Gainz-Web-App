@@ -7,7 +7,7 @@ This application is built around four principles:
 3. Explicit consent – Remote storage never occurs without opt-in consent.
 4. API respect – All Torn API access follows Torn’s API documentation and fair use expectations.
 
-<span class='hint'>This app is fully usable without providing an API key.</span>
+This app is fully usable without providing an API key.
 
 <br>
 
