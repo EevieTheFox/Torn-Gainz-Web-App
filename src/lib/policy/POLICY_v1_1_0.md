@@ -1,20 +1,15 @@
-# Data Retention, Fair Use, and API Usage Policy
-
-<span class="hint">Version 1.1.0 – Effective February 18, 2026</span>
-
 ## 1. Guiding Principles
 
 This application is built around four principles:
 
 1. User control – You decide what data is shared and when.
-
 2. Minimal collection – Only data required for estimator functionality is accessed.
-
 3. Explicit consent – Remote storage never occurs without opt-in consent.
-
 4. API respect – All Torn API access follows Torn’s API documentation and fair use expectations.
 
-This app is fully usable without providing an API key.
+<span class='hint'>This app is fully usable without providing an API key.</span>
+
+---
 
 ## 2. Required API Access Level
 
@@ -30,30 +25,23 @@ No Full Access key is required or requested.
 
 Torn Gainz retrieves only the following selections:
 
-User
-
+User:
 - battlestats
-
 - education
-
 - gym
-
 - inventory
-
 - job
 
-Company
-
+Company:
 - profile
 
-Property
-
+Property:
 - property
 
-Faction
-
+Faction:
 - upgrades
-  *Only if the user has faction permission granted by faction leadership. If not available, this endpoint is not used.*
+
+<span class='hint'>*Only if the user has faction permission granted by faction leadership. If not available, this endpoint is not used.*</span>
 
 Market
 
@@ -145,7 +133,7 @@ Remote storage never occurs without explicit consent.
 | Limited Consent | Local device only                     | Nobody              | Automated estimation using API data | Stored locally, not shared | Limited      |
 | Full Consent    | Encrypted remote storage (if enabled) | Service owner only  | Scheduled telemetry & model tuning  | Stored remotely, encrypted | Limited      |
 
-Telemetry features are disabled by default.
+<span class='hint'>Telemetry features are disabled by default.</span>
 
 ---
 

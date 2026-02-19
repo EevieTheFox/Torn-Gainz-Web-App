@@ -1,9 +1,14 @@
 <script lang="ts">
-    import POLICY from '$lib/content/policy/POLICY_v1_1_0.md';
+    import policyMD from '$lib/policy/POLICY_v1_1_0.md?raw';
     import { marked } from 'marked';
-    import { POLICY_VERSION, POLICY_VALID_AS_OF } from "$lib/policy/policy_v1_0_0";
+    import { POLICY_VERSION, POLICY_VALID_AS_OF } from "$lib/policy/policy_v1_1_0.ts";
 
-    const html = marked.parse(POLICY);
+    marked.setOptions({
+        gfm: true,
+        breaks: false
+    })
+
+    const html = marked.parse(policyMD);
 </script>
 
 <svelte:head>
@@ -16,11 +21,9 @@
         <p class="meta">Policy Version {POLICY_VERSION} — Valid as of {POLICY_VALID_AS_OF}</p>
     </header>
 
-    <article class="card">
-        <pre class="preWrap">
-            <article class="prose">
-                {@html html}
-            </article>
-        </pre>
-    </article>
+    <div class="card border border-red-500 p-6">
+        <article class="prose prose-invert max-w-none">
+            {@html html}
+        </article>
+    </div>
 </main>
