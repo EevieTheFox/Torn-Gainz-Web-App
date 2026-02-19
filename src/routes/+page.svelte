@@ -83,6 +83,14 @@
         }
     }
 
+    function generateApiKey() {
+        const url =
+            'https://www.torn.com/preferences.php#tab=api?step=addNewKey&user=job,education,gym,inventory,battlestats&faction=upgrades&company=profile&property=property&title=TornGainz';
+
+        window.open(url, '_blank', 'noopener,noreferrer');
+    }
+
+
     function openPolicy() {
         // Open policy page
         window.open("/policy", "_blank", "noopener,noreferrer");
@@ -152,7 +160,7 @@
 
             <div class="row">
                 <p class="hint" style="margin-top:0">
-                    Manual calculator mode works without a key. Add one only if you want auto-fill and (later) tracking.
+                    Manual calculator mode works without a key. Add one only if you want auto-fill and/or stat tracking.
                 </p>
 
                 <label class="fieldLabel" for="apiKey">Torn API key (optional)</label>
@@ -162,7 +170,7 @@
                             id="apiKey"
                             type={showApiKey ? "text" : "password"}
                             bind:value={apiKeyInput}
-                            placeholder="enter API key here (for auto-filled stats)"
+                            placeholder="enter API key here (for auto fill)"
                             autocomplete="off"
                             spellcheck="false"
                             inputmode="text"
@@ -185,6 +193,10 @@
                             disabled={!apiKeyInput.trim() && !apiKeySaved}
                     >
                         Test
+                    </button>
+
+                    <button type="button" class="btn" on:click={generateApiKey}>
+                        Create Custom Key
                     </button>
 
                     <button type="button" class="btn btnDanger clearBtn" on:click={clearApiKey}>
@@ -403,7 +415,7 @@
     }
 
     .clearBtn {
-        margin-left: 122px;
+        margin-left: 26px;
     }
 
     .btnGhost {
@@ -424,6 +436,14 @@
         cursor: pointer;
     }
 
+    .btnCreate {
+        padding: 16px 18px;
+        font-size: 1.2rem;
+        border: 1px solid var(--card-border);
+        background: var(--card-bg);
+        color: inherit;
+        cursor: pointer;
+    }
 
     .btnDanger {
         background: rgba(255, 80, 80, 0.20);;
