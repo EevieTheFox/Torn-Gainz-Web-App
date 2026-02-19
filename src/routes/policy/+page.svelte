@@ -21,7 +21,7 @@
         <p class="meta">Policy Version {POLICY_VERSION} — Valid as of {POLICY_VALID_AS_OF}</p>
     </header>
 
-    <div class="card border border-red-500 p-6">
+    <div class="card">
         <article class="prose prose-invert max-w-none">
             {@html html}
         </article>

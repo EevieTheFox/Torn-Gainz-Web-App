@@ -1,5 +1,9 @@
-@import 'tailwindcss';
 @import '@fontsource/fira-mono';
+
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
 	--font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
@@ -71,14 +75,7 @@ a:hover {
 	text-decoration: underline;
 }
 
-h1 {
-	font-size: 2rem;
-	text-align: center;
-}
 
-h2 {
-	font-size: 1rem;
-}
 
 pre {
 	font-size: 16px;
@@ -173,12 +170,17 @@ button:focus:not(:focus-visible) {
 	padding: 24px 16px 64px;
 }
 
+.page.mid {
+    max-width: 1070px;
+}
+
 .page.wide {
 	max-width: 1240px;
 }
 
 .pageHeader h1 {
 	margin: 0 0 8px;
+    text-align: center;
 }
 
 .card {
@@ -360,4 +362,58 @@ button:focus:not(:focus-visible) {
 	opacity: 0.6;
 	font-size: 0.8em;
 	margin-right: 4px;
+}
+
+/*--------- tailwind styling ----------*/
+@layer components {
+    /* --- Tables inside rendered markdown (prose) --- */
+    .prose table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        border: 1px solid var(--card-border);
+        border-radius: 12px;
+        overflow: hidden;
+        background: var(--card-bg);
+    }
+
+    .prose thead th {
+        text-align: left;
+        font-weight: 600;
+        font-size: 0.875rem;
+        padding: 12px 14px;
+        border-bottom: 1px solid var(--card-border);
+        background: rgba(255, 255, 255, 0.06); /* subtle header tint, works on dark */
+    }
+
+    .prose tbody td {
+        font-size: 0.95rem;
+        padding: 12px 14px;
+        vertical-align: top;
+        border-bottom: 1px solid var(--card-border);
+    }
+
+    .prose tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .prose th + th,
+    .prose td + td {
+        border-left: 1px solid var(--card-border);
+    }
+
+    /* subtle zebra striping using your bg token */
+    .prose tbody tr:nth-child(even) td {
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    /* optional hover polish */
+    .prose tbody tr:hover td {
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    /* prevent cramped header wrapping */
+    .prose th {
+        white-space: nowrap;
+    }
 }

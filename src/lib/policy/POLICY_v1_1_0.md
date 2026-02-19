@@ -9,17 +9,25 @@ This application is built around four principles:
 
 <span class='hint'>This app is fully usable without providing an API key.</span>
 
+<br>
+
 ---
+
+<br>
 
 ## 2. Required API Access Level
 
-This application requires a Limited Access Torn API key because it retrieves battle statistics and related training context.
+Opt-in automation and telemetry functionality requires a Limited Access Torn API key to retrieve user battle stats and other information relevant to gym training.
 
 Users may optionally generate a Custom key restricted only to the selections listed below.
 
 No Full Access key is required or requested.
 
+<br>
+
 ---
+
+<br>
 
 ## 3. API Selections Used (Exact Endpoints)
 
@@ -39,15 +47,13 @@ Property:
 - property
 
 Faction:
-- upgrades
+- upgrades*
 
-<span class='hint'>*Only if the user has faction permission granted by faction leadership. If not available, this endpoint is not used.*</span>
+<span class='hint'>**Only if the user has faction permission granted by faction leadership. If not available, this endpoint is not used.*</span>
 
 Market
 
 - itemmarket
-
-No other selections are accessed.
 
 The application does not access:
 
@@ -65,26 +71,32 @@ The application does not access:
 
 - Any unrelated endpoints
 
+<br>
+
 ---
 
+<br>
+
 ## 4. Three Levels of Consent
-### Level 1 — No API (Manual Mode)
+### Level 1 — Basic (Manual mode only)
 
 - No API key required
 
 - No data stored
 
-- All calculations performed manually or from user-entered values
+- All calculations performed from user-entered values
 
 - Nothing transmitted to any server
 
 This mode involves zero external data access.
 
----
+<br>
 
-### Level 2 — API with Limited Consent (Local Storage Only)
+### Level 2 — Limited Consent (Automated data fetching)
 
 - Limited Access API key required
+
+- Opt-in required
 
 - API key stored locally on your device only
 
@@ -96,21 +108,21 @@ This mode involves zero external data access.
 
 - Never stored remotely
 
-This allows automatic calculations while maintaining local-only control.
+This mode allows automatic calculations while maintaining local-only control.
 
----
+<br>
 
-### Level 3 — API with Full Consent (Remote Encrypted Storage)
+### Level 3 — Full Consent (User telemetry and tool improvement)
 
 - Limited Access API key required
 
-- Explicit opt-in required
+- Secondary opt-in required
 
 - API key stored remotely in encrypted form
 
-- Used to perform scheduled retrieval (e.g., daily) of relevant stat data
+- Performs scheduled retrieval (e.g., daily) of relevant stat data
 
-- Used exclusively for model improvement and estimator accuracy evaluation
+- Used for individual user trend mapping and model improvement purposes only
 
 Remote storage safeguards:
 
@@ -124,18 +136,28 @@ Remote storage safeguards:
 
 Remote storage never occurs without explicit consent.
 
+<br>
+
 ---
 
-## 5. Disclosure Table (Torn API Transparency)
-| Consent Level   | Data Storage                          | Data Sharing        | Purpose of Use                      | Key Storage                | Access Level |
-|-----------------|---------------------------------------|---------------------|-------------------------------------|----------------------------|--------------|
-| No API          | None                                  | Nobody              | Manual estimation only              | No key                     | None         |
-| Limited Consent | Local device only                     | Nobody              | Automated estimation using API data | Stored locally, not shared | Limited      |
-| Full Consent    | Encrypted remote storage (if enabled) | Service owner only  | Scheduled telemetry & model tuning  | Stored remotely, encrypted | Limited      |
+<br>
+
+## 5. Torn API Disclosure Table
+
+| Consent Level   | Data Storage             | Data Sharing        | Purpose of Use                      | Key Storage                | Access Level |
+|-----------------|--------------------------|---------------------|-------------------------------------|----------------------------|--------------|
+| For All Levels  | Varies                   | Varies              | Public community tool               | Varies                     | Varies       |
+| Manual          | None                     | Nobody              | Manual estimation only              | No key                     | None         |
+| Limited Consent | Local device only        | Nobody              | Automated estimation using API data | Stored locally, not shared | Limited      |
+| Full Consent    | Encrypted remote storage | Service owner only  | Scheduled telemetry & model tuning  | Stored remotely, encrypted | Limited      |
 
 <span class='hint'>Telemetry features are disabled by default.</span>
 
+<br>
+
 ---
+
+<br>
 
 ## 6. Proxy Usage
 
@@ -151,7 +173,11 @@ In some environments, Torn’s API cannot be reliably called directly from a bro
 
 - Keys are never shared with third parties.
 
+<br>
+
 ---
+
+<br>
 
 ## 7. Telemetry and Model Improvement
 
@@ -187,7 +213,7 @@ Not collected:
 
 This data cannot be used to identify individual players.
 
----
+<br>
 
 ### Scheduled Telemetry (Full Consent Only)
 
@@ -211,7 +237,11 @@ Still not stored:
 
 Raw snapshots are retained only as long as necessary and may be aggregated or deleted.
 
+<br>
+
 ---
+
+<br>
 
 ## 8. Rate Limiting and Fair Use
 
@@ -227,7 +257,11 @@ The application enforces API safeguards:
 
 The app does not perform scraping or unrelated polling.
 
+<br>
+
 ---
+
+<br>
 
 ## 9. Revocation and Deletion
 
@@ -243,7 +277,11 @@ Upon revocation:
 
 Aggregated, anonymized statistics may remain for analytical purposes but cannot identify individuals.
 
+<br>
+
 ---
+
+<br>
 
 ## 10. Data Never Collected
 
@@ -261,7 +299,11 @@ This application never collects:
 
 - Any data unrelated to estimator functionality
 
+<br>
+
 ---
+
+<br>
 
 ## 11. Policy Changes
 
@@ -279,9 +321,13 @@ Will:
 
 - Require renewed consent
 
-Minor formatting or clarification updates may increment the patch version without renewed consent.
+<span class='hint'>Minor formatting or clarification updates may increment the patch version without renewed consent.</span>
+
+<br>
 
 ---
+
+<br>
 
 ## Plain English Summary
 
