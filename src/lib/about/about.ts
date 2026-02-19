@@ -1,5 +1,5 @@
 export const ABOUT_TEXT = `
-What is Torn Gainz?
+## What is Torn Gainz?
 
 Torn Gainz is a gym optimization and comparison tool for Torn City—a game where lifting weights involves spreadsheets, millions of dollars, and some truly unhinged decision-making.
 
@@ -11,7 +11,7 @@ Instead of relying on gut feelings, half-remembered forum posts, or vibes from g
 
 It’s not about telling you the “right” way to play. It’s about showing you what your choices are really doing.
 
-Privacy & Ethics
+## Privacy & Ethics
 
 We treat privacy and ethical data use as core values.
 

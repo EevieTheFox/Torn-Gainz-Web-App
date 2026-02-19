@@ -1,9 +1,8 @@
-export const POLICY_VERSION = "1.0.0";
-export const POLICY_VALID_AS_OF = "February 9th, 2026";
+export const POLICY_VERSION = "1.1.0";
+export const POLICY_VALID_AS_OF = "February 19th, 2026";
 
 export const POLICY_TEXT = `
 Data Retention, Fair Use, and API Usage Policy
-(Jump Estimator Web App)
 
 1. Guiding Principles
 This application is built around four core principles:
