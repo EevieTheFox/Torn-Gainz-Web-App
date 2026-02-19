@@ -142,14 +142,14 @@ Remote storage never occurs without explicit consent.
 
 <br>
 
-## 5. Torn API Disclosure Table
+## 5. Torn API Disclosure
 
-| Consent Level   | Data Storage             | Data Sharing        | Purpose of Use                      | Key Storage                | Access Level |
-|-----------------|--------------------------|---------------------|-------------------------------------|----------------------------|--------------|
-| For All Levels  | Varies                   | Varies              | Public community tool               | Varies                     | Varies       |
-| Manual          | None                     | Nobody              | Manual estimation only              | No key                     | None         |
-| Limited Consent | Local device only        | Nobody              | Automated estimation using API data | Stored locally, not shared | Limited      |
-| Full Consent    | Encrypted remote storage | Service owner only  | Scheduled telemetry & model tuning  | Stored remotely, encrypted | Limited      |
+| Consent Level   | Data Storage                                               | Data Sharing        | Purpose of Use                      | Key Storage                | Access Level |
+|-----------------|------------------------------------------------------------|---------------------|-------------------------------------|----------------------------|--------------|
+| For All Levels  | Varies                                                     | Varies              | Public community tool               | Varies                     | Varies       |
+| Manual          | None                                                       | Nobody              | Manual estimation only              | No key                     | None         |
+| Limited Consent | Local device only                                          | Nobody              | Automated estimation using API data | Stored locally, not shared | Limited      |
+| Full Consent    | Persistent Encrypted remote storage until account deletion | Service owner only  | Scheduled telemetry & model tuning  | Stored remotely, encrypted | Limited      |
 
 <span class='hint'>Telemetry features are disabled by default.</span>
 
