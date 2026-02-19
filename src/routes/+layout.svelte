@@ -7,10 +7,7 @@
 
 <div class="app">
 	<Header />
-
-	<main>
-		{@render children()}
-	</main>
+	<main>{@render children()}</main>
 
 	<footer class="footer">
 		<p>
@@ -18,4 +15,3 @@
 		</p>
 	</footer>
 </div>
-
