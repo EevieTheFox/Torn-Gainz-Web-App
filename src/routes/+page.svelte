@@ -165,7 +165,7 @@
 
                 <label class="fieldLabel" for="apiKey">Torn API key (optional)</label>
 
-                <div class="inputRow">
+                <div class="inputRowApi">
                     <input
                             id="apiKey"
                             type={showApiKey ? "text" : "password"}
