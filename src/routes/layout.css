@@ -281,6 +281,26 @@ button:focus:not(:focus-visible) {
     outline: none;
 }
 
+.inputRowPerk {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    align-items: center;
+}
+
+.inputRowPerk input {
+    margin-left: auto;
+    width: 10%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    line-height: 1;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    color: inherit;
+    outline: none;
+}
+
 /* -----Grid styles----- */
 .grid2 {
 	display: grid;
