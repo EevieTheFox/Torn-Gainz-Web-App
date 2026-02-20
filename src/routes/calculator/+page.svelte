@@ -62,8 +62,8 @@
 </svelte:head>
 
 <section class="page wide">
-    <header class="calc-header">
-        <h1>Calculator</h1>
+    <header class="pageHeader">
+        <h1>Gainz Calculator</h1>
 
         <div class="chips">
             <span class="chips-label">Privacy</span>
