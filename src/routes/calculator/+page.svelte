@@ -299,172 +299,168 @@
 
             <!----User faction, education, and job perks ----->
             <div class="card">
-                <h2>Perks</h2>
-                <div class="perksTwoCol">
-                    <div class="perksCol">
-                        <div class="perksSectionTitle">Faction</div>
-                        <!-- 6 faction rows -->
-                        <div class="inputRowPerk">
-                            <label>Strength Boost</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.FACTION_STEADFAST_STRENGTH)}
-                                    on:input={(e) => onNum(F.FACTION_STEADFAST_STRENGTH, e)}
-                            />
-                        </div>
-
-                        <div class="inputRowPerk">
-                            <label>Defense Boost</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.FACTION_STEADFAST_DEFENSE)}
-                                    on:input={(e) => onNum(F.FACTION_STEADFAST_DEFENSE, e)}
-                            />
-                        </div>
-
-                        <div class="inputRowPerk">
-                            <label>Speed Boost</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.FACTION_STEADFAST_SPEED)}
-                                    on:input={(e) => onNum(F.FACTION_STEADFAST_SPEED, e)}
-                            />
-                        </div>
-
-                        <div class="inputRowPerk">
-                            <label>Dexterity Boost</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.FACTION_STEADFAST_DEXTERITY)}
-                                    on:input={(e) => onNum(F.FACTION_STEADFAST_DEXTERITY, e)}
-                            />
-                        </div>
-
-                        <div class="inputRowPerk">
-                            <label>Cooldown Limit</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.FACTION_COOLDOWN_BOOST)}
-                                    on:input={(e) => onNum(F.FACTION_COOLDOWN_BOOST, e)}
-                            />
-                        </div>
-
-                        <div class="inputRowPerk">
-                            <label>Candy Boost</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.FACTION_CANDY_BOOST)}
-                                    on:input={(e) => onNum(F.FACTION_CANDY_BOOST, e)}
-                            />
-                        </div>
-                    </div>
-
-                    <div class="perksCol">
-                        <div class="perksSectionTitle">Education</div>
-                        <!-- 5 edu rows -->
-                        <div class="inputRowPerk">
-                            <label>Strength Boost</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.USER_EDUCATION_STRENGTH)}
-                                    on:input={(e) => onNum(F.USER_EDUCATION_STRENGTH, e)}
-                            />
-                        </div>
-
-                        <div class="inputRowPerk">
-                            <label>Defense Boost</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.USER_EDUCATION_DEFENSE)}
-                                    on:input={(e) => onNum(F.USER_EDUCATION_DEFENSE, e)}
-                            />
-                        </div>
-
-                        <div class="inputRowPerk">
-                            <label>Speed Boost</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.USER_EDUCATION_SPEED)}
-                                    on:input={(e) => onNum(F.USER_EDUCATION_SPEED, e)}
-                            />
-                        </div>
-
-                        <div class="inputRowPerk">
-                            <label>Dexterity Boost</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.USER_EDUCATION_DEXTERITY)}
-                                    on:input={(e) => onNum(F.USER_EDUCATION_DEXTERITY, e)}
-                            />
-                        </div>
-
-                        <div class="inputRowPerk">
-                            <label>All Stat Boost</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.USER_EDUCATION_ALL)}
-                                    on:input={(e) => onNum(F.USER_EDUCATION_ALL, e)}
-                            />
-                        </div>
-                    </div>
-
-                    <div class="perksDivider"></div>
-
-                    <div class="perksCol">
-                        <div class="perksSectionTitle">Job</div>
-                        <!-- 2 job rows -->
-                        <div class="inputRowPerk">
-                            <label>Company Type</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.USER_JOB)}
-                                    on:input={(e) => onNum(F.USER_JOB, e)}
-                            />
-                        </div>
-
-                        <div class="inputRowPerk">
-                            <label>Company Stars</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.USER_JOB_LEVEL)}
-                                    on:input={(e) => onNum(F.USER_JOB_LEVEL, e)}
-                            />
-                        </div>
-                    </div>
-
-                    <div class="perksCol">
-                        <div class="perksSectionTitle">&nbsp;</div> <!-- or omit title -->
-                        <!-- 2 job rows -->
-                        <div class="inputRowPerk">
-                            <label>Company Perk</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.USER_JOB_BOOST_TYPE)}
-                                    on:input={(e) => onNum(F.USER_JOB_BOOST_TYPE, e)}
-                            />
-                        </div>
-
-                        <div class="inputRowPerk">
-                            <label>Boost Amount</label>
-                            <input
-                                    label="Gym"
-                                    value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
-                                    on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
-                            />
-                        </div>
-                    </div>
+                <h2>About This Calculator</h2>
+                <div class="placeholder">
+                    Prose about the calculator
                 </div>
             </div>
         </div>
 
-        <!-- Row 2: Item Information -->
+        <!-- Row 2: User Perks -->
+        <div class="row3">
+            <div class="card">
+                <h2>Faction Perks</h2>
+                <div class="inputRowCalc">
+                    <label>Strength Boost</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.FACTION_STEADFAST_STRENGTH)}
+                            on:input={(e) => onNum(F.FACTION_STEADFAST_STRENGTH, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Defense Boost</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.FACTION_STEADFAST_DEFENSE)}
+                            on:input={(e) => onNum(F.FACTION_STEADFAST_DEFENSE, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Speed Boost</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.FACTION_STEADFAST_SPEED)}
+                            on:input={(e) => onNum(F.FACTION_STEADFAST_SPEED, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Dexterity Boost</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.FACTION_STEADFAST_DEXTERITY)}
+                            on:input={(e) => onNum(F.FACTION_STEADFAST_DEXTERITY, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Cooldown Limit</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.FACTION_COOLDOWN_BOOST)}
+                            on:input={(e) => onNum(F.FACTION_COOLDOWN_BOOST, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Candy Boost</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.FACTION_CANDY_BOOST)}
+                            on:input={(e) => onNum(F.FACTION_CANDY_BOOST, e)}
+                    />
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Education Perks</h2>
+                <div class="inputRowCalc">
+                    <label>Strength Boost</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.USER_EDUCATION_STRENGTH)}
+                            on:input={(e) => onNum(F.USER_EDUCATION_STRENGTH, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Defense Boost</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.USER_EDUCATION_DEFENSE)}
+                            on:input={(e) => onNum(F.USER_EDUCATION_DEFENSE, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Speed Boost</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.USER_EDUCATION_SPEED)}
+                            on:input={(e) => onNum(F.USER_EDUCATION_SPEED, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Dexterity Boost</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.USER_EDUCATION_DEXTERITY)}
+                            on:input={(e) => onNum(F.USER_EDUCATION_DEXTERITY, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>All Stat Boost</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.USER_EDUCATION_ALL)}
+                            on:input={(e) => onNum(F.USER_EDUCATION_ALL, e)}
+                    />
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Job Perks</h2>
+                <div class="inputRowCalc">
+                    <label>Company Type</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.USER_JOB)}
+                            on:input={(e) => onNum(F.USER_JOB, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Company Stars</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.USER_JOB_LEVEL)}
+                            on:input={(e) => onNum(F.USER_JOB_LEVEL, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Company Perk</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.USER_JOB_BOOST_TYPE)}
+                            on:input={(e) => onNum(F.USER_JOB_BOOST_TYPE, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Boost Amount</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
+                            on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
+                    />
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 3: Item Information -->
         <div class="row3">
             <div class="card"><h2>Requirements</h2><div class="placeholder">Left: requirements + total happy</div></div>
             <div class="card"><h2>Inventory</h2><div class="placeholder">Center: inventory + delta</div></div>
             <div class="card"><h2>Market / Total</h2><div class="placeholder">Right: values + per-item totals + GRAND TOTAL</div></div>
         </div>
 
-        <!-- Row 3: Overrides (hidden in Manual) -->
+        <!-- Row 4: Overrides (hidden in Manual) -->
         {#if ui.jumpType !== 'manual'}
             <div class="card full">
                 <div class="card-header">
