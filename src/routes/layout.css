@@ -166,6 +166,7 @@ button:focus:not(:focus-visible) {
 	}
 }
 
+/* -----Page styles----- */
 .page {
 	max-width: 900px;
 	margin: 0 auto;
@@ -185,6 +186,7 @@ button:focus:not(:focus-visible) {
     text-align: center;
 }
 
+/* -----Card styles----- */
 .card {
 	border: 1px solid var(--card-border);
 	background: var(--card-bg);
@@ -201,6 +203,7 @@ button:focus:not(:focus-visible) {
 	width: 97.5%;
 }
 
+/* -----Custom small text styles----- */
 .hint {
 	opacity: 0.75;
 	font-size: 0.95rem;
@@ -212,6 +215,7 @@ button:focus:not(:focus-visible) {
 	opacity: 0.8;
 }
 
+/* -----custom pre----- */
 .preWrap {
 	margin: 0;
 	white-space: pre-wrap;
@@ -219,6 +223,7 @@ button:focus:not(:focus-visible) {
 	line-height: 1.4;
 }
 
+/* -----Notice banner----- */
 .notice {
 	border: 1px solid rgba(255,255,255,0.14);
 	background: rgba(255,255,255,0.04);
@@ -228,6 +233,7 @@ button:focus:not(:focus-visible) {
 	opacity: 0.9;
 }
 
+/* -----Stacked rows----- */
 .stack {
 	display: flex;
 	flex-direction: column;
@@ -235,6 +241,28 @@ button:focus:not(:focus-visible) {
 	margin-top: 24px;
 }
 
+/* -----Custom inputs----- */
+.inputRow {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.inputRow input {
+    flex: 1;
+    width: 70%;
+    /* ~2x “presence” */
+    padding: 16px 18px;
+    font-size: 1.1rem;
+    line-height: 1.1;
+    border-radius: 18px;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    color: inherit;
+    outline: none;
+}
+
+/* -----Grid styles----- */
 .grid2 {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -247,6 +275,7 @@ button:focus:not(:focus-visible) {
 	}
 }
 
+/* -----Custom fields----- */
 .field {
 	display: flex;
 	flex-direction: column;
@@ -258,6 +287,7 @@ button:focus:not(:focus-visible) {
 	font-size: 0.95rem;
 }
 
+/* -----unsure of use----- */
 .control {
 	border: 1px solid var(--subcard-border);
 	background: color-mix(in srgb, var(--card-bg) 70%, transparent 30%);
@@ -271,6 +301,7 @@ button:focus:not(:focus-visible) {
 	outline-offset: 2px;
 }
 
+/* -----Custom buttons----- */
 .btn {
 	border: 1px solid var(--subcard-border);
 	background: color-mix(in srgb, var(--card-bg) 75%, transparent 25%);
@@ -301,6 +332,7 @@ button:focus:not(:focus-visible) {
 	opacity: 0.85;
 }
 
+/* segmented buttons */
 .seg-wrap {
 	display: inline-flex;
 	border: 1px solid var(--card-border);
@@ -342,6 +374,7 @@ button:focus:not(:focus-visible) {
 	cursor: not-allowed;
 }
 
+/* -----Chips----- */
 .chips {
 	display: flex;
 	gap: 8px;
@@ -366,7 +399,7 @@ button:focus:not(:focus-visible) {
 	margin-right: 4px;
 }
 
-/*--------- tailwind styling ----------*/
+/* -----Tailwind Styling----- */
 @layer components {
     /* --- Tables inside rendered markdown (prose) --- */
     .prose table {

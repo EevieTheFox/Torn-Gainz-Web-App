@@ -393,27 +393,6 @@
         background: rgba(255,255,255,0.06);
     }
 
-    .inputRow {
-        display: flex;
-        gap: 12px;
-        align-items: center;
-    }
-
-    .inputRow input {
-        flex: 1;
-        width: 70%;
-        /* ~2x “presence” */
-        padding: 16px 18px;
-        font-size: 1.1rem;
-        line-height: 1.1;
-        border-radius: 18px;
-        border: 1px solid var(--card-border);
-        background: var(--card-bg);
-        color: inherit;
-        outline: none;
-    }
-
-
     .actions {
         display: flex;
         gap: 12px;
