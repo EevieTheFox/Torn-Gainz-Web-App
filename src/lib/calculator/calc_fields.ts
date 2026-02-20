@@ -5,7 +5,34 @@ export const F = {
     // Row 1 left card
     USER_MAX_HAPPY: 'user.maxHappy',
     USER_PROPERTY_TYPE: 'user.propertyType',
-    USER_PROPERTY_PERKS: 'user.propertyPerks',
+    USER_PROPERTY_UPGRADES: 'user.propertyUpgrades',
+    USER_GYM: 'user.gym',
+
+    // Row 1 middle card
+    USER_BATTLE_STRENGTH: 'user.batStr',
+    USER_BATTLE_DEFENSE: 'user.batDef',
+    USER_BATTLE_SPEED: 'user.batSpd',
+    USER_BATTLE_DEXTERITY: 'user.batDex',
+
+    // Row 1 right card
+    // Faction boosts
+    FACTION_STEADFAST_STRENGTH: 'user.facSfStr',
+    FACTION_STEADFAST_DEFENSE: 'user.facSfDef',
+    FACTION_STEADFAST_SPEED: 'user.facSfSpd',
+    FACTION_STEADFAST_DEXTERITY: 'user.facSfDex',
+    FACTION_COOLDOWN_BOOST: 'user.facCdBoost',
+    FACTION_CANDY_BOOST: 'user.facCandyBoost',
+    // Education boosts
+    USER_EDUCATION_STRENGTH: 'user.eduStr',
+    USER_EDUCATION_DEFENSE: 'user.eduDef',
+    USER_EDUCATION_SPEED: 'user.eduSpd',
+    USER_EDUCATION_DEXTERITY: 'user.eduDex',
+    USER_EDUCATION_ALL: 'user.eduAll',
+    // Job perks
+    USER_JOB: 'user.job', // Company type
+    USER_JOB_LEVEL: 'user.jobLevel', // Company stars
+    USER_JOB_BOOST_TYPE: 'user.jobBoostType',
+    USER_JOB_BOOST_LEVEL: 'user.jobBoostLevel',
 
     // Row 2 left card
     ITEMS_CANDY_TYPE: 'item.candyType',

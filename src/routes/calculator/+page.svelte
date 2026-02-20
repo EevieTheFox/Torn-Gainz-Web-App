@@ -51,18 +51,10 @@
     };
 
     // UI Field Constants
-    /* ------ STUBBED. CORRECT IMPLEMENTATION ----------
     const num = (id: string, fallback = 0) => {
         const v = ui.fields[id];
         return typeof v === 'number' ? v : fallback;
     };
-
-    const onNum = (id: string, raw: string) => {
-        const n = raw === '' ? null : Number(raw);
-        ui = setField(ui, id, Number.isFinite(n as number) ? n : null);
-    };
-     ------------ */
-
 
     $: inputModeOptions = [
         { value: 'auto', label: 'Auto', disabled: !ui.hasApiKey },
@@ -228,41 +220,47 @@
             <!----Left Card - User happy, property, property perks, and preferences ----->
             <div class="card">
                 <h2>User Information</h2>
-                <div class="placeholder">
-                    Left: Max happy, property type/perks, preference
 
-                    <div class="inputRowCalc">
-                        <label>Maximum Happy</label>
-                        <input
+                <div class="inputRowCalc">
+                    <label>Property Type</label>
+                    <input
+                        label="Preference"
+                        value={numToInput(ui, F.USER_PROPERTY_TYPE)}
+                        on:input={(e) => onNum(F.USER_PROPERTY_TYPE, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Property Upgrades</label>
+                    <input
+                        label="Preference"
+                        value={numToInput(ui, F.USER_PROPERTY_UPGRADES)}
+                        on:input={(e) => onNum(F.USER_PROPERTY_UPGRADES, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Maximum Happy</label>
+                    <input
                             label="Preference"
                             value={numToInput(ui, F.USER_MAX_HAPPY)}
                             on:input={(e) => onNum(F.USER_MAX_HAPPY, e)}
-                        />
-                    </div>
+                    />
+                </div>
 
-                    <div class="inputRowCalc">
-                        <label>Property Type</label>
-                        <input
-                            label="Preference"
-                            value={numToInput(ui, F.USER_PROPERTY_TYPE)}
-                            on:input={(e) => onNum(F.USER_PROPERTY_TYPE, e)}
-                        />
-                    </div>
-
-                    <div class="inputRowCalc">
-                        <label>Property Perks</label>
-                        <input
-                            label="Preference"
-                            value={numToInput(ui, F.USER_PROPERTY_PERKS)}
-                            on:input={(e) => onNum(F.USER_PROPERTY_PERKS, e)}
-                        />
-                    </div>
+                <div class="inputRowCalc">
+                    <label>Current Gym</label>
+                    <input
+                            label="Gym"
+                            value={numToInput(ui, F.USER_GYM)}
+                            on:input={(e) => onNum(F.USER_GYM, e)}
+                    />
                 </div>
             </div>
 
             <!----Middle Card - User Stats ----->
             <div class="card">
-                <h2>Battle Stats</h2>
+                <h2>Current Battle Stats</h2>
                 <div class="placeholder">
                     Middle: stats + current gym
                 </div>
