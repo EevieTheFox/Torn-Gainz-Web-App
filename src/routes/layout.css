@@ -242,16 +242,15 @@ button:focus:not(:focus-visible) {
 }
 
 /* -----Custom inputs----- */
-.inputRowCalc {
+.inputRowApi {
     display: flex;
     gap: 12px;
     align-items: center;
 }
 
-.inputRowCalc input {
+.inputRowApi input {
     flex: 1;
     width: 70%;
-    /* ~2x “presence” */
     padding: 16px 18px;
     font-size: 1.1rem;
     line-height: 1.1;
@@ -262,20 +261,20 @@ button:focus:not(:focus-visible) {
     outline: none;
 }
 
-.inputRowApi {
+.inputRowCalc {
     display: flex;
     gap: 12px;
+    margin-top: 12px;
     align-items: center;
 }
 
-.inputRowApi input {
-    flex: 1;
-    width: 70%;
-    /* ~2x “presence” */
-    padding: 16px 18px;
-    font-size: 1.1rem;
-    line-height: 1.1;
-    border-radius: 18px;
+.inputRowCalc input {
+    margin-left: auto;
+    width: 33%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    line-height: 1;
+    border-radius: 12px;
     border: 1px solid var(--card-border);
     background: var(--card-bg);
     color: inherit;

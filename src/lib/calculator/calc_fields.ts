@@ -6,7 +6,6 @@ export const F = {
     USER_MAX_HAPPY: 'user.maxHappy',
     USER_PROPERTY_TYPE: 'user.propertyType',
     USER_PROPERTY_PERKS: 'user.propertyPerks',
-    USER_PREFERENCE: 'user.preference',
 
     // Row 2 left card
     ITEMS_CANDY_TYPE: 'item.candyType',

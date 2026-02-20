@@ -232,34 +232,29 @@
                     Left: Max happy, property type/perks, preference
 
                     <div class="inputRowCalc">
+                        <label>Maximum Happy</label>
                         <input
-                                label="Max Happy"
-                                value={numToInput(ui, F.USER_MAX_HAPPY)}
-                                on:input={(e) => onNum(F.USER_MAX_HAPPY, e)}
+                            label="Preference"
+                            value={numToInput(ui, F.USER_MAX_HAPPY)}
+                            on:input={(e) => onNum(F.USER_MAX_HAPPY, e)}
                         />
                     </div>
 
                     <div class="inputRowCalc">
+                        <label>Property Type</label>
                         <input
-                                label="Property Type"
-                                value={numToInput(ui, F.USER_PROPERTY_TYPE)}
-                                on:input={(e) => onNum(F.USER_PROPERTY_TYPE, e)}
+                            label="Preference"
+                            value={numToInput(ui, F.USER_PROPERTY_TYPE)}
+                            on:input={(e) => onNum(F.USER_PROPERTY_TYPE, e)}
                         />
                     </div>
 
                     <div class="inputRowCalc">
+                        <label>Property Perks</label>
                         <input
-                                label="Property Perks"
-                                value={numToInput(ui, F.USER_PROPERTY_PERKS)}
-                                on:input={(e) => onNum(F.USER_PROPERTY_PERKS, e)}
-                        />
-                    </div>
-
-                    <div class="inputRowCalc">
-                        <input
-                                label="Preference"
-                                value={numToInput(ui, F.USER_PREFERENCE)}
-                                on:input={(e) => onNum(F.USER_PREFERENCE, e)}
+                            label="Preference"
+                            value={numToInput(ui, F.USER_PROPERTY_PERKS)}
+                            on:input={(e) => onNum(F.USER_PROPERTY_PERKS, e)}
                         />
                     </div>
                 </div>
