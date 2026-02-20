@@ -1,7 +1,7 @@
 <script lang="ts">
-    import policyMD from '$lib/policy/POLICY_v1_1_1.md?raw';
+    import policyMD from '$lib/policy/POLICY_TEXT.md?raw';
     import { marked } from 'marked';
-    import { POLICY_VERSION, POLICY_VALID_AS_OF } from "$lib/policy/policy_v1_1_1.ts";
+    import { POLICY_VERSION, POLICY_VALID_AS_OF } from "$lib/policy/policy_version.ts";
 
     marked.setOptions({
         gfm: true,

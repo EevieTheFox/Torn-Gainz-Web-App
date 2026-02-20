@@ -1,24 +1,35 @@
 <script lang="ts">
+
+    // Import for top controls - jump type and auto/manual modes
     import SegmentedControl from '$lib/components/SegmentedControl.svelte';
     import {
-        createInitialState,
         selectJumpType,
         selectManualScaffold,
         selectInputMode,
         setJumpsCount,
+        createInitialState,
+        setField,
         type JumpType,
         type ManualScaffold,
         type InputMode,
         type CalcUIState
     } from '$lib/calculator/calc_ui_state';
+
+    // Import consent value to enable/disable auto mode
+    import { POLICY_VERSION } from "$lib/policy/policy_version.ts";
     import { getUiConsentState } from '$lib/consent/consent_ui_adapter';
     import type { ConsentState } from '$lib/consent/consent_levels';
 
-    let state: CalcUIState = createInitialState({
+    // Import calculator UI fields
+    import { F, numToInput, getStr } from '$lib/calculator/calc_fields';
+
+    // determines UI fields from createInitialState
+    let ui: CalcUIState = createInitialState({
         // placeholder until API key storage exists
         hasApiKey: false
     });
 
+    // Top segmented control buttons
     const jumpTypeOptions = [
         { value: 'manual', label: 'Manual' },
         { value: 'candy', label: 'Candy' },
@@ -26,34 +37,63 @@
         { value: '99k', label: '99k' }
     ] satisfies { value: JumpType; label: string }[];
 
+    // Bottom segmented control buttons
     const scaffoldOptions = [
         { value: 'candy', label: 'Candy' },
         { value: 'edvd', label: 'EDVD' },
         { value: '99k', label: '99k' }
     ] satisfies { value: ManualScaffold; label: string }[];
 
+    // Level of consent display
     const consent: ConsentState = {
-        policyVersion: '1.0.0',
+        policyVersion: POLICY_VERSION,
         telemetryLevel: 'none'
     };
 
+    // UI Field Constants
+    /* ------ STUBBED. CORRECT IMPLEMENTATION ----------
+    const num = (id: string, fallback = 0) => {
+        const v = ui.fields[id];
+        return typeof v === 'number' ? v : fallback;
+    };
+
+    const onNum = (id: string, raw: string) => {
+        const n = raw === '' ? null : Number(raw);
+        ui = setField(ui, id, Number.isFinite(n as number) ? n : null);
+    };
+     ------------ */
+
+
     $: inputModeOptions = [
-        { value: 'auto', label: 'Auto', disabled: !state.hasApiKey },
+        { value: 'auto', label: 'Auto', disabled: !ui.hasApiKey },
         { value: 'manual', label: 'Manual' }
     ] satisfies { value: InputMode; label: string; disabled?: boolean }[];
 
-    $: uiConsent = getUiConsentState({ consent, hasApiKey: state.hasApiKey });
+    $: uiConsent = getUiConsentState({ consent, hasApiKey: ui.hasApiKey });
 
+    // Selections from segmented controls dictate UI Fields
     function onSelectJumpType(v: JumpType) {
-        state = selectJumpType(state, v);
+        ui = selectJumpType(ui, v);
     }
 
     function onSelectScaffold(v: ManualScaffold) {
-        state = selectManualScaffold(state, v);
+        ui = selectManualScaffold(ui, v);
     }
 
     function onSelectInputMode(v: InputMode) {
-        state = selectInputMode(state, v);
+        ui = selectInputMode(ui, v);
+    }
+
+    // Readers for UI fields
+    function onNum(id: string, e: Event) {
+        const raw = (e.currentTarget as HTMLInputElement).value.trim();
+        const v = raw === '' ? null : Number(raw);
+        ui = setField(ui, id, Number.isFinite(v as number) ? (v as number) : null);
+    }
+
+    function onStr(id: string, e: Event) {
+        const raw = (e.currentTarget as HTMLInputElement).value;
+        ui = setField(ui, id, raw);
     }
 </script>
 
@@ -68,7 +108,7 @@
         <div class="chips">
             <span class="chips-label">Privacy</span>
             <span class="chip">{uiConsent.consentLevelLabel}</span>
-            <span class="chip">{state.hasApiKey ? 'API Key: Present' : 'API Key: Missing'}</span>
+            <span class="chip">{ui.hasApiKey ? 'API Key: Present' : 'API Key: Missing'}</span>
         </div>
 
         <div class="control-area">
@@ -84,7 +124,7 @@
                                     {#each jumpTypeOptions as opt (opt.value)}
                                         <button
                                             type="button"
-                                            class="segbtn {state.jumpType === opt.value ? 'selected' : ''}"
+                                            class="segbtn {ui.jumpType === opt.value ? 'selected' : ''}"
                                             on:click={() => onSelectJumpType(opt.value)}
                                         >
                                             {opt.label}
@@ -103,15 +143,15 @@
                                 type="number"
                                 min="1"
                                 step="1"
-                                value={state.jumpsCount}
-                                on:input={(e) => (state = setJumpsCount(state, Number((e.target as HTMLInputElement).value)))}
+                                value={ui.jumpsCount}
+                                on:input={(e) => (ui = setJumpsCount(ui, Number((e.target as HTMLInputElement).value)))}
                         />
                     </div>
                 </div>
             </div>
 
             <div class="field row-center">
-                {#if state.jumpType === 'manual'}
+                {#if ui.jumpType === 'manual'}
                     <div class="control-row">
                         <div class="left"></div>
                         <div class="mid">
@@ -120,7 +160,7 @@
                                 {#each scaffoldOptions as opt (opt.value)}
                                     <button
                                             type="button"
-                                            class="segbtn sm {state.manualScaffold === opt.value ? 'selected' : ''}"
+                                            class="segbtn sm {ui.manualScaffold === opt.value ? 'selected' : ''}"
                                             on:click={() => onSelectScaffold(opt.value)}
                                     >
                                         {opt.label}
@@ -142,7 +182,7 @@
                             <div class="seg-wrap small">
                                 <button
                                         type="button"
-                                        class="segbtn sm {state.inputMode === 'auto' ? 'selected' : ''}"
+                                        class="segbtn sm {ui.inputMode === 'auto' ? 'selected' : ''}"
                                         disabled={!uiConsent.canUseAutoMode}
                                         on:click={() => onSelectInputMode('auto')}
                                 >
@@ -150,7 +190,7 @@
                                 </button>
                                 <button
                                         type="button"
-                                        class="segbtn sm {state.inputMode === 'manual' ? 'selected' : ''}"
+                                        class="segbtn sm {ui.inputMode === 'manual' ? 'selected' : ''}"
                                         on:click={() => onSelectInputMode('manual')}
                                 >
                                     Manual
@@ -163,8 +203,8 @@
                         </div>
 
                         <div class="right metaAuto">
-                            {#if state.snapshotAt}
-                                <span class="meta-item">Accurate as of: {state.snapshotAt.toLocaleString()}</span>
+                            {#if ui.snapshotAtMs}
+                                <span class="meta-item">Accurate as of: {ui.snapshotAtMs.toLocaleString()}</span>
                             {:else}
                                 <span class="meta-item">No snapshot yet</span>
                             {/if}
@@ -173,8 +213,8 @@
                 {/if}
             </div>
 
-            {#if state.lastNotice}
-                <div class="notice">{state.lastNotice}</div>
+            {#if ui.lastNotice}
+                <div class="notice">{ui.lastNotice}</div>
             {/if}
 
         </div>
@@ -182,11 +222,54 @@
 
     <!-- Cards layout skeleton -->
     <div class="stack">
+
         <!-- Row 1: User Information -->
         <div class="row3">
-            <div class="card"><h2>User Information</h2><div class="placeholder">Left: Max happy, property type/perks, preference</div></div>
-            <div class="card"><h2>Battle Stats</h2><div class="placeholder">Middle: stats + current gym</div></div>
-            <div class="card"><h2>Perks</h2><div class="placeholder">Right: faction/edu/job perks</div></div>
+            <!----Left Card - User happy, property, property perks, and preferences ----->
+            <div class="card">
+                <h2>User Information</h2>
+                <div class="placeholder">
+                    Left: Max happy, property type/perks, preference
+
+                    <input
+                            label="Max Happy"
+                            value={numToInput(ui, F.USER_MAX_HAPPY)}
+                            on:input={(e) => onNum(F.USER_MAX_HAPPY, e)}
+                    />
+                    <input
+                            label="Property Type"
+                            value={numToInput(ui, F.USER_PROPERTY_TYPE)}
+                            on:input={(e) => onNum(F.USER_PROPERTY_TYPE, e)}
+                    />
+                    <input
+                            label="Property Perks"
+                            value={numToInput(ui, F.USER_PROPERTY_PERKS)}
+                            on:input={(e) => onNum(F.USER_PROPERTY_PERKS, e)}
+                    />
+                    <input
+                            label="Preference"
+                            value={numToInput(ui, F.USER_PREFERENCE)}
+                            on:input={(e) => onNum(F.USER_PREFERENCE, e)}
+                    />
+
+                </div>
+            </div>
+
+            <!----Middle Card - User Stats ----->
+            <div class="card">
+                <h2>Battle Stats</h2>
+                <div class="placeholder">
+                    Middle: stats + current gym
+                </div>
+            </div>
+
+            <!----User faction, education, and job perks ----->
+            <div class="card">
+                <h2>Perks</h2>
+                <div class="placeholder">
+                    Right: faction/edu/job perks
+                </div>
+            </div>
         </div>
 
         <!-- Row 2: Item Information -->
@@ -197,7 +280,7 @@
         </div>
 
         <!-- Row 3: Overrides (hidden in Manual) -->
-        {#if state.jumpType !== 'manual'}
+        {#if ui.jumpType !== 'manual'}
             <div class="card full">
                 <div class="card-header">
                     <h2>Customization</h2>
@@ -223,7 +306,7 @@
                     <div class="placeholder">Right: totals + grand total gains + gains/million + Calculate/Recalculate</div>
                     <div class="cta">
                         <button type="button" class="btn primary">
-                            {state.jumpType === 'manual' || !state.snapshotAt ? 'Calculate' : 'Recalculate'}
+                            {ui.jumpType === 'manual' || !ui.snapshotAtMs ? 'Calculate' : 'Recalculate'}
                         </button>
                     </div>
                 </div>

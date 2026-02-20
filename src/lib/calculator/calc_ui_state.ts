@@ -241,7 +241,7 @@ export function touch(state: CalcUIState, fieldId: FieldId): CalcUIState {
  * Optional utility: clear touched state for a specific field
  * (handy for "Reset to Auto" buttons later).
  */
-export function untouch(state: CalcUIState, fieldId: FieldId): CalcUIState {
+export function unTouch(state: CalcUIState, fieldId: FieldId): CalcUIState {
     const s = clone(state);
     s.lastNotice = null;
     s.touched.delete(fieldId);
@@ -268,21 +268,19 @@ function clearSnapshot(state: CalcUIState): CalcUIState {
 // Example scaffold defaults. Replace with real field ids/values.
 const scaffoldDefaults: Record<ManualScaffold, FieldPatch> = {
     candy: {
-        // 'items.candy.count': 0,
-        // 'items.candy.avgPrice': null,
-        // 'user.maxHappy': null,
+        'items.candy.qty': 1,
+        'items.candy.price': null
     },
     edvd: {
-        // 'items.edvd.count': 0,
-        // 'items.edvd.avgPrice': null,
-        // 'user.maxHappy': null,
+        'items.edvd.qty': 1,
+        'items.edvd.price': null
     },
     '99k': {
-        // 'items.99k.count': 0,
-        // 'items.99k.avgPrice': null,
-        // 'user.maxHappy': null,
+        'items.99k.qty': 1,
+        'items.99k.price': null
     }
 };
+
 
 function applyManualScaffoldStub(state: CalcUIState, scaffold: ManualScaffold): CalcUIState {
     // Populate requirements unless user touched those fields.
@@ -297,18 +295,20 @@ function applyManualScaffoldStub(state: CalcUIState, scaffold: ManualScaffold): 
 }
 
 function runAutoBatchPullStub(state: CalcUIState): CalcUIState {
-    // Placeholder for stats/perks/prices API calls. We only need UI behavior now.
-    // Later this becomes:
-    // - set loading true, clear error
-    // - async fetch (stats/perks/prices in batch)
-    // - applySoftPatch(...) for derived fields
-    // - set snapshotAtMs when complete
     let s = clone(state);
     s.isSnapshotLoading = false;
     s.snapshotError = null;
+
+    // pretend we fetched + derived values
+    s = applySoftPatch(s, {
+        'user.maxHappy': 5025,
+        'items.candy.price': 1120000
+    });
+
     s.snapshotAtMs = Date.now();
     return s;
 }
+
 
 /* -------------------------
    Clone
