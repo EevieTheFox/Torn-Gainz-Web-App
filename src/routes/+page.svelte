@@ -214,8 +214,13 @@
 
                 {#if !hasApiKey}
                     <div class="centerRow">
+                        <button type="button" class="btn btnGhost" on:click={openPolicy}>
+                            View Data Retention & API Usage Policy
+                        </button>
+                    </div>
+                    <div class="centerRow">
                         <button type="button" class="btn btnCalc" on:click={openCalculator()}>
-                            Go to calculator
+                            Go To Calculator
                         </button>
                     </div>
                 {/if}
@@ -287,6 +292,8 @@
             {#if hasApiKey}
                 <div class="row">
                     <label class="fieldLabel">Read the policy</label>
+                </div>
+                <div class="centerRow">
                     <button type="button" class="btn btnGhost" on:click={openPolicy}>
                         View Data Retention & API Usage Policy
                     </button>
@@ -308,9 +315,9 @@
                         <p class="hint">Disabled until you open the policy page.</p>
                     {/if}
                 </div>
-                <div class="row">
+                <div class="centerRow">
                     <button type="button" class="btn btnCalc" on:click={openCalculator()}>
-                        Go to calculator
+                        Go To Calculator
                     </button>
                 </div>
             {/if}
