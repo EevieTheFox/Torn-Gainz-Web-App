@@ -85,7 +85,7 @@
 
     function generateApiKey() {
         const url =
-            'https://www.torn.com/preferences.php#tab=api?step=addNewKey&user=job,education,gym,inventory,battlestats&faction=upgrades&company=profile&property=property&title=TornGainz';
+            'https://www.torn.com/preferences.php#tab=api?step=addNewKey&user=job,bars,education,gym,inventory,battlestats&faction=upgrades&company=profile&property=property&title=TornGainz';
 
         window.open(url, '_blank', 'noopener,noreferrer');
     }

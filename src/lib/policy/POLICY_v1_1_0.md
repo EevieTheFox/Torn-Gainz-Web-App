@@ -34,6 +34,7 @@ No Full Access key is required or requested.
 Torn Gainz retrieves only the following selections:
 
 User:
+- bars
 - battlestats
 - education
 - gym
