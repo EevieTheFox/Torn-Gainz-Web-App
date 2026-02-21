@@ -499,7 +499,7 @@
                             on:input={(e) => onNum(F.ITEMS_CANDY_TYPE, e)}
                     />
                     <input
-                            label="Candy Type"
+                            label="Candy Happy"
                             value={numToInput(ui, F.ITEMS_CANDY_TYPE_HAPPY)}
                             on:input={(e) => onNum(F.ITEMS_CANDY_TYPE_HAPPY, e)}
                     />
