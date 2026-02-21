@@ -16,7 +16,7 @@
     } from '$lib/calculator/calc_ui_state';
 
     // Import consent value to enable/disable auto mode
-    import { POLICY_VERSION } from "$lib/policy/policy_version.ts";
+    import { POLICY_VERSION } from "$lib/policy/policy_version";
     import { getUiConsentState } from '$lib/consent/consent_ui_adapter';
     import type { ConsentState } from '$lib/consent/consent_levels';
 
