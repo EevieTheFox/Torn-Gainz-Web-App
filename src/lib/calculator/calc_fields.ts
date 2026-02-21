@@ -49,7 +49,7 @@ export const F = {
     ITEMS_CANDY_TYPE_HAPPY: 'item.candyTypeHappy',
     ITEMS_CANDY_TYPE_COOLDOWN: 'item.candyTypeCooldown',
     ITEMS_POISON_MISTLETOE_QTY: 'items.poisonMistleQty',
-    ITEMS_POISON_MISTLE_HAPPY: 'items.poisonMistleHap',
+    ITEMS_POISON_MISTLETOE_HAPPY: 'items.poisonMistleHap',
     ITEMS_POISON_MISTLETOE_COOLDOWN: 'items.poisonMistleCooldown',
     ITEMS_XANAX_QTY: 'items.xanaxQty',
     ITEMS_XANAX_HAPPY: 'items.xanaxHap',

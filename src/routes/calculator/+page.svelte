@@ -457,20 +457,33 @@
         <div class="row3">
             <div class="card">
                 <h2>Requirements</h2>
-                <div class="placeholder">
-                    Left: requirements + total happy
+                <div class="inputRowItem itemsHeaderRow">
+                    <div class="itemsHeader">Items</div>
+                    <div class="colHeader">Quantity Needed</div>
+                    <div class="colHeader">Happy Per Item</div>
                 </div>
-                <div class="inputRowCalc">
+
+                <div class="inputRowItem">
                     <label>Feathery Hotel Coupon</label>
                     <input
                             label="Feathery Hotel Coupon"
                             value={numToInput(ui, F.ITEMS_FHC_QTY)}
                             on:input={(e) => onNum(F.ITEMS_FHC_QTY, e)}
                     />
+                    <input
+                            label="FHC Happy"
+                            value={numToInput(ui, F.ITEMS_FHC_HAPPY)}
+                            on:input={(e) => onNum(F.ITEMS_FHC_HAPPY, e)}
+                    />
                 </div>
 
-                <div class="inputRowCalc">
+                <div class="inputRowItem">
                     <label>Erotic DVD</label>
+                    <input
+                            label="Erotic DVD"
+                            value={numToInput(ui, F.ITEMS_EDVD_HAPPY)}
+                            on:input={(e) => onNum(F.ITEMS_EDVD_HAPPY, e)}
+                    />
                     <input
                             label="Erotic DVD"
                             value={numToInput(ui, F.ITEMS_EDVD_QTY)}
@@ -478,43 +491,63 @@
                     />
                 </div>
 
-                <div class="inputRowCalc">
+                <div class="inputRowItem">
                     <label>Candy Type</label>
                     <input
                             label="Candy Type"
                             value={numToInput(ui, F.ITEMS_CANDY_TYPE)}
                             on:input={(e) => onNum(F.ITEMS_CANDY_TYPE, e)}
                     />
+                    <input
+                            label="Candy Type"
+                            value={numToInput(ui, F.ITEMS_CANDY_TYPE_HAPPY)}
+                            on:input={(e) => onNum(F.ITEMS_CANDY_TYPE_HAPPY, e)}
+                    />
                 </div>
 
-                <div class="inputRowCalc">
+                <div class="inputRowItem">
                     <label>Poison Mistletoe</label>
                     <input
                             label="Poison Mistletoe"
                             value={numToInput(ui, F.ITEMS_POISON_MISTLETOE_QTY)}
                             on:input={(e) => onNum(F.ITEMS_POISON_MISTLETOE_QTY, e)}
                     />
+                    <input
+                            label="Poison Mistletoe"
+                            value={numToInput(ui, F.ITEMS_POISON_MISTLETOE_HAPPY)}
+                            on:input={(e) => onNum(F.ITEMS_POISON_MISTLETOE_HAPPY, e)}
+                    />
                 </div>
 
-                <div class="inputRowCalc">
+                <div class="inputRowItem">
                     <label>Xanax</label>
                     <input
                             label="Xanax"
                             value={numToInput(ui, F.ITEMS_XANAX_QTY)}
                             on:input={(e) => onNum(F.ITEMS_XANAX_QTY, e)}
                     />
+                    <input
+                            label="Xanax"
+                            value={numToInput(ui, F.ITEMS_XANAX_HAPPY)}
+                            on:input={(e) => onNum(F.ITEMS_XANAX_HAPPY, e)}
+                    />
                 </div>
 
-                <div class="inputRowCalc">
+                <div class="inputRowItem">
                     <label>Ecstasy</label>
                     <input
                             label="Ecstasy"
                             value={numToInput(ui, F.ITEMS_ECSTASY_QTY)}
                             on:input={(e) => onNum(F.ITEMS_ECSTASY_QTY, e)}
                     />
+                    <input
+                            label="Ecstasy"
+                            value={numToInput(ui, F.ITEMS_ECSTASY_HAPPY)}
+                            on:input={(e) => onNum(F.ITEMS_ECSTASY_HAPPY, e)}
+                    />
                 </div>
 
-                <div class="inputRowCalc">
+                <div class="inputRowOneItem">
                     <label>Total Happy</label>
                     <input
                             label="Total Happy"
@@ -701,14 +734,6 @@
         font-size: 0.9rem;
         opacity: 0.85;
         margin-bottom: 2px;
-    }
-
-    .perksDivider {
-        grid-column: 1 / -1;
-        height: 1px;
-        background: var(--card-border);
-        opacity: 0.8;
-        margin: 8px 0;
     }
 
     .placeholder {
