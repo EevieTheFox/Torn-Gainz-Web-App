@@ -903,26 +903,6 @@
         padding: 12px;
     }
 
-    .perksTwoCol {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 20px;
-        row-gap: 12px;
-    }
-
-    .perksCol {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .perksSectionTitle {
-        font-weight: 600;
-        font-size: 0.9rem;
-        opacity: 0.85;
-        margin-bottom: 2px;
-    }
-
     .placeholder {
         opacity: 0.7;
         font-size: 0.95em;
