@@ -223,7 +223,7 @@
                 <div class="inputRowCalc">
                     <label>Property Type</label>
                     <input
-                        label="Preference"
+                        label="Prop Type"
                         value={numToInput(ui, F.USER_PROPERTY_TYPE)}
                         on:input={(e) => onNum(F.USER_PROPERTY_TYPE, e)}
                     />
@@ -232,16 +232,16 @@
                 <div class="inputRowCalc">
                     <label>Property Upgrades</label>
                     <input
-                        label="Preference"
+                        label="Prop Upgrades"
                         value={numToInput(ui, F.USER_PROPERTY_UPGRADES)}
                         on:input={(e) => onNum(F.USER_PROPERTY_UPGRADES, e)}
                     />
                 </div>
 
                 <div class="inputRowCalc">
-                    <label>Maximum Happy</label>
+                    <label>Maximum Natural Happy</label>
                     <input
-                            label="Preference"
+                            label="Max Nat Happy"
                             value={numToInput(ui, F.USER_MAX_HAPPY)}
                             on:input={(e) => onNum(F.USER_MAX_HAPPY, e)}
                     />
@@ -263,7 +263,7 @@
                 <div class="inputRowCalc">
                     <label>Current Strength</label>
                     <input
-                            label="Preference"
+                            label="Current Strength"
                             value={numToInput(ui, F.USER_BATTLE_STRENGTH)}
                             on:input={(e) => onNum(F.USER_BATTLE_STRENGTH, e)}
                     />
@@ -272,7 +272,7 @@
                 <div class="inputRowCalc">
                     <label>Current Defense</label>
                     <input
-                            label="Preference"
+                            label="Current Defense"
                             value={numToInput(ui, F.USER_BATTLE_DEFENSE)}
                             on:input={(e) => onNum(F.USER_BATTLE_DEFENSE, e)}
                     />
@@ -281,7 +281,7 @@
                 <div class="inputRowCalc">
                     <label>Current Speed</label>
                     <input
-                            label="Preference"
+                            label="Current Speed"
                             value={numToInput(ui, F.USER_BATTLE_SPEED)}
                             on:input={(e) => onNum(F.USER_BATTLE_SPEED, e)}
                     />
@@ -290,7 +290,7 @@
                 <div class="inputRowCalc">
                     <label>Current Dexterity</label>
                     <input
-                            label="Gym"
+                            label="Current Dexterity"
                             value={numToInput(ui, F.USER_BATTLE_DEXTERITY)}
                             on:input={(e) => onNum(F.USER_BATTLE_DEXTERITY, e)}
                     />
@@ -311,36 +311,36 @@
             <div class="card">
                 <h2>Faction Perks</h2>
                 <div class="inputRowCalc">
-                    <label>Strength Boost</label>
+                    <label>Strength Steadfast</label>
                     <input
-                            label="Gym"
+                            label="Strength Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_STRENGTH)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_STRENGTH, e)}
                     />
                 </div>
 
                 <div class="inputRowCalc">
-                    <label>Defense Boost</label>
+                    <label>Defense Steadfast</label>
                     <input
-                            label="Gym"
+                            label="Defense Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_DEFENSE)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_DEFENSE, e)}
                     />
                 </div>
 
                 <div class="inputRowCalc">
-                    <label>Speed Boost</label>
+                    <label>Speed Steadfast</label>
                     <input
-                            label="Gym"
+                            label="Speed Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_SPEED)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_SPEED, e)}
                     />
                 </div>
 
                 <div class="inputRowCalc">
-                    <label>Dexterity Boost</label>
+                    <label>Dexterity Steadfast</label>
                     <input
-                            label="Gym"
+                            label="Dexterity Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_DEXTERITY)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_DEXTERITY, e)}
                     />
@@ -349,16 +349,16 @@
                 <div class="inputRowCalc">
                     <label>Cooldown Limit</label>
                     <input
-                            label="Gym"
+                            label="Cooldown Limit"
                             value={numToInput(ui, F.FACTION_COOLDOWN_BOOST)}
                             on:input={(e) => onNum(F.FACTION_COOLDOWN_BOOST, e)}
                     />
                 </div>
 
                 <div class="inputRowCalc">
-                    <label>Candy Boost</label>
+                    <label>Candy Happy Boost</label>
                     <input
-                            label="Gym"
+                            label="Candy Happy Boost"
                             value={numToInput(ui, F.FACTION_CANDY_BOOST)}
                             on:input={(e) => onNum(F.FACTION_CANDY_BOOST, e)}
                     />
@@ -370,7 +370,7 @@
                 <div class="inputRowCalc">
                     <label>Strength Boost</label>
                     <input
-                            label="Gym"
+                            label="Strength Boost"
                             value={numToInput(ui, F.USER_EDUCATION_STRENGTH)}
                             on:input={(e) => onNum(F.USER_EDUCATION_STRENGTH, e)}
                     />
@@ -379,7 +379,7 @@
                 <div class="inputRowCalc">
                     <label>Defense Boost</label>
                     <input
-                            label="Gym"
+                            label="Defense Boost"
                             value={numToInput(ui, F.USER_EDUCATION_DEFENSE)}
                             on:input={(e) => onNum(F.USER_EDUCATION_DEFENSE, e)}
                     />
@@ -388,7 +388,7 @@
                 <div class="inputRowCalc">
                     <label>Speed Boost</label>
                     <input
-                            label="Gym"
+                            label="Speed Boost"
                             value={numToInput(ui, F.USER_EDUCATION_SPEED)}
                             on:input={(e) => onNum(F.USER_EDUCATION_SPEED, e)}
                     />
@@ -397,7 +397,7 @@
                 <div class="inputRowCalc">
                     <label>Dexterity Boost</label>
                     <input
-                            label="Gym"
+                            label="Dexterity Boost"
                             value={numToInput(ui, F.USER_EDUCATION_DEXTERITY)}
                             on:input={(e) => onNum(F.USER_EDUCATION_DEXTERITY, e)}
                     />
@@ -406,7 +406,7 @@
                 <div class="inputRowCalc">
                     <label>All Stat Boost</label>
                     <input
-                            label="Gym"
+                            label="All Boost"
                             value={numToInput(ui, F.USER_EDUCATION_ALL)}
                             on:input={(e) => onNum(F.USER_EDUCATION_ALL, e)}
                     />
@@ -418,7 +418,7 @@
                 <div class="inputRowCalc">
                     <label>Company Type</label>
                     <input
-                            label="Gym"
+                            label="Company Type"
                             value={numToInput(ui, F.USER_JOB)}
                             on:input={(e) => onNum(F.USER_JOB, e)}
                     />
@@ -427,7 +427,7 @@
                 <div class="inputRowCalc">
                     <label>Company Stars</label>
                     <input
-                            label="Gym"
+                            label="Company Stars"
                             value={numToInput(ui, F.USER_JOB_LEVEL)}
                             on:input={(e) => onNum(F.USER_JOB_LEVEL, e)}
                     />
@@ -436,16 +436,16 @@
                 <div class="inputRowCalc">
                     <label>Company Perk</label>
                     <input
-                            label="Gym"
+                            label="Company Perk"
                             value={numToInput(ui, F.USER_JOB_BOOST_TYPE)}
                             on:input={(e) => onNum(F.USER_JOB_BOOST_TYPE, e)}
                     />
                 </div>
 
                 <div class="inputRowCalc">
-                    <label>Boost Amount</label>
+                    <label>Perk Amount</label>
                     <input
-                            label="Gym"
+                            label="Perk Amount"
                             value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
                             on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
                     />
@@ -455,9 +455,88 @@
 
         <!-- Row 3: Item Information -->
         <div class="row3">
-            <div class="card"><h2>Requirements</h2><div class="placeholder">Left: requirements + total happy</div></div>
-            <div class="card"><h2>Inventory</h2><div class="placeholder">Center: inventory + delta</div></div>
-            <div class="card"><h2>Market / Total</h2><div class="placeholder">Right: values + per-item totals + GRAND TOTAL</div></div>
+            <div class="card">
+                <h2>Requirements</h2>
+                <div class="placeholder">
+                    Left: requirements + total happy
+                </div>
+                <div class="inputRowCalc">
+                    <label>Feathery Hotel Coupon</label>
+                    <input
+                            label="Feathery Hotel Coupon"
+                            value={numToInput(ui, F.ITEMS_FHC_QTY)}
+                            on:input={(e) => onNum(F.ITEMS_FHC_QTY, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Erotic DVD</label>
+                    <input
+                            label="Erotic DVD"
+                            value={numToInput(ui, F.ITEMS_EDVD_QTY)}
+                            on:input={(e) => onNum(F.ITEMS_EDVD_QTY, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Candy Type</label>
+                    <input
+                            label="Candy Type"
+                            value={numToInput(ui, F.ITEMS_CANDY_TYPE)}
+                            on:input={(e) => onNum(F.ITEMS_CANDY_TYPE, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Poison Mistletoe</label>
+                    <input
+                            label="Poison Mistletoe"
+                            value={numToInput(ui, F.ITEMS_POISON_MISTLETOE_QTY)}
+                            on:input={(e) => onNum(F.ITEMS_POISON_MISTLETOE_QTY, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Xanax</label>
+                    <input
+                            label="Xanax"
+                            value={numToInput(ui, F.ITEMS_XANAX_QTY)}
+                            on:input={(e) => onNum(F.ITEMS_XANAX_QTY, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Ecstasy</label>
+                    <input
+                            label="Ecstasy"
+                            value={numToInput(ui, F.ITEMS_ECSTASY_QTY)}
+                            on:input={(e) => onNum(F.ITEMS_ECSTASY_QTY, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
+                    <label>Total Happy</label>
+                    <input
+                            label="Total Happy"
+                            value={numToInput(ui, F.USER_TOTAL_HAPPY)}
+                            on:input={(e) => onNum(F.USER_TOTAL_HAPPY, e)}
+                    />
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Inventory</h2>
+                <div class="placeholder">
+                    Center: inventory + delta
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Market / Total</h2>
+                <div class="placeholder">
+                    Right: values + per-item totals + GRAND TOTAL
+                </div>
+            </div>
         </div>
 
         <!-- Row 4: Overrides (hidden in Manual) -->
