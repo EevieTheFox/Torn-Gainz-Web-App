@@ -559,8 +559,94 @@
 
             <div class="card">
                 <h2>Inventory</h2>
-                <div class="placeholder">
-                    Center: inventory + delta
+                <div class="inputRowItem itemsHeaderRow">
+                    <div class="itemsHeader">Items</div>
+                    <div class="colHeader">Quantity On Hand</div>
+                    <div class="colHeader">Quantity Needed</div>
+                </div>
+
+                <div class="inputRowItem">
+                    <label>Feathery Hotel Coupon</label>
+                    <input
+                            label="Feathery Hotel Coupon"
+                            value={numToInput(ui, F.USER_FHC_QTY)}
+                            on:input={(e) => onNum(F.USER_FHC_QTY, e)}
+                    />
+                    <input
+                            label="FHC Needed"
+                            value={numToInput(ui, F.USER_FHC_DELTA)}
+                            on:input={(e) => onNum(F.USER_FHC_DELTA, e)}
+                    />
+                </div>
+
+                <div class="inputRowItem">
+                    <label>Erotic DVD</label>
+                    <input
+                            label="Erotic DVD On Hand"
+                            value={numToInput(ui, F.USER_EDVD_QTY)}
+                            on:input={(e) => onNum(F.USER_EDVD_QTY, e)}
+                    />
+                    <input
+                            label="Erotic DVD Needed"
+                            value={numToInput(ui, F.USER_EDVD_DELTA)}
+                            on:input={(e) => onNum(F.USER_EDVD_DELTA, e)}
+                    />
+                </div>
+
+                <div class="inputRowItem">
+                    <label>Candy Type</label>
+                    <input
+                            label="Candy On Hand"
+                            value={numToInput(ui, F.USER_CANDY_QTY)}
+                            on:input={(e) => onNum(F.USER_CANDY_QTY, e)}
+                    />
+                    <input
+                            label="Candy Needed"
+                            value={numToInput(ui, F.USER_CANDY_DELTA)}
+                            on:input={(e) => onNum(F.USER_CANDY_DELTA, e)}
+                    />
+                </div>
+
+                <div class="inputRowItem">
+                    <label>Poison Mistletoe</label>
+                    <input
+                            label="Poison Mistletoe"
+                            value={numToInput(ui, F.USER_POISON_MISTLETOE_QTY)}
+                            on:input={(e) => onNum(F.USER_POISON_MISTLETOE_QTY, e)}
+                    />
+                    <input
+                            label="Poison Mistletoe"
+                            value={numToInput(ui, F.USER_POISON_MISTLETOE_DELTA)}
+                            on:input={(e) => onNum(F.USER_POISON_MISTLETOE_DELTA, e)}
+                    />
+                </div>
+
+                <div class="inputRowItem">
+                    <label>Xanax</label>
+                    <input
+                            label="Xanax"
+                            value={numToInput(ui, F.USER_XANAX_QTY)}
+                            on:input={(e) => onNum(F.USER_XANAX_QTY, e)}
+                    />
+                    <input
+                            label="Xanax"
+                            value={numToInput(ui, F.USER_XANAX_DELTA)}
+                            on:input={(e) => onNum(F.USER_XANAX_DELTA, e)}
+                    />
+                </div>
+
+                <div class="inputRowItem">
+                    <label>Ecstasy</label>
+                    <input
+                            label="Ecstasy"
+                            value={numToInput(ui, F.USER_ECSTASY_QTY)}
+                            on:input={(e) => onNum(F.USER_ECSTASY_QTY, e)}
+                    />
+                    <input
+                            label="Ecstasy"
+                            value={numToInput(ui, F.USER_ECSTASY_DELTA)}
+                            on:input={(e) => onNum(F.USER_ECSTASY_DELTA, e)}
+                    />
                 </div>
             </div>
 
