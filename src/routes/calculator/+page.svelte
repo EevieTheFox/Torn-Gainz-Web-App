@@ -217,7 +217,7 @@
 
         <!-- Row 1: User Information -->
         <div class="row3">
-            <!----Left Card - User happy, property, property perks, and preferences ----->
+            <!----R1 C1 - User happy, property, property perks, and gym ----->
             <div class="card">
                 <h2>User Information</h2>
                 <div class="inputRowCalc">
@@ -257,7 +257,7 @@
                 </div>
             </div>
 
-            <!----Middle Card - User Stats ----->
+            <!----R1 C2 - User Stats ----->
             <div class="card">
                 <h2>Current Battle Stats</h2>
                 <div class="inputRowCalc">
@@ -297,7 +297,7 @@
                 </div>
             </div>
 
-            <!----User faction, education, and job perks ----->
+            <!----R1 C3 - About this calculator ----->
             <div class="card">
                 <h2>About This Calculator</h2>
                 <div class="placeholder">
@@ -308,6 +308,7 @@
 
         <!-- Row 2: User Perks -->
         <div class="row3">
+            <!-- R2 C1 - Faction perks -->
             <div class="card">
                 <h2>Faction Perks</h2>
                 <div class="inputRowCalc">
@@ -365,6 +366,7 @@
                 </div>
             </div>
 
+            <!-- R2 C2 - Education perks -->
             <div class="card">
                 <h2>Education Perks</h2>
                 <div class="inputRowCalc">
@@ -413,6 +415,7 @@
                 </div>
             </div>
 
+            <!-- R2 C3 - Job perks -->
             <div class="card">
                 <h2>Job Perks</h2>
                 <div class="inputRowCalc">
@@ -455,6 +458,7 @@
 
         <!-- Row 3: Item Information -->
         <div class="row3">
+            <!-- R3 C1 - Item requirements -->
             <div class="card">
                 <h2>Requirements</h2>
                 <div class="inputRowItem itemsHeaderRow">
@@ -557,6 +561,7 @@
                 </div>
             </div>
 
+            <!-- R3 C2 - Item inventory and delta -->
             <div class="card">
                 <h2>Inventory</h2>
                 <div class="inputRowItem itemsHeaderRow">
@@ -650,10 +655,106 @@
                 </div>
             </div>
 
+            <!-- R3 C3 - Item costs -->
             <div class="card">
                 <h2>Market / Total</h2>
-                <div class="placeholder">
-                    Right: values + per-item totals + GRAND TOTAL
+                <div class="inputRowItem itemsHeaderRow">
+                    <div class="itemsHeader">Items</div>
+                    <div class="colHeader">Market Price</div>
+                    <div class="colHeader">Total Cost</div>
+                </div>
+
+                <div class="inputRowItem">
+                    <label>Feathery Hotel Coupon</label>
+                    <input
+                            label="Feathery Hotel Coupon"
+                            value={numToInput(ui, F.ITEMS_FHC_PRICE)}
+                            on:input={(e) => onNum(F.ITEMS_FHC_PRICE, e)}
+                    />
+                    <input
+                            label="FHC Happy"
+                            value={numToInput(ui, F.USER_FHC_COST)}
+                            on:input={(e) => onNum(F.USER_FHC_COST, e)}
+                    />
+                </div>
+
+                <div class="inputRowItem">
+                    <label>Erotic DVD</label>
+                    <input
+                            label="Erotic DVD"
+                            value={numToInput(ui, F.ITEMS_EDVD_PRICE)}
+                            on:input={(e) => onNum(F.ITEMS_EDVD_PRICE, e)}
+                    />
+                    <input
+                            label="Erotic DVD"
+                            value={numToInput(ui, F.USER_EDVD_COST)}
+                            on:input={(e) => onNum(F.USER_EDVD_COST, e)}
+                    />
+                </div>
+
+                <div class="inputRowItem">
+                    <label>Candy Type</label>
+                    <input
+                            label="Candy Type"
+                            value={numToInput(ui, F.ITEMS_CANDY_PRICE)}
+                            on:input={(e) => onNum(F.ITEMS_CANDY_PRICE, e)}
+                    />
+                    <input
+                            label="Candy Happy"
+                            value={numToInput(ui, F.USER_CANDY_COST)}
+                            on:input={(e) => onNum(F.USER_CANDY_COST, e)}
+                    />
+                </div>
+
+                <div class="inputRowItem">
+                    <label>Poison Mistletoe</label>
+                    <input
+                            label="Poison Mistletoe"
+                            value={numToInput(ui, F.ITEMS_POISON_MISTLETOE_PRICE)}
+                            on:input={(e) => onNum(F.ITEMS_POISON_MISTLETOE_PRICE, e)}
+                    />
+                    <input
+                            label="Poison Mistletoe"
+                            value={numToInput(ui, F.USER_POISON_MISTLETOE_COST)}
+                            on:input={(e) => onNum(F.USER_POISON_MISTLETOE_COST, e)}
+                    />
+                </div>
+
+                <div class="inputRowItem">
+                    <label>Xanax</label>
+                    <input
+                            label="Xanax"
+                            value={numToInput(ui, F.ITEMS_XANAX_PRICE)}
+                            on:input={(e) => onNum(F.ITEMS_XANAX_PRICE, e)}
+                    />
+                    <input
+                            label="Xanax"
+                            value={numToInput(ui, F.USER_XANAX_COST)}
+                            on:input={(e) => onNum(F.USER_XANAX_COST, e)}
+                    />
+                </div>
+
+                <div class="inputRowItem">
+                    <label>Ecstasy</label>
+                    <input
+                            label="Ecstasy"
+                            value={numToInput(ui, F.ITEMS_ECSTASY_PRICE)}
+                            on:input={(e) => onNum(F.ITEMS_ECSTASY_PRICE, e)}
+                    />
+                    <input
+                            label="Ecstasy"
+                            value={numToInput(ui, F.USER_ECSTASY_COST)}
+                            on:input={(e) => onNum(F.USER_ECSTASY_COST, e)}
+                    />
+                </div>
+
+                <div class="inputRowOneItem">
+                    <label>Grand Total</label>
+                    <input
+                            label="Grand Total"
+                            value={numToInput(ui, F.USER_ITEMS_TOTAL_COST)}
+                            on:input={(e) => onNum(F.USER_ITEMS_TOTAL_COST, e)}
+                    />
                 </div>
             </div>
         </div>
