@@ -510,8 +510,8 @@
                         <label>Candies</label>
                         <input
                             label="Candy Type"
-                            value={numToInput(ui, F.ITEMS_CANDY_TYPE)}
-                            on:input={(e) => onNum(F.ITEMS_CANDY_TYPE, e)}
+                            value={numToInput(ui, F.ITEMS_CANDY_TYPE_QTY)}
+                            on:input={(e) => onNum(F.ITEMS_CANDY_TYPE_QTY, e)}
                         />
                         <input
                             label="Candy Happy"
