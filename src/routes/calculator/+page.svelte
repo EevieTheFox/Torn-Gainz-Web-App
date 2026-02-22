@@ -467,36 +467,7 @@
                     <div class="colHeader">Happy Per Item</div>
                 </div>
 
-                <div class="inputRowItem">
-                    <label>Feathery Hotel Coupon</label>
-                    <input
-                            label="Feathery Hotel Coupon"
-                            value={numToInput(ui, F.ITEMS_FHC_QTY)}
-                            on:input={(e) => onNum(F.ITEMS_FHC_QTY, e)}
-                    />
-                    <input
-                            label="FHC Happy"
-                            value={numToInput(ui, F.ITEMS_FHC_HAPPY)}
-                            on:input={(e) => onNum(F.ITEMS_FHC_HAPPY, e)}
-                    />
-                </div>
-
-                {#if (ui.jumpType === 'manual' && (ui.manualScaffold === 'edvd' || ui.manualScaffold === '99k')) || (ui.jumpType === 'edvd' || ui.jumpType === '99k')}
-                    <div class="inputRowItem">
-                        <label>Erotic DVD</label>
-                        <input
-                            label="Erotic DVD"
-                            value={numToInput(ui, F.ITEMS_EDVD_HAPPY)}
-                            on:input={(e) => onNum(F.ITEMS_EDVD_HAPPY, e)}
-                        />
-                        <input
-                            label="Erotic DVD"
-                            value={numToInput(ui, F.ITEMS_EDVD_QTY)}
-                            on:input={(e) => onNum(F.ITEMS_EDVD_QTY, e)}
-                        />
-                    </div>
-
-                {:else}
+                {#if (ui.jumpType === 'manual' && ui.manualScaffold === 'candy') || ui.jumpType === 'candy'}
                     <div class="inputRowOneItem">
                         <label>Candy Type</label>
                         <input
@@ -519,9 +490,38 @@
                             on:input={(e) => onNum(F.ITEMS_CANDY_TYPE_HAPPY, e)}
                         />
                     </div>
+
+                {:else if (ui.jumpType === 'manual' && (ui.manualScaffold === 'edvd' || ui.manualScaffold === '99k')) || (ui.jumpType === 'edvd' || ui.jumpType === '99k')}
+                    <div class="inputRowItem">
+                        <label>Erotic DVD</label>
+                        <input
+                                label="Erotic DVD"
+                                value={numToInput(ui, F.ITEMS_EDVD_HAPPY)}
+                                on:input={(e) => onNum(F.ITEMS_EDVD_HAPPY, e)}
+                        />
+                        <input
+                                label="Erotic DVD"
+                                value={numToInput(ui, F.ITEMS_EDVD_QTY)}
+                                on:input={(e) => onNum(F.ITEMS_EDVD_QTY, e)}
+                        />
+                    </div>
                 {/if}
 
                 {#if ui.jumpType === '99k' || ui.manualScaffold === '99k'}
+                    <div class="inputRowItem">
+                        <label>Feathery Hotel Coupon</label>
+                        <input
+                            label="Feathery Hotel Coupon"
+                            value={numToInput(ui, F.ITEMS_FHC_QTY)}
+                            on:input={(e) => onNum(F.ITEMS_FHC_QTY, e)}
+                        />
+                        <input
+                            label="FHC Happy"
+                            value={numToInput(ui, F.ITEMS_FHC_HAPPY)}
+                            on:input={(e) => onNum(F.ITEMS_FHC_HAPPY, e)}
+                        />
+                    </div>
+
                     <div class="inputRowItem">
                         <label>Poison Mistletoe</label>
                         <input
@@ -584,36 +584,7 @@
                     <div class="colHeader">Quantity Needed</div>
                 </div>
 
-                <div class="inputRowItem">
-                    <label>Feathery Hotel Coupon</label>
-                    <input
-                            label="Feathery Hotel Coupon"
-                            value={numToInput(ui, F.USER_FHC_QTY)}
-                            on:input={(e) => onNum(F.USER_FHC_QTY, e)}
-                    />
-                    <input
-                            label="FHC Needed"
-                            value={numToInput(ui, F.USER_FHC_DELTA)}
-                            on:input={(e) => onNum(F.USER_FHC_DELTA, e)}
-                    />
-                </div>
-
-                {#if (ui.jumpType === 'manual' && (ui.manualScaffold === 'edvd' || ui.manualScaffold === '99k')) || (ui.jumpType === 'edvd' || ui.jumpType === '99k')}
-                    <div class="inputRowItem">
-                        <label>Erotic DVD</label>
-                        <input
-                            label="Erotic DVD On Hand"
-                            value={numToInput(ui, F.USER_EDVD_QTY)}
-                            on:input={(e) => onNum(F.USER_EDVD_QTY, e)}
-                        />
-                        <input
-                            label="Erotic DVD Needed"
-                            value={numToInput(ui, F.USER_EDVD_DELTA)}
-                            on:input={(e) => onNum(F.USER_EDVD_DELTA, e)}
-                        />
-                    </div>
-
-                {:else}
+                {#if (ui.jumpType === 'manual' && ui.manualScaffold === 'candy') || ui.jumpType === 'candy'}
                     <div class="inputRowItem">
                         <label>Candy</label>
                         <input
@@ -627,9 +598,38 @@
                             on:input={(e) => onNum(F.USER_CANDY_DELTA, e)}
                         />
                     </div>
+
+                {:else if (ui.jumpType === 'manual' && (ui.manualScaffold === 'edvd' || ui.manualScaffold === '99k')) || (ui.jumpType === 'edvd' || ui.jumpType === '99k')}
+                    <div class="inputRowItem">
+                        <label>Erotic DVD</label>
+                        <input
+                                label="Erotic DVD On Hand"
+                                value={numToInput(ui, F.USER_EDVD_QTY)}
+                                on:input={(e) => onNum(F.USER_EDVD_QTY, e)}
+                        />
+                        <input
+                                label="Erotic DVD Needed"
+                                value={numToInput(ui, F.USER_EDVD_DELTA)}
+                                on:input={(e) => onNum(F.USER_EDVD_DELTA, e)}
+                        />
+                    </div>
                 {/if}
 
                 {#if ui.jumpType === '99k' || ui.manualScaffold === '99k'}
+                    <div class="inputRowItem">
+                        <label>Feathery Hotel Coupon</label>
+                        <input
+                                label="Feathery Hotel Coupon"
+                                value={numToInput(ui, F.USER_FHC_QTY)}
+                                on:input={(e) => onNum(F.USER_FHC_QTY, e)}
+                        />
+                        <input
+                                label="FHC Needed"
+                                value={numToInput(ui, F.USER_FHC_DELTA)}
+                                on:input={(e) => onNum(F.USER_FHC_DELTA, e)}
+                        />
+                    </div>
+
                     <div class="inputRowItem">
                         <label>Poison Mistletoe</label>
                         <input
@@ -683,36 +683,7 @@
                     <div class="colHeader">Total Cost</div>
                 </div>
 
-                <div class="inputRowItem">
-                    <label>Feathery Hotel Coupon</label>
-                    <input
-                            label="Feathery Hotel Coupon"
-                            value={numToInput(ui, F.ITEMS_FHC_PRICE)}
-                            on:input={(e) => onNum(F.ITEMS_FHC_PRICE, e)}
-                    />
-                    <input
-                            label="FHC Happy"
-                            value={numToInput(ui, F.USER_FHC_COST)}
-                            on:input={(e) => onNum(F.USER_FHC_COST, e)}
-                    />
-                </div>
-
-                {#if (ui.jumpType === 'manual' && (ui.manualScaffold === 'edvd' || ui.manualScaffold === '99k')) || (ui.jumpType === 'edvd' || ui.jumpType === '99k')}
-                    <div class="inputRowItem">
-                        <label>Erotic DVD</label>
-                        <input
-                            label="Erotic DVD"
-                            value={numToInput(ui, F.ITEMS_EDVD_PRICE)}
-                            on:input={(e) => onNum(F.ITEMS_EDVD_PRICE, e)}
-                        />
-                        <input
-                            label="Erotic DVD"
-                            value={numToInput(ui, F.USER_EDVD_COST)}
-                            on:input={(e) => onNum(F.USER_EDVD_COST, e)}
-                        />
-                    </div>
-
-                {:else}
+                {#if (ui.jumpType === 'manual' && ui.manualScaffold === 'candy') || ui.jumpType === 'candy'}
                     <div class="inputRowItem">
                         <label>Candy</label>
                         <input
@@ -726,9 +697,38 @@
                             on:input={(e) => onNum(F.USER_CANDY_COST, e)}
                         />
                     </div>
+
+                {:else if (ui.jumpType === 'manual' && (ui.manualScaffold === 'edvd' || ui.manualScaffold === '99k')) || (ui.jumpType === 'edvd' || ui.jumpType === '99k')}
+                    <div class="inputRowItem">
+                        <label>Erotic DVD</label>
+                        <input
+                                label="Erotic DVD"
+                                value={numToInput(ui, F.ITEMS_EDVD_PRICE)}
+                                on:input={(e) => onNum(F.ITEMS_EDVD_PRICE, e)}
+                        />
+                        <input
+                                label="Erotic DVD"
+                                value={numToInput(ui, F.USER_EDVD_COST)}
+                                on:input={(e) => onNum(F.USER_EDVD_COST, e)}
+                        />
+                    </div>
                 {/if}
 
                 {#if ui.jumpType === '99k' || ui.manualScaffold === '99k'}
+                    <div class="inputRowItem">
+                        <label>Feathery Hotel Coupon</label>
+                        <input
+                                label="Feathery Hotel Coupon"
+                                value={numToInput(ui, F.ITEMS_FHC_PRICE)}
+                                on:input={(e) => onNum(F.ITEMS_FHC_PRICE, e)}
+                        />
+                        <input
+                                label="FHC Happy"
+                                value={numToInput(ui, F.USER_FHC_COST)}
+                                on:input={(e) => onNum(F.USER_FHC_COST, e)}
+                        />
+                    </div>
+
                     <div class="inputRowItem">
                         <label>Poison Mistletoe</label>
                         <input
