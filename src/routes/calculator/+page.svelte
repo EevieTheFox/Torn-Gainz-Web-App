@@ -215,11 +215,14 @@
     <!-- Cards  -->
     <div class="stack">
 
-        <!-- Row 1: User Information -->
+        <!---------- Row 1: User Information ---------->
         <div class="row3">
-            <!----R1 C1 - User happy, property, property perks, and gym ----->
+
+            <!----Row 1 Card 1 - User happy, property, property perks, and gym ----->
             <div class="card">
-                <h2>User Information</h2>
+                <h2>Property & Gym</h2>
+                <div class="itemsHeaderDivider"></div>
+
                 <div class="inputRowCalc">
                     <label>Property Type</label>
                     <select class="field"
@@ -257,9 +260,11 @@
                 </div>
             </div>
 
-            <!----R1 C2 - User Stats ----->
+            <!----Row 1 Card 2 - User Stats ----->
             <div class="card">
                 <h2>Current Battle Stats</h2>
+                <div class="itemsHeaderDivider"></div>
+
                 <div class="inputRowCalc">
                     <label>Current Strength</label>
                     <input class="field"
@@ -297,20 +302,25 @@
                 </div>
             </div>
 
-            <!----R1 C3 - About this calculator ----->
+            <!----Row 1 Card 3 - About this calculator ----->
             <div class="card">
                 <h2>About This Calculator</h2>
+                <div class="itemsHeaderDivider"></div>
+
                 <div class="placeholder">
                     Prose about the calculator
                 </div>
             </div>
         </div>
 
-        <!-- Row 2: User Perks -->
+        <!---------- Row 2: User Perks ---------->
         <div class="row3">
-            <!-- R2 C1 - Faction perks -->
+
+            <!-- Row 2 Card 1 - Faction perks -->
             <div class="card">
                 <h2>Faction Perks</h2>
+                <div class="itemsHeaderDivider"></div>
+
                 <div class="inputRowCalc">
                     <label>Strength Steadfast</label>
                     <input class="field"
@@ -366,9 +376,11 @@
                 </div>
             </div>
 
-            <!-- R2 C2 - Education perks -->
+            <!-- Row 2 Card 2 - Education perks -->
             <div class="card">
                 <h2>Education Perks</h2>
+                <div class="itemsHeaderDivider"></div>
+
                 <div class="inputRowCalc">
                     <label>Strength Boost</label>
                     <input class="field"
@@ -415,9 +427,11 @@
                 </div>
             </div>
 
-            <!-- R2 C3 - Job perks -->
+            <!-- Row 2 Card 3 - Job perks -->
             <div class="card">
                 <h2>Job Perks</h2>
+                <div class="itemsHeaderDivider"></div>
+
                 <div class="inputRowCalc">
                     <label>Company Type</label>
                     <input class="field"
@@ -456,16 +470,19 @@
             </div>
         </div>
 
-        <!-- Row 3: Item Information -->
+        <!---------- Row 3: Item Information ---------->
         <div class="row3">
-            <!-- R3 C1 - Item requirements -->
+
+            <!-- Row 3 Card 1 - Item requirements -->
             <div class="card">
                 <h2>Item Requirements</h2>
                 <div class="inputRowItem itemsHeaderRow">
-                    <div class="itemsHeader">Items</div>
+                    <div class="itemsHeader">Item</div>
                     <div class="colHeader">Quantity Needed</div>
                     <div class="colHeader">Happy Per Item</div>
                 </div>
+
+                <div class="itemsHeaderDivider"></div>
 
                 {#if (ui.jumpType === 'manual' && ui.manualScaffold === 'candy') || ui.jumpType === 'candy'}
                     <div class="inputRowOneItem">
@@ -575,14 +592,16 @@
                 </div>
             </div>
 
-            <!-- R3 C2 - Item inventory and delta -->
+            <!-- Row 3 Card 2 - Item inventory and delta -->
             <div class="card">
-                <h2>Items Owned and Needed</h2>
+                <h2>Items Owned & Needed</h2>
                 <div class="inputRowItem itemsHeaderRow">
                     <div class="itemsHeader">Items</div>
                     <div class="colHeader">Quantity Owned</div>
                     <div class="colHeader">Quantity Needed</div>
                 </div>
+
+                <div class="itemsHeaderDivider"></div>
 
                 {#if (ui.jumpType === 'manual' && ui.manualScaffold === 'candy') || ui.jumpType === 'candy'}
                     <div class="inputRowItem">
@@ -674,14 +693,16 @@
                 </div>
             </div>
 
-            <!-- R3 C3 - Item costs -->
+            <!-- Row 3 Card 3 - Item costs -->
             <div class="card">
-                <h2>Market Prices and Total Cost</h2>
+                <h2>Market Prices & Total Cost</h2>
                 <div class="inputRowItem itemsHeaderRow">
                     <div class="itemsHeader">Items</div>
                     <div class="colHeader">Market Price</div>
-                    <div class="colHeader">Total Cost</div>
+                    <div class="colHeader">Net Cost</div>
                 </div>
+
+                <div class="itemsHeaderDivider"></div>
 
                 {#if (ui.jumpType === 'manual' && ui.manualScaffold === 'candy') || ui.jumpType === 'candy'}
                     <div class="inputRowItem">
@@ -783,18 +804,7 @@
             </div>
         </div>
 
-        <!-- Row 4: Overrides (hidden in Manual) -->
-        {#if ui.jumpType !== 'manual'}
-            <div class="card full">
-                <div class="card-header">
-                    <h2>Customization</h2>
-                    <button type="button" class="btn ghost">Expand</button>
-                </div>
-                <div class="placeholder">Collapsed overrides bar (stats / perks / items) for Auto modes</div>
-            </div>
-        {/if}
-
-        <!-- Bottom Row: Results -->
+        <!---------- Bottom Row: Results ---------->
         <div class="card full">
             <div class="card-header">
                 <h2>Results</h2>

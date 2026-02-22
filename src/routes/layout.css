@@ -305,7 +305,7 @@ button:focus:not(:focus-visible) {
     cursor: pointer;
 }
 
-/* Item inputs */
+/* Item rows */
 .inputRowItem {
     display: flex;
     gap: 12px;
@@ -332,12 +332,13 @@ button:focus:not(:focus-visible) {
     display: flex;
     gap: 12px;
     align-items: center;
-    width: 80%;
+    width: 105%;
     margin-right: auto;
 }
 
+/* Item inputs */
 .field {
-    width: 25%;
+    width: 50%;
     padding: 10px 12px;
     font-size: 1rem;
     line-height: 1;
@@ -350,8 +351,7 @@ button:focus:not(:focus-visible) {
 }
 
 .field--derived {
-    background: rgba(0, 0, 0, 0.03);
-    border-style: dashed;
+    background: rgba(81, 154, 181, 0.15);
     cursor: default;
 }
 
@@ -367,34 +367,25 @@ select.field {
     padding-left: 9px; /* compensate for border-left */
 }
 
-.inputRowOneItem input {
-    width: 25%;
-    padding: 10px 12px;
-    font-size: 1rem;
-    line-height: 1;
-    border-radius: 12px;
-    border: 1px solid var(--card-border);
-    background: var(--card-bg);
-    color: inherit;
-    outline: none;
-}
-
 /* Item card headers */
 .itemsHeaderRow {
     display: flex;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
+    opacity: 80%;
 }
 
 .itemsHeader {
-    width: 30%;
-    text-align: center;
+    width: 23%;
+    text-align: left;
     margin-right: auto;
 }
 
 .colHeader {
-    width: 25%;
+    width: 26%;
     text-align: center;
-    margin-right: 8px;
+    margin-right: auto;
+    margin-left: auto;
+
 }
 
 .itemsHeaderDivider {
