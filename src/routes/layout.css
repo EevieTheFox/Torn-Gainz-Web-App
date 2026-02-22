@@ -288,6 +288,23 @@ button:focus:not(:focus-visible) {
     outline: none;
 }
 
+.inputRowCalc select {
+    margin-left: auto;
+    width: 33%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    line-height: 1;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    color: inherit;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
 /* Item inputs */
 .inputRowItem {
     display: flex;
@@ -304,18 +321,6 @@ button:focus:not(:focus-visible) {
     margin-right: auto;
 }
 
-.inputRowItem input {
-    width: 25%;
-    padding: 10px 12px;
-    font-size: 1rem;
-    line-height: 1;
-    border-radius: 12px;
-    border: 1px solid var(--card-border);
-    background: var(--card-bg);
-    color: inherit;
-    outline: none;
-}
-
 .inputRowOneItem {
     display: flex;
     gap: 12px;
@@ -329,6 +334,37 @@ button:focus:not(:focus-visible) {
     align-items: center;
     width: 80%;
     margin-right: auto;
+}
+
+.field {
+    width: 25%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    line-height: 1;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    color: inherit;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.field--derived {
+    background: rgba(0, 0, 0, 0.03);
+    border-style: dashed;
+    cursor: default;
+}
+
+select.field {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.field--prefilled {
+    border-left: 3px solid rgba(0,0,0,0.18);
+    padding-left: 9px; /* compensate for border-left */
 }
 
 .inputRowOneItem input {
@@ -381,14 +417,14 @@ button:focus:not(:focus-visible) {
 	}
 }
 
-/* -----Custom fields----- */
-.field {
+/* -----Control Row fields----- */
+.controlField {
 	display: flex;
 	flex-direction: column;
 	gap: 6px;
 }
 
-.fieldLabel {
+.controlFieldLabel {
 	opacity: 0.8;
 	font-size: 0.95rem;
 }

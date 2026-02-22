@@ -104,11 +104,11 @@
         </div>
 
         <div class="control-area">
-            <div class="field row-center">
+            <div class="controlField row-center">
                 <div class="control-row">
                     <div class="left"></div>
                     <div class="mid">
-                        <div class="fieldLabel centered">Jump Calculation Type</div>
+                        <div class="controlFieldLabel centered">Jump Calculation Type</div>
                         <div class="row-controls">
                             <div class="center">
                                 <!-- We’ll wire clicks manually for clarity -->
@@ -142,12 +142,12 @@
                 </div>
             </div>
 
-            <div class="field row-center">
+            <div class="controlField row-center">
                 {#if ui.jumpType === 'manual'}
                     <div class="control-row">
                         <div class="left"></div>
                         <div class="mid">
-                            <div class="fieldLabel centered">Jump Style</div>
+                            <div class="controlFieldLabel centered">Jump Style</div>
                             <div class="seg-wrap small">
                                 {#each scaffoldOptions as opt (opt.value)}
                                     <button
@@ -222,7 +222,7 @@
                 <h2>User Information</h2>
                 <div class="inputRowCalc">
                     <label>Property Type</label>
-                    <input
+                    <select class="field"
                         label="Prop Type"
                         value={numToInput(ui, F.USER_PROPERTY_TYPE)}
                         on:input={(e) => onNum(F.USER_PROPERTY_TYPE, e)}
@@ -231,7 +231,7 @@
 
                 <div class="inputRowCalc">
                     <label>Property Upgrades</label>
-                    <input
+                    <select class="field"
                         label="Prop Upgrades"
                         value={numToInput(ui, F.USER_PROPERTY_UPGRADES)}
                         on:input={(e) => onNum(F.USER_PROPERTY_UPGRADES, e)}
@@ -240,7 +240,7 @@
 
                 <div class="inputRowCalc">
                     <label>Maximum Natural Happy</label>
-                    <input
+                    <input class="field"
                             label="Max Nat Happy"
                             value={numToInput(ui, F.USER_MAX_HAPPY)}
                             on:input={(e) => onNum(F.USER_MAX_HAPPY, e)}
@@ -249,7 +249,7 @@
 
                 <div class="inputRowCalc">
                     <label>Current Gym</label>
-                    <input
+                    <select class="field"
                             label="Gym"
                             value={numToInput(ui, F.USER_GYM)}
                             on:input={(e) => onNum(F.USER_GYM, e)}
@@ -262,7 +262,7 @@
                 <h2>Current Battle Stats</h2>
                 <div class="inputRowCalc">
                     <label>Current Strength</label>
-                    <input
+                    <input class="field"
                             label="Current Strength"
                             value={numToInput(ui, F.USER_BATTLE_STRENGTH)}
                             on:input={(e) => onNum(F.USER_BATTLE_STRENGTH, e)}
@@ -271,7 +271,7 @@
 
                 <div class="inputRowCalc">
                     <label>Current Defense</label>
-                    <input
+                    <input class="field"
                             label="Current Defense"
                             value={numToInput(ui, F.USER_BATTLE_DEFENSE)}
                             on:input={(e) => onNum(F.USER_BATTLE_DEFENSE, e)}
@@ -280,7 +280,7 @@
 
                 <div class="inputRowCalc">
                     <label>Current Speed</label>
-                    <input
+                    <input class="field"
                             label="Current Speed"
                             value={numToInput(ui, F.USER_BATTLE_SPEED)}
                             on:input={(e) => onNum(F.USER_BATTLE_SPEED, e)}
@@ -289,7 +289,7 @@
 
                 <div class="inputRowCalc">
                     <label>Current Dexterity</label>
-                    <input
+                    <input class="field"
                             label="Current Dexterity"
                             value={numToInput(ui, F.USER_BATTLE_DEXTERITY)}
                             on:input={(e) => onNum(F.USER_BATTLE_DEXTERITY, e)}
@@ -313,7 +313,7 @@
                 <h2>Faction Perks</h2>
                 <div class="inputRowCalc">
                     <label>Strength Steadfast</label>
-                    <input
+                    <input class="field"
                             label="Strength Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_STRENGTH)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_STRENGTH, e)}
@@ -322,7 +322,7 @@
 
                 <div class="inputRowCalc">
                     <label>Defense Steadfast</label>
-                    <input
+                    <input class="field"
                             label="Defense Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_DEFENSE)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_DEFENSE, e)}
@@ -331,7 +331,7 @@
 
                 <div class="inputRowCalc">
                     <label>Speed Steadfast</label>
-                    <input
+                    <input class="field"
                             label="Speed Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_SPEED)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_SPEED, e)}
@@ -340,7 +340,7 @@
 
                 <div class="inputRowCalc">
                     <label>Dexterity Steadfast</label>
-                    <input
+                    <input class="field"
                             label="Dexterity Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_DEXTERITY)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_DEXTERITY, e)}
@@ -349,7 +349,7 @@
 
                 <div class="inputRowCalc">
                     <label>Cooldown Limit</label>
-                    <input
+                    <input class="field"
                             label="Cooldown Limit"
                             value={numToInput(ui, F.FACTION_COOLDOWN_BOOST)}
                             on:input={(e) => onNum(F.FACTION_COOLDOWN_BOOST, e)}
@@ -358,7 +358,7 @@
 
                 <div class="inputRowCalc">
                     <label>Candy Happy Boost</label>
-                    <input
+                    <input class="field"
                             label="Candy Happy Boost"
                             value={numToInput(ui, F.FACTION_CANDY_BOOST)}
                             on:input={(e) => onNum(F.FACTION_CANDY_BOOST, e)}
@@ -371,7 +371,7 @@
                 <h2>Education Perks</h2>
                 <div class="inputRowCalc">
                     <label>Strength Boost</label>
-                    <input
+                    <input class="field"
                             label="Strength Boost"
                             value={numToInput(ui, F.USER_EDUCATION_STRENGTH)}
                             on:input={(e) => onNum(F.USER_EDUCATION_STRENGTH, e)}
@@ -380,7 +380,7 @@
 
                 <div class="inputRowCalc">
                     <label>Defense Boost</label>
-                    <input
+                    <input class="field"
                             label="Defense Boost"
                             value={numToInput(ui, F.USER_EDUCATION_DEFENSE)}
                             on:input={(e) => onNum(F.USER_EDUCATION_DEFENSE, e)}
@@ -389,7 +389,7 @@
 
                 <div class="inputRowCalc">
                     <label>Speed Boost</label>
-                    <input
+                    <input class="field"
                             label="Speed Boost"
                             value={numToInput(ui, F.USER_EDUCATION_SPEED)}
                             on:input={(e) => onNum(F.USER_EDUCATION_SPEED, e)}
@@ -398,7 +398,7 @@
 
                 <div class="inputRowCalc">
                     <label>Dexterity Boost</label>
-                    <input
+                    <input class="field"
                             label="Dexterity Boost"
                             value={numToInput(ui, F.USER_EDUCATION_DEXTERITY)}
                             on:input={(e) => onNum(F.USER_EDUCATION_DEXTERITY, e)}
@@ -407,7 +407,7 @@
 
                 <div class="inputRowCalc">
                     <label>All Stat Boost</label>
-                    <input
+                    <input class="field"
                             label="All Boost"
                             value={numToInput(ui, F.USER_EDUCATION_ALL)}
                             on:input={(e) => onNum(F.USER_EDUCATION_ALL, e)}
@@ -420,7 +420,7 @@
                 <h2>Job Perks</h2>
                 <div class="inputRowCalc">
                     <label>Company Type</label>
-                    <input
+                    <input class="field"
                             label="Company Type"
                             value={numToInput(ui, F.USER_JOB)}
                             on:input={(e) => onNum(F.USER_JOB, e)}
@@ -429,7 +429,7 @@
 
                 <div class="inputRowCalc">
                     <label>Company Stars</label>
-                    <input
+                    <input class="field"
                             label="Company Stars"
                             value={numToInput(ui, F.USER_JOB_LEVEL)}
                             on:input={(e) => onNum(F.USER_JOB_LEVEL, e)}
@@ -438,7 +438,7 @@
 
                 <div class="inputRowCalc">
                     <label>Company Perk</label>
-                    <input
+                    <input class="field"
                             label="Company Perk"
                             value={numToInput(ui, F.USER_JOB_BOOST_TYPE)}
                             on:input={(e) => onNum(F.USER_JOB_BOOST_TYPE, e)}
@@ -447,7 +447,7 @@
 
                 <div class="inputRowCalc">
                     <label>Perk Amount</label>
-                    <input
+                    <input class="field"
                             label="Perk Amount"
                             value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
                             on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
@@ -470,7 +470,7 @@
                 {#if (ui.jumpType === 'manual' && ui.manualScaffold === 'candy') || ui.jumpType === 'candy'}
                     <div class="inputRowOneItem">
                         <label>Candy Type</label>
-                        <input
+                        <select class="field"
                             label="Candy Type"
                             value={numToInput(ui, F.ITEMS_CANDY_TYPE)}
                             on:input={(e) => onNum(F.ITEMS_CANDY_TYPE, e)}
@@ -479,12 +479,12 @@
 
                     <div class="inputRowItem">
                         <label>Candies</label>
-                        <input
-                            label="Candy Type"
+                        <input class="field"
+                            label="Candy QTY"
                             value={numToInput(ui, F.ITEMS_CANDY_TYPE_QTY)}
                             on:input={(e) => onNum(F.ITEMS_CANDY_TYPE_QTY, e)}
                         />
-                        <input
+                        <input class="field field--derived" readonly
                             label="Candy Happy"
                             value={numToInput(ui, F.ITEMS_CANDY_TYPE_HAPPY)}
                             on:input={(e) => onNum(F.ITEMS_CANDY_TYPE_HAPPY, e)}
@@ -494,15 +494,15 @@
                 {:else if (ui.jumpType === 'manual' && (ui.manualScaffold === 'edvd' || ui.manualScaffold === '99k')) || (ui.jumpType === 'edvd' || ui.jumpType === '99k')}
                     <div class="inputRowItem">
                         <label>Erotic DVD</label>
-                        <input
+                        <input class="field"
+                            label="Erotic DVD"
+                            value={numToInput(ui, F.ITEMS_EDVD_QTY)}
+                            on:input={(e) => onNum(F.ITEMS_EDVD_QTY, e)}
+                        />
+                        <input class="field field--derived" readonly
                                 label="Erotic DVD"
                                 value={numToInput(ui, F.ITEMS_EDVD_HAPPY)}
                                 on:input={(e) => onNum(F.ITEMS_EDVD_HAPPY, e)}
-                        />
-                        <input
-                                label="Erotic DVD"
-                                value={numToInput(ui, F.ITEMS_EDVD_QTY)}
-                                on:input={(e) => onNum(F.ITEMS_EDVD_QTY, e)}
                         />
                     </div>
                 {/if}
@@ -510,12 +510,12 @@
                 {#if ui.jumpType === '99k' || ui.manualScaffold === '99k'}
                     <div class="inputRowItem">
                         <label>Feathery Hotel Coupon</label>
-                        <input
+                        <input class="field"
                             label="Feathery Hotel Coupon"
                             value={numToInput(ui, F.ITEMS_FHC_QTY)}
                             on:input={(e) => onNum(F.ITEMS_FHC_QTY, e)}
                         />
-                        <input
+                        <input class="field field--derived" readonly
                             label="FHC Happy"
                             value={numToInput(ui, F.ITEMS_FHC_HAPPY)}
                             on:input={(e) => onNum(F.ITEMS_FHC_HAPPY, e)}
@@ -524,12 +524,12 @@
 
                     <div class="inputRowItem">
                         <label>Poison Mistletoe</label>
-                        <input
+                        <input class="field"
                             label="Poison Mistletoe"
                             value={numToInput(ui, F.ITEMS_POISON_MISTLETOE_QTY)}
                             on:input={(e) => onNum(F.ITEMS_POISON_MISTLETOE_QTY, e)}
                         />
-                        <input
+                        <input class="field field--derived" readonly
                             label="Poison Mistletoe"
                             value={numToInput(ui, F.ITEMS_POISON_MISTLETOE_HAPPY)}
                             on:input={(e) => onNum(F.ITEMS_POISON_MISTLETOE_HAPPY, e)}
@@ -539,12 +539,12 @@
 
                 <div class="inputRowItem">
                     <label>Xanax</label>
-                    <input
+                    <input class="field"
                             label="Xanax"
                             value={numToInput(ui, F.ITEMS_XANAX_QTY)}
                             on:input={(e) => onNum(F.ITEMS_XANAX_QTY, e)}
                     />
-                    <input
+                    <input class="field field--derived" readonly
                             label="Xanax"
                             value={numToInput(ui, F.ITEMS_XANAX_HAPPY)}
                             on:input={(e) => onNum(F.ITEMS_XANAX_HAPPY, e)}
@@ -553,12 +553,12 @@
 
                 <div class="inputRowItem">
                     <label>Ecstasy</label>
-                    <input
+                    <input class="field"
                             label="Ecstasy"
                             value={numToInput(ui, F.ITEMS_ECSTASY_QTY)}
                             on:input={(e) => onNum(F.ITEMS_ECSTASY_QTY, e)}
                     />
-                    <input
+                    <input class="field field--derived" readonly
                             label="Ecstasy"
                             value={numToInput(ui, F.ITEMS_ECSTASY_HAPPY)}
                             on:input={(e) => onNum(F.ITEMS_ECSTASY_HAPPY, e)}
@@ -567,7 +567,7 @@
 
                 <div class="inputRowOneItem">
                     <label>Total Happy</label>
-                    <input
+                    <input class="field field--derived" readonly
                             label="Total Happy"
                             value={numToInput(ui, F.USER_TOTAL_HAPPY)}
                             on:input={(e) => onNum(F.USER_TOTAL_HAPPY, e)}
@@ -587,12 +587,12 @@
                 {#if (ui.jumpType === 'manual' && ui.manualScaffold === 'candy') || ui.jumpType === 'candy'}
                     <div class="inputRowItem">
                         <label>Candy</label>
-                        <input
+                        <input class="field"
                             label="Candy On Hand"
                             value={numToInput(ui, F.USER_CANDY_QTY)}
                             on:input={(e) => onNum(F.USER_CANDY_QTY, e)}
                         />
-                        <input
+                        <input class="field field--derived" readonly
                             label="Candy Needed"
                             value={numToInput(ui, F.USER_CANDY_DELTA)}
                             on:input={(e) => onNum(F.USER_CANDY_DELTA, e)}
@@ -602,12 +602,12 @@
                 {:else if (ui.jumpType === 'manual' && (ui.manualScaffold === 'edvd' || ui.manualScaffold === '99k')) || (ui.jumpType === 'edvd' || ui.jumpType === '99k')}
                     <div class="inputRowItem">
                         <label>Erotic DVD</label>
-                        <input
+                        <input class="field"
                                 label="Erotic DVD On Hand"
                                 value={numToInput(ui, F.USER_EDVD_QTY)}
                                 on:input={(e) => onNum(F.USER_EDVD_QTY, e)}
                         />
-                        <input
+                        <input class="field field--derived" readonly
                                 label="Erotic DVD Needed"
                                 value={numToInput(ui, F.USER_EDVD_DELTA)}
                                 on:input={(e) => onNum(F.USER_EDVD_DELTA, e)}
@@ -618,12 +618,12 @@
                 {#if ui.jumpType === '99k' || ui.manualScaffold === '99k'}
                     <div class="inputRowItem">
                         <label>Feathery Hotel Coupon</label>
-                        <input
+                        <input class="field"
                                 label="Feathery Hotel Coupon"
                                 value={numToInput(ui, F.USER_FHC_QTY)}
                                 on:input={(e) => onNum(F.USER_FHC_QTY, e)}
                         />
-                        <input
+                        <input class="field field--derived" readonly
                                 label="FHC Needed"
                                 value={numToInput(ui, F.USER_FHC_DELTA)}
                                 on:input={(e) => onNum(F.USER_FHC_DELTA, e)}
@@ -632,12 +632,12 @@
 
                     <div class="inputRowItem">
                         <label>Poison Mistletoe</label>
-                        <input
+                        <input class="field"
                             label="Poison Mistletoe"
                             value={numToInput(ui, F.USER_POISON_MISTLETOE_QTY)}
                             on:input={(e) => onNum(F.USER_POISON_MISTLETOE_QTY, e)}
                         />
-                        <input
+                        <input class="field field--derived" readonly
                             label="Poison Mistletoe"
                             value={numToInput(ui, F.USER_POISON_MISTLETOE_DELTA)}
                             on:input={(e) => onNum(F.USER_POISON_MISTLETOE_DELTA, e)}
@@ -647,12 +647,12 @@
 
                 <div class="inputRowItem">
                     <label>Xanax</label>
-                    <input
+                    <input class="field"
                             label="Xanax"
                             value={numToInput(ui, F.USER_XANAX_QTY)}
                             on:input={(e) => onNum(F.USER_XANAX_QTY, e)}
                     />
-                    <input
+                    <input class="field field--derived" readonly
                             label="Xanax"
                             value={numToInput(ui, F.USER_XANAX_DELTA)}
                             on:input={(e) => onNum(F.USER_XANAX_DELTA, e)}
@@ -661,12 +661,12 @@
 
                 <div class="inputRowItem">
                     <label>Ecstasy</label>
-                    <input
+                    <input class="field"
                             label="Ecstasy"
                             value={numToInput(ui, F.USER_ECSTASY_QTY)}
                             on:input={(e) => onNum(F.USER_ECSTASY_QTY, e)}
                     />
-                    <input
+                    <input class="field field--derived" readonly
                             label="Ecstasy"
                             value={numToInput(ui, F.USER_ECSTASY_DELTA)}
                             on:input={(e) => onNum(F.USER_ECSTASY_DELTA, e)}
@@ -686,12 +686,12 @@
                 {#if (ui.jumpType === 'manual' && ui.manualScaffold === 'candy') || ui.jumpType === 'candy'}
                     <div class="inputRowItem">
                         <label>Candy</label>
-                        <input
+                        <input class="field"
                             label="Candy Type"
                             value={numToInput(ui, F.ITEMS_CANDY_PRICE)}
                             on:input={(e) => onNum(F.ITEMS_CANDY_PRICE, e)}
                         />
-                        <input
+                        <input class="field field--derived" readonly
                             label="Candy Happy"
                             value={numToInput(ui, F.USER_CANDY_COST)}
                             on:input={(e) => onNum(F.USER_CANDY_COST, e)}
@@ -701,12 +701,12 @@
                 {:else if (ui.jumpType === 'manual' && (ui.manualScaffold === 'edvd' || ui.manualScaffold === '99k')) || (ui.jumpType === 'edvd' || ui.jumpType === '99k')}
                     <div class="inputRowItem">
                         <label>Erotic DVD</label>
-                        <input
+                        <input class="field"
                                 label="Erotic DVD"
                                 value={numToInput(ui, F.ITEMS_EDVD_PRICE)}
                                 on:input={(e) => onNum(F.ITEMS_EDVD_PRICE, e)}
                         />
-                        <input
+                        <input class="field field--derived" readonly
                                 label="Erotic DVD"
                                 value={numToInput(ui, F.USER_EDVD_COST)}
                                 on:input={(e) => onNum(F.USER_EDVD_COST, e)}
@@ -717,12 +717,12 @@
                 {#if ui.jumpType === '99k' || ui.manualScaffold === '99k'}
                     <div class="inputRowItem">
                         <label>Feathery Hotel Coupon</label>
-                        <input
+                        <input class="field"
                                 label="Feathery Hotel Coupon"
                                 value={numToInput(ui, F.ITEMS_FHC_PRICE)}
                                 on:input={(e) => onNum(F.ITEMS_FHC_PRICE, e)}
                         />
-                        <input
+                        <input class="field field--derived" readonly
                                 label="FHC Happy"
                                 value={numToInput(ui, F.USER_FHC_COST)}
                                 on:input={(e) => onNum(F.USER_FHC_COST, e)}
@@ -731,12 +731,12 @@
 
                     <div class="inputRowItem">
                         <label>Poison Mistletoe</label>
-                        <input
+                        <input class="field"
                             label="Poison Mistletoe"
                             value={numToInput(ui, F.ITEMS_POISON_MISTLETOE_PRICE)}
                             on:input={(e) => onNum(F.ITEMS_POISON_MISTLETOE_PRICE, e)}
                         />
-                        <input
+                        <input class="field field--derived" readonly
                             label="Poison Mistletoe"
                             value={numToInput(ui, F.USER_POISON_MISTLETOE_COST)}
                             on:input={(e) => onNum(F.USER_POISON_MISTLETOE_COST, e)}
@@ -746,12 +746,12 @@
 
                 <div class="inputRowItem">
                     <label>Xanax</label>
-                    <input
+                    <input class="field"
                             label="Xanax"
                             value={numToInput(ui, F.ITEMS_XANAX_PRICE)}
                             on:input={(e) => onNum(F.ITEMS_XANAX_PRICE, e)}
                     />
-                    <input
+                    <input class="field field--derived" readonly
                             label="Xanax"
                             value={numToInput(ui, F.USER_XANAX_COST)}
                             on:input={(e) => onNum(F.USER_XANAX_COST, e)}
@@ -760,12 +760,12 @@
 
                 <div class="inputRowItem">
                     <label>Ecstasy</label>
-                    <input
+                    <input class="field"
                             label="Ecstasy"
                             value={numToInput(ui, F.ITEMS_ECSTASY_PRICE)}
                             on:input={(e) => onNum(F.ITEMS_ECSTASY_PRICE, e)}
                     />
-                    <input
+                    <input class="field field--derived" readonly
                             label="Ecstasy"
                             value={numToInput(ui, F.USER_ECSTASY_COST)}
                             on:input={(e) => onNum(F.USER_ECSTASY_COST, e)}
@@ -774,7 +774,7 @@
 
                 <div class="inputRowOneItem">
                     <label>Grand Total</label>
-                    <input
+                    <input class="field field--derived" readonly
                             label="Grand Total"
                             value={numToInput(ui, F.USER_ITEMS_TOTAL_COST)}
                             on:input={(e) => onNum(F.USER_ITEMS_TOTAL_COST, e)}
