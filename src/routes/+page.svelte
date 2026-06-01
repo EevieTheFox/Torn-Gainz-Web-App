@@ -401,7 +401,7 @@
     }
 
     .clearBtn {
-        margin-left: 26px;
+        margin-left: 25px;
     }
 
     .btnGhost {
