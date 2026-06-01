@@ -93,7 +93,7 @@
     <title>Torn Gainz | Home</title>
 </svelte:head>
 
-<section class="page wide">
+<section class="page wide pageCalculator">
     <header class="pageHeader">
         <h1>Gainz Calculator</h1>
 
@@ -161,7 +161,7 @@
                             </div>
                         </div>
 
-                        <div class="right meta">
+                        <div class="right calcMeta">
                             <span class="meta-item">Manual inputs (no live snapshot)</span>
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                             {/if}
                         </div>
 
-                        <div class="right metaAuto">
+                        <div class="right calcMetaAuto">
                             {#if ui.snapshotAtMs}
                                 <span class="meta-item">Accurate as of: {ui.snapshotAtMs.toLocaleString()}</span>
                             {:else}
@@ -831,137 +831,4 @@
     </div>
 </section>
 
-<style>
-
-    .calc-header h1 {
-        margin: 6px 0 12px;
-    }
-
-    .control-area {
-        display: flex;
-        flex-direction: column;
-        gap: 16px; /* a bit more breathing room */
-    }
-
-    .control-row {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        align-items: center;
-        gap: 12px;
-    }
-
-    .control-row .mid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .control-row .left {
-        /* intentional spacer */
-    }
-
-    .control-row .right {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        justify-content: flex-end;
-    }
-
-    .centered {
-        text-align: center;
-    }
-
-    .right {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        justify-content: flex-end;
-    }
-
-    .right-jumps{
-        margin-top: auto;
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        justify-content: flex-end;
-    }
-
-    .mini-label {
-        opacity: 0.7;
-        font-size: 0.85em;
-    }
-
-    .jumps {
-        width: 84px;
-        padding: 8px 10px;
-        border-radius: 10px;
-        border: 1px solid var(--card-border);
-        background: var(--card-bg);
-        color: inherit;
-    }
-
-    .meta {
-        margin-top: 25px;
-        opacity: 0.75;
-        font-size: 0.9em;
-    }
-
-    .metaAuto {
-        margin-top: 10px;
-        opacity: 0.75;
-        font-size: 0.9em;
-    }
-
-    .meta-item {
-        white-space: nowrap;
-    }
-
-    .row3 {
-        display: grid;
-        grid-template-columns:
-                repeat(3, 1fr);
-        gap: 14px;
-    }
-
-    .card-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-    }
-
-    .subcard {
-        border: 1px dashed var(--subcard-border);
-        border-radius: 14px;
-        padding: 12px;
-    }
-
-    .placeholder {
-        opacity: 0.7;
-        font-size: 0.95em;
-    }
-
-    .cta {
-        margin-top: 10px;
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    .primary:hover {
-        background: rgba(255,255,255,0.12);
-    }
-
-    .disclaimer {
-        text-align: center;
-        opacity: 0.65;
-        font-size: 0.9em;
-        margin-top: 6px;
-    }
-
-    @media (max-width: 980px) {
-        .row3 { grid-template-columns: 1fr; }
-        .row-controls { grid-template-columns: 1fr; }
-        .right { justify-content: center; }
-    }
-</style>
+<!-- styles moved to src/routes/layout.css -->
