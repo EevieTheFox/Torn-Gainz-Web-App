@@ -243,7 +243,7 @@
 
                 <div class="inputRowCalc">
                     <label>Maximum Natural Happy</label>
-                    <input class="field"
+                    <input class="field field--derived" readonly
                             label="Max Nat Happy"
                             value={numToInput(ui, F.USER_MAX_HAPPY)}
                             on:input={(e) => onNum(F.USER_MAX_HAPPY, e)}
@@ -461,7 +461,7 @@
 
                 <div class="inputRowCalc">
                     <label>Company Perk</label>
-                    <input class="field field--derived"
+                    <input class="field field--derived" readonly
                             label="Company Perk"
                             value={numToInput(ui, F.USER_JOB_BOOST_TYPE)}
                             on:input={(e) => onNum(F.USER_JOB_BOOST_TYPE, e)}
@@ -470,7 +470,7 @@
 
                 <div class="inputRowCalc">
                     <label>Perk Amount</label>
-                    <input class="field field--derived"
+                    <input class="field field--derived" readonly
                             label="Perk Effect"
                             value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
                             on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
