@@ -382,6 +382,15 @@
                 <div class="itemsHeaderDivider"></div>
 
                 <div class="inputRowCalc">
+                    <label>Completed EDUs</label>
+                    <select class="field"
+                            label="Completed Courses"
+                            value={numToInput(ui, F.USER_EDUCATION_STRENGTH)}
+                            on:input={(e) => onNum(F.USER_EDUCATION_STRENGTH, e)}
+                    />
+                </div>
+
+                <div class="inputRowCalc">
                     <label>Strength Boost</label>
                     <select class="field"
                             label="Strength Boost"
@@ -427,9 +436,9 @@
                 </div>
             </div>
 
-            <!-- Row 2 Card 3 - Job perks -->
+            <!-- Row 2 Card 3 - Job perks and Books -->
             <div class="card">
-                <h2>Job Perks</h2>
+                <h2>Job Perks & Active Book</h2>
                 <div class="itemsHeaderDivider"></div>
 
                 <div class="inputRowCalc">
@@ -463,6 +472,24 @@
                     <label>Perk Amount</label>
                     <select class="field"
                             label="Perk Amount"
+                            value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
+                            on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
+                    />
+                </div>
+                <!-- REFACTOR TO BOOK SELECTION -->
+                <div class="inputRowCalc">
+                    <label>Active Book</label>
+                    <select class="field"
+                            label="Book Name"
+                            value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
+                            on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
+                    />
+                </div>
+                <!-- REFACTOR TO SHOW BOOK EFFECT -->
+                <div class="inputRowCalc">
+                    <label>Book Effect</label>
+                    <input class="field field--derived" readonly
+                            label="Book Effect"
                             value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
                             on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
                     />
