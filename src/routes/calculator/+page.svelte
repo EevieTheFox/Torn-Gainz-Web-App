@@ -461,7 +461,7 @@
 
                 <div class="inputRowCalc">
                     <label>Company Perk</label>
-                    <select class="field"
+                    <input class="field field--derived"
                             label="Company Perk"
                             value={numToInput(ui, F.USER_JOB_BOOST_TYPE)}
                             on:input={(e) => onNum(F.USER_JOB_BOOST_TYPE, e)}
@@ -470,8 +470,8 @@
 
                 <div class="inputRowCalc">
                     <label>Perk Amount</label>
-                    <select class="field"
-                            label="Perk Amount"
+                    <input class="field field--derived"
+                            label="Perk Effect"
                             value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
                             on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
                     />
