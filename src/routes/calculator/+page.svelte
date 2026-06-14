@@ -323,7 +323,7 @@
 
                 <div class="inputRowCalc">
                     <label>Strength Steadfast</label>
-                    <input class="field"
+                    <select class="field"
                             label="Strength Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_STRENGTH)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_STRENGTH, e)}
@@ -332,7 +332,7 @@
 
                 <div class="inputRowCalc">
                     <label>Defense Steadfast</label>
-                    <input class="field"
+                    <select class="field"
                             label="Defense Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_DEFENSE)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_DEFENSE, e)}
@@ -341,7 +341,7 @@
 
                 <div class="inputRowCalc">
                     <label>Speed Steadfast</label>
-                    <input class="field"
+                    <select class="field"
                             label="Speed Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_SPEED)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_SPEED, e)}
@@ -350,7 +350,7 @@
 
                 <div class="inputRowCalc">
                     <label>Dexterity Steadfast</label>
-                    <input class="field"
+                    <select class="field"
                             label="Dexterity Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_DEXTERITY)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_DEXTERITY, e)}
@@ -359,7 +359,7 @@
 
                 <div class="inputRowCalc">
                     <label>Cooldown Limit</label>
-                    <input class="field"
+                    <select class="field"
                             label="Cooldown Limit"
                             value={numToInput(ui, F.FACTION_COOLDOWN_BOOST)}
                             on:input={(e) => onNum(F.FACTION_COOLDOWN_BOOST, e)}
@@ -368,7 +368,7 @@
 
                 <div class="inputRowCalc">
                     <label>Candy Happy Boost</label>
-                    <input class="field"
+                    <select class="field"
                             label="Candy Happy Boost"
                             value={numToInput(ui, F.FACTION_CANDY_BOOST)}
                             on:input={(e) => onNum(F.FACTION_CANDY_BOOST, e)}
@@ -383,7 +383,7 @@
 
                 <div class="inputRowCalc">
                     <label>Strength Boost</label>
-                    <input class="field"
+                    <select class="field"
                             label="Strength Boost"
                             value={numToInput(ui, F.USER_EDUCATION_STRENGTH)}
                             on:input={(e) => onNum(F.USER_EDUCATION_STRENGTH, e)}
@@ -392,7 +392,7 @@
 
                 <div class="inputRowCalc">
                     <label>Defense Boost</label>
-                    <input class="field"
+                    <select class="field"
                             label="Defense Boost"
                             value={numToInput(ui, F.USER_EDUCATION_DEFENSE)}
                             on:input={(e) => onNum(F.USER_EDUCATION_DEFENSE, e)}
@@ -401,7 +401,7 @@
 
                 <div class="inputRowCalc">
                     <label>Speed Boost</label>
-                    <input class="field"
+                    <select class="field"
                             label="Speed Boost"
                             value={numToInput(ui, F.USER_EDUCATION_SPEED)}
                             on:input={(e) => onNum(F.USER_EDUCATION_SPEED, e)}
@@ -410,7 +410,7 @@
 
                 <div class="inputRowCalc">
                     <label>Dexterity Boost</label>
-                    <input class="field"
+                    <select class="field"
                             label="Dexterity Boost"
                             value={numToInput(ui, F.USER_EDUCATION_DEXTERITY)}
                             on:input={(e) => onNum(F.USER_EDUCATION_DEXTERITY, e)}
@@ -419,7 +419,7 @@
 
                 <div class="inputRowCalc">
                     <label>All Stat Boost</label>
-                    <input class="field"
+                    <select class="field"
                             label="All Boost"
                             value={numToInput(ui, F.USER_EDUCATION_ALL)}
                             on:input={(e) => onNum(F.USER_EDUCATION_ALL, e)}
@@ -434,7 +434,7 @@
 
                 <div class="inputRowCalc">
                     <label>Company Type</label>
-                    <input class="field"
+                    <select class="field"
                             label="Company Type"
                             value={numToInput(ui, F.USER_JOB)}
                             on:input={(e) => onNum(F.USER_JOB, e)}
@@ -443,7 +443,7 @@
 
                 <div class="inputRowCalc">
                     <label>Company Stars</label>
-                    <input class="field"
+                    <select class="field"
                             label="Company Stars"
                             value={numToInput(ui, F.USER_JOB_LEVEL)}
                             on:input={(e) => onNum(F.USER_JOB_LEVEL, e)}
@@ -452,7 +452,7 @@
 
                 <div class="inputRowCalc">
                     <label>Company Perk</label>
-                    <input class="field"
+                    <select class="field"
                             label="Company Perk"
                             value={numToInput(ui, F.USER_JOB_BOOST_TYPE)}
                             on:input={(e) => onNum(F.USER_JOB_BOOST_TYPE, e)}
@@ -461,7 +461,7 @@
 
                 <div class="inputRowCalc">
                     <label>Perk Amount</label>
-                    <input class="field"
+                    <select class="field"
                             label="Perk Amount"
                             value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
                             on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
