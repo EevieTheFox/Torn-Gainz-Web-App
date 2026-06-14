@@ -128,7 +128,7 @@
                     </div>
 
                     <div class="right-jumps">
-                        <label class="mini-label" for="jumps"># of jumps</label>
+                        <label class="mini-label" for="jumps">Number of jumps</label>
                         <input
                                 id="jumps"
                                 class="jumps"
@@ -485,13 +485,17 @@
                 <div class="itemsHeaderDivider"></div>
 
                 {#if (ui.jumpType === 'manual' && ui.manualScaffold === 'candy') || ui.jumpType === 'candy'}
-                    <div class="inputRowOneItem">
+                    <div class="inputRowItem">
                         <label>Candy Type</label>
                         <select class="field"
                             label="Candy Type"
                             value={numToInput(ui, F.ITEMS_CANDY_TYPE)}
                             on:input={(e) => onNum(F.ITEMS_CANDY_TYPE, e)}
                         />
+                        <button type="button" class="btn itemRow">
+                            <!-- Update function to fill fields to maximum possible, or clear for manual entry -->
+                            {ui.jumpType === 'manual' || !ui.snapshotAtMs ? 'Auto-Fill' : 'Custom QTY'}
+                        </button>
                     </div>
 
                     <div class="inputRowItem">
@@ -820,7 +824,7 @@
                     <div class="placeholder">Right: totals + grand total gains + gains/million + Calculate/Recalculate</div>
                     <div class="cta">
                         <button type="button" class="btn primary">
-                            {ui.jumpType === 'manual' || !ui.snapshotAtMs ? 'Calculate' : 'Recalculate'}
+                            {ui.jumpType === 'manual' || !ui.snapshotAtMs ? 'Set Max' : 'Recalculate'}
                         </button>
                     </div>
                 </div>

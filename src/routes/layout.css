@@ -459,6 +459,22 @@ select.field {
 	background: rgba(255,255,255,0.12);
 }
 
+.btn.itemRow {
+    border: 1px solid var(--card-border);
+    background: var(--seg-selected-bg);
+    color: inherit;
+    width: 50%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    line-height: 1;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.btn.itemRow:hover {
+    background: rgba(255,255,255,0.12);
+}
+
 .btn.ghost {
 	border: none;
 	background: none;
