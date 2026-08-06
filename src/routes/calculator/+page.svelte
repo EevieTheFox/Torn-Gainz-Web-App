@@ -100,7 +100,7 @@
         <div class="chips">
             <span class="chips-label">Privacy</span>
             <span class="chip">{uiConsent.consentLevelLabel}</span>
-            <span class="chip">{ui.hasApiKey ? 'API Key: Present' : 'API Key: Missing'}</span>
+            <span class="chip">{ui.hasApiKey ? 'API Key: Verified' : 'API Key: No API Key'}</span>
         </div>
 
         <div class="control-area">
@@ -161,8 +161,28 @@
                             </div>
                         </div>
 
-                        <div class="right calcMeta">
-                            <span class="meta-item">Manual inputs (no live snapshot)</span>
+                        <div class="right-jumps">
+                            <label class="mini-label" for="jumps">Xanax Stacked</label>
+                            <input
+                                    id="jumps"
+                                    class="jumps"
+                                    type="number"
+                                    min="1"
+                                    max="4"
+                                    step="1"
+                                    value={ui.jumpsCount}
+                                    on:input={(e) => (ui = setJumpsCount(ui, Number((e.target as HTMLInputElement).value)))}
+                            />
+                        </div>
+                    </div>
+
+                    <div class="controlField row-center">
+                        <div class="controlField row-center"></div>
+                        <div class="control-row">
+                            <div class="left"></div>
+                            <div class="mid">
+                                <div class="controlFieldLabel centered">Manual Inputs Only; No Saved Snapshot Used</div>
+                            </div>
                         </div>
                     </div>
                 {:else}
@@ -170,7 +190,7 @@
                         <div class="left"></div>
 
                         <div class="mid">
-                            <div class="fieldLabel centered">Input Mode</div>
+                            <div class="controlFieldLabel centered">Input Mode</div>
                             <div class="seg-wrap small">
                                 <button
                                         type="button"
@@ -188,20 +208,37 @@
                                     Manual
                                 </button>
                             </div>
-
-                            {#if !uiConsent.canUseAutoMode}
-                                <div class="hint centered">API key required for Auto</div>
-                            {/if}
                         </div>
 
-                        <div class="right calcMetaAuto">
-                            {#if ui.snapshotAtMs}
-                                <span class="meta-item">Accurate as of: {ui.snapshotAtMs.toLocaleString()}</span>
-                            {:else}
-                                <span class="meta-item">No snapshot yet</span>
-                            {/if}
+                        <div class="right-jumps">
+                            <label class="mini-label" for="jumps">Xanax Stacked</label>
+                            <input
+                                    id="stacked"
+                                    class="xanStack"
+                                    type="number"
+                                    min="1"
+                                    max="4"
+                                    step="1"
+                                    value={ui.xanaxStacked}
+                                    on:input={(e) => (ui = setJumpsCount(ui, Number((e.target as HTMLInputElement).value)))}
+                            />
                         </div>
                     </div>
+                    {#if !uiConsent.canUseAutoMode}
+                        <div class="controlField row-center">
+                            <div class="control-row"></div>
+                            <div class="control-row">
+                                <div class="left"></div>
+                                <div class="mid">
+                                    {#if ui.snapshotAtMs}
+                                        <span class="controlFieldLabel centered">Snapshot Data Accurate as of: {ui.snapshotAtMs.toLocaleString()}</span>
+                                    {:else}
+                                        <span class="controlFieldLabel centered">Manual Inputs Only; No Saved Snapshot Used</span>
+                                    {/if}
+                                </div>
+                            </div>
+                        </div>
+                    {/if}
                 {/if}
             </div>
 

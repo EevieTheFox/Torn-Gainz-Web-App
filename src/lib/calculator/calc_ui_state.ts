@@ -17,7 +17,11 @@ export type CalcUIState = {
     inputMode: InputMode;           // used when jumpType != 'manual'
     manualScaffold: ManualScaffold; // used when jumpType == 'manual'
 
+    // number of jumps to calculate
     jumpsCount: number;
+
+    // number of xanax stacked
+    xanaxCount: number;
 
     // placeholder until we implement real API key storage
     hasApiKey: boolean;
