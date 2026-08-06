@@ -276,31 +276,11 @@ button:focus:not(:focus-visible) {
 .inputRowCalc input {
     margin-left: auto;
     width: 45%;
-    padding: 10px 12px;
-    font-size: 1rem;
-    line-height: 1;
-    border-radius: 12px;
-    border: 1px solid var(--card-border);
-    background: var(--card-bg);
-    color: inherit;
-    outline: none;
 }
 
 .inputRowCalc select {
     margin-left: auto;
     width: 45%;
-    padding: 10px 12px;
-    font-size: 1.2rem;
-    line-height: 1;
-    border-radius: 12px;
-    border: 1px solid var(--card-border);
-    background: var(--card-bg);
-    color: inherit;
-    outline: none;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    cursor: pointer;
 }
 
 /* Item rows */
@@ -713,7 +693,7 @@ html[data-theme="dark"] .siteHeader nav {
 }
 
 .pageHome .clearBtn {
-	margin-left: 25px;
+	margin-left: 23px;
 }
 
 .pageHome .btnGhost {

@@ -242,7 +242,7 @@
                 </div>
 
                 <div class="inputRowCalc">
-                    <label>Maximum Natural Happy</label>
+                    <label>Max Natural Happy</label>
                     <input class="field field--derived" readonly
                             label="Max Nat Happy"
                             value={numToInput(ui, F.USER_MAX_HAPPY)}
@@ -392,7 +392,7 @@
 
                 <div class="inputRowCalc">
                     <label>Strength Boost</label>
-                    <select class="field"
+                    <input class="field field--derived" readonly
                             label="Strength Boost"
                             value={numToInput(ui, F.USER_EDUCATION_STRENGTH)}
                             on:input={(e) => onNum(F.USER_EDUCATION_STRENGTH, e)}
@@ -401,7 +401,7 @@
 
                 <div class="inputRowCalc">
                     <label>Defense Boost</label>
-                    <select class="field"
+                    <input class="field field--derived" readonly
                             label="Defense Boost"
                             value={numToInput(ui, F.USER_EDUCATION_DEFENSE)}
                             on:input={(e) => onNum(F.USER_EDUCATION_DEFENSE, e)}
@@ -410,7 +410,7 @@
 
                 <div class="inputRowCalc">
                     <label>Speed Boost</label>
-                    <select class="field"
+                    <input class="field field--derived" readonly
                             label="Speed Boost"
                             value={numToInput(ui, F.USER_EDUCATION_SPEED)}
                             on:input={(e) => onNum(F.USER_EDUCATION_SPEED, e)}
@@ -419,7 +419,7 @@
 
                 <div class="inputRowCalc">
                     <label>Dexterity Boost</label>
-                    <select class="field"
+                    <input class="field field--derived" readonly
                             label="Dexterity Boost"
                             value={numToInput(ui, F.USER_EDUCATION_DEXTERITY)}
                             on:input={(e) => onNum(F.USER_EDUCATION_DEXTERITY, e)}
@@ -428,7 +428,7 @@
 
                 <div class="inputRowCalc">
                     <label>All Stat Boost</label>
-                    <select class="field"
+                    <input class="field field--derived" readonly
                             label="All Boost"
                             value={numToInput(ui, F.USER_EDUCATION_ALL)}
                             on:input={(e) => onNum(F.USER_EDUCATION_ALL, e)}
