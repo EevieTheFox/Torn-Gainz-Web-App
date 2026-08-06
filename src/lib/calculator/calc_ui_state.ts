@@ -51,6 +51,7 @@ export function createInitialState(opts?: Partial<Pick<CalcUIState, 'hasApiKey'>
         inputMode: hasApiKey ? 'auto' : 'manual',
         manualScaffold: 'candy',
         jumpsCount: 1,
+        xanaxCount: 1,
         hasApiKey,
 
         snapshotAtMs: null,
