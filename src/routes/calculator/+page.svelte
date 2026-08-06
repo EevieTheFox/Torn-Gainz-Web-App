@@ -7,6 +7,7 @@
         selectManualScaffold,
         selectInputMode,
         setJumpsCount,
+        setXanaxCount,
         createInitialState,
         setField,
         type JumpType,
@@ -31,10 +32,10 @@
 
     // Top segmented control buttons
     const jumpTypeOptions = [
-        { value: 'manual', label: 'Manual' },
-        { value: 'candy', label: 'Candy' },
-        { value: 'edvd', label: 'EDVD' },
-        { value: '99k', label: '99k' }
+        { value: 'candy', label: 'Candy Jump' },
+        { value: 'edvd', label: 'EDVD Jump' },
+        { value: '99k', label: '99k Jump' },
+        { value: 'custom', label: 'Custom' }
     ] satisfies { value: JumpType; label: string }[];
 
     // Bottom segmented control buttons
@@ -108,7 +109,7 @@
                 <div class="control-row">
                     <div class="left"></div>
                     <div class="mid">
-                        <div class="controlFieldLabel centered">Jump Calculation Type</div>
+                        <div class="controlFieldLabel centered">Training Method Selection:</div>
                         <div class="row-controls">
                             <div class="center">
                                 <!-- We’ll wire clicks manually for clarity -->
@@ -143,7 +144,7 @@
             </div>
 
             <div class="controlField row-center">
-                {#if ui.jumpType === 'manual'}
+                {#if ui.jumpType === 'custom'}
                     <div class="control-row">
                         <div class="left"></div>
                         <div class="mid">
@@ -170,8 +171,8 @@
                                     min="1"
                                     max="4"
                                     step="1"
-                                    value={ui.jumpsCount}
-                                    on:input={(e) => (ui = setJumpsCount(ui, Number((e.target as HTMLInputElement).value)))}
+                                    value={ui.xanaxCount}
+                                    on:input={(e) => (ui = setXanaxCount(ui, Number((e.target as HTMLInputElement).value)))}
                             />
                         </div>
                     </div>
@@ -213,14 +214,14 @@
                         <div class="right-jumps">
                             <label class="mini-label" for="jumps">Xanax Stacked</label>
                             <input
-                                    id="stacked"
-                                    class="xanStack"
+                                    id="xanax"
+                                    class="jumps"
                                     type="number"
                                     min="1"
                                     max="4"
                                     step="1"
-                                    value={ui.xanaxStacked}
-                                    on:input={(e) => (ui = setJumpsCount(ui, Number((e.target as HTMLInputElement).value)))}
+                                    value={ui.xanaxCount}
+                                    on:input={(e) => (ui = setXanaxCount(ui, Number((e.target as HTMLInputElement).value)))}
                             />
                         </div>
                     </div>
@@ -233,7 +234,7 @@
                                     {#if ui.snapshotAtMs}
                                         <span class="controlFieldLabel centered">Snapshot Data Accurate as of: {ui.snapshotAtMs.toLocaleString()}</span>
                                     {:else}
-                                        <span class="controlFieldLabel centered">Manual Inputs Only; No Saved Snapshot Used</span>
+                                        <span class="controlFieldLabel centered">Manual Input Mode; No Saved Snapshot Used</span>
                                     {/if}
                                 </div>
                             </div>
@@ -493,16 +494,16 @@
                 <div class="inputRowCalc">
                     <label>Active Book</label>
                     <select class="field"
-                            value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
-                            on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
+                            value={numToInput(ui, F.USER_BOOK_ACTIVE)}
+                            on:input={(e) => onNum(F.USER_BOOK_ACTIVE, e)}
                     />
                 </div>
                 <!-- REFACTOR TO SHOW BOOK EFFECT -->
                 <div class="inputRowCalc">
                     <label>Book Effect</label>
                     <input class="field field--derived" readonly
-                           value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
-                           on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
+                           value={numToInput(ui, F.USER_BOOK_EFFECT)}
+                           on:input={(e) => onNum(F.USER_BOOK_EFFECT, e)}
                     />
                 </div>
             </div>
@@ -707,6 +708,17 @@
                            on:input={(e) => onNum(F.USER_ECSTASY_DELTA, e)}
                     />
                 </div>
+
+                {#if (ui.jumpType === '99k' || ui.manualScaffold === '99k') && F.USER_BOOK_TYPE === 'over_happy'}
+                    <div class="inputRowOneItem">
+                        <label>Already at 99k?</label>
+                        // Refactor to have yes & no selection options
+                        <input class="select"
+                           value={numToInput(ui, F.USER_TOTAL_HAPPY)}
+                           on:input={(e) => onNum(F.USER_TOTAL_HAPPY, e)}
+                        />
+                    </div>
+                {/if}
             </div>
 
             <!-- Row 3 Card 3 - Item costs -->

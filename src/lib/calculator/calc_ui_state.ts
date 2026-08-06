@@ -193,6 +193,13 @@ export function setJumpsCount(state: CalcUIState, next: number): CalcUIState {
     return s;
 }
 
+export function setXanaxCount(state: CalcUIState, next: number): CalcUIState {
+    const s = clone(state);
+    s.lastNotice = null;
+    s.xanaxCount = Math.max(1, Math.floor(next || 1));
+    return s;
+}
+
 /* -------------------------
    Field setting (touched-aware)
 -------------------------- */
