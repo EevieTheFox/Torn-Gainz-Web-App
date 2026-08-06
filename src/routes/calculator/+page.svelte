@@ -226,7 +226,6 @@
                 <div class="inputRowCalc">
                     <label>Property Type</label>
                     <select class="field"
-                        label="Prop Type"
                         value={numToInput(ui, F.USER_PROPERTY_TYPE)}
                         on:input={(e) => onNum(F.USER_PROPERTY_TYPE, e)}
                     />
@@ -235,7 +234,6 @@
                 <div class="inputRowCalc">
                     <label>Property Upgrades</label>
                     <select class="field"
-                        label="Prop Upgrades"
                         value={numToInput(ui, F.USER_PROPERTY_UPGRADES)}
                         on:input={(e) => onNum(F.USER_PROPERTY_UPGRADES, e)}
                     />
@@ -244,7 +242,6 @@
                 <div class="inputRowCalc">
                     <label>Max Natural Happy</label>
                     <input class="field field--derived" readonly
-                            label="Max Nat Happy"
                             value={numToInput(ui, F.USER_MAX_HAPPY)}
                             on:input={(e) => onNum(F.USER_MAX_HAPPY, e)}
                     />
@@ -253,7 +250,6 @@
                 <div class="inputRowCalc">
                     <label>Current Gym</label>
                     <select class="field"
-                            label="Gym"
                             value={numToInput(ui, F.USER_GYM)}
                             on:input={(e) => onNum(F.USER_GYM, e)}
                     />
@@ -268,25 +264,22 @@
                 <div class="inputRowCalc">
                     <label>Current Strength</label>
                     <input class="field"
-                            label="Current Strength"
-                            value={numToInput(ui, F.USER_BATTLE_STRENGTH)}
-                            on:input={(e) => onNum(F.USER_BATTLE_STRENGTH, e)}
+                           value={numToInput(ui, F.USER_BATTLE_STRENGTH)}
+                           on:input={(e) => onNum(F.USER_BATTLE_STRENGTH, e)}
                     />
                 </div>
 
                 <div class="inputRowCalc">
                     <label>Current Defense</label>
                     <input class="field"
-                            label="Current Defense"
-                            value={numToInput(ui, F.USER_BATTLE_DEFENSE)}
-                            on:input={(e) => onNum(F.USER_BATTLE_DEFENSE, e)}
+                           value={numToInput(ui, F.USER_BATTLE_DEFENSE)}
+                           on:input={(e) => onNum(F.USER_BATTLE_DEFENSE, e)}
                     />
                 </div>
 
                 <div class="inputRowCalc">
                     <label>Current Speed</label>
                     <input class="field"
-                            label="Current Speed"
                             value={numToInput(ui, F.USER_BATTLE_SPEED)}
                             on:input={(e) => onNum(F.USER_BATTLE_SPEED, e)}
                     />
@@ -295,7 +288,6 @@
                 <div class="inputRowCalc">
                     <label>Current Dexterity</label>
                     <input class="field"
-                            label="Current Dexterity"
                             value={numToInput(ui, F.USER_BATTLE_DEXTERITY)}
                             on:input={(e) => onNum(F.USER_BATTLE_DEXTERITY, e)}
                     />
@@ -324,7 +316,6 @@
                 <div class="inputRowCalc">
                     <label>Strength Steadfast</label>
                     <select class="field"
-                            label="Strength Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_STRENGTH)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_STRENGTH, e)}
                     />
@@ -333,7 +324,6 @@
                 <div class="inputRowCalc">
                     <label>Defense Steadfast</label>
                     <select class="field"
-                            label="Defense Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_DEFENSE)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_DEFENSE, e)}
                     />
@@ -342,7 +332,6 @@
                 <div class="inputRowCalc">
                     <label>Speed Steadfast</label>
                     <select class="field"
-                            label="Speed Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_SPEED)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_SPEED, e)}
                     />
@@ -351,7 +340,6 @@
                 <div class="inputRowCalc">
                     <label>Dexterity Steadfast</label>
                     <select class="field"
-                            label="Dexterity Steadfast"
                             value={numToInput(ui, F.FACTION_STEADFAST_DEXTERITY)}
                             on:input={(e) => onNum(F.FACTION_STEADFAST_DEXTERITY, e)}
                     />
@@ -360,7 +348,6 @@
                 <div class="inputRowCalc">
                     <label>Cooldown Limit</label>
                     <select class="field"
-                            label="Cooldown Limit"
                             value={numToInput(ui, F.FACTION_COOLDOWN_BOOST)}
                             on:input={(e) => onNum(F.FACTION_COOLDOWN_BOOST, e)}
                     />
@@ -369,7 +356,6 @@
                 <div class="inputRowCalc">
                     <label>Candy Happy Boost</label>
                     <select class="field"
-                            label="Candy Happy Boost"
                             value={numToInput(ui, F.FACTION_CANDY_BOOST)}
                             on:input={(e) => onNum(F.FACTION_CANDY_BOOST, e)}
                     />
@@ -384,7 +370,6 @@
                 <div class="inputRowCalc">
                     <label>Completed EDUs</label>
                     <select class="field"
-                            label="Completed Courses"
                             value={numToInput(ui, F.USER_EDUCATION_STRENGTH)}
                             on:input={(e) => onNum(F.USER_EDUCATION_STRENGTH, e)}
                     />
@@ -393,45 +378,40 @@
                 <div class="inputRowCalc">
                     <label>Strength Boost</label>
                     <input class="field field--derived" readonly
-                            label="Strength Boost"
-                            value={numToInput(ui, F.USER_EDUCATION_STRENGTH)}
-                            on:input={(e) => onNum(F.USER_EDUCATION_STRENGTH, e)}
+                           value={numToInput(ui, F.USER_EDUCATION_STRENGTH)}
+                           on:input={(e) => onNum(F.USER_EDUCATION_STRENGTH, e)}
                     />
                 </div>
 
                 <div class="inputRowCalc">
                     <label>Defense Boost</label>
                     <input class="field field--derived" readonly
-                            label="Defense Boost"
-                            value={numToInput(ui, F.USER_EDUCATION_DEFENSE)}
-                            on:input={(e) => onNum(F.USER_EDUCATION_DEFENSE, e)}
+                           value={numToInput(ui, F.USER_EDUCATION_DEFENSE)}
+                           on:input={(e) => onNum(F.USER_EDUCATION_DEFENSE, e)}
                     />
                 </div>
 
                 <div class="inputRowCalc">
                     <label>Speed Boost</label>
                     <input class="field field--derived" readonly
-                            label="Speed Boost"
-                            value={numToInput(ui, F.USER_EDUCATION_SPEED)}
-                            on:input={(e) => onNum(F.USER_EDUCATION_SPEED, e)}
+                           value={numToInput(ui, F.USER_EDUCATION_SPEED)}
+                           on:input={(e) => onNum(F.USER_EDUCATION_SPEED, e)}
                     />
                 </div>
 
                 <div class="inputRowCalc">
                     <label>Dexterity Boost</label>
                     <input class="field field--derived" readonly
-                            label="Dexterity Boost"
-                            value={numToInput(ui, F.USER_EDUCATION_DEXTERITY)}
-                            on:input={(e) => onNum(F.USER_EDUCATION_DEXTERITY, e)}
+                           value={numToInput(ui, F.USER_EDUCATION_DEXTERITY)}
+                           on:input={(e) => onNum(F.USER_EDUCATION_DEXTERITY, e)}
                     />
                 </div>
 
                 <div class="inputRowCalc">
                     <label>All Stat Boost</label>
                     <input class="field field--derived" readonly
-                            label="All Boost"
-                            value={numToInput(ui, F.USER_EDUCATION_ALL)}
-                            on:input={(e) => onNum(F.USER_EDUCATION_ALL, e)}
+                           value={numToInput(ui, F.USER_EDUCATION_ALL)}
+                           on:input={(e) => onNum(F.USER_EDUCATION_ALL, e)}
                     />
                 </div>
             </div>
@@ -444,7 +424,6 @@
                 <div class="inputRowCalc">
                     <label>Company Type</label>
                     <select class="field"
-                            label="Company Type"
                             value={numToInput(ui, F.USER_JOB)}
                             on:input={(e) => onNum(F.USER_JOB, e)}
                     />
@@ -453,7 +432,6 @@
                 <div class="inputRowCalc">
                     <label>Company Stars</label>
                     <select class="field"
-                            label="Company Stars"
                             value={numToInput(ui, F.USER_JOB_LEVEL)}
                             on:input={(e) => onNum(F.USER_JOB_LEVEL, e)}
                     />
@@ -462,25 +440,22 @@
                 <div class="inputRowCalc">
                     <label>Company Perk</label>
                     <input class="field field--derived" readonly
-                            label="Company Perk"
-                            value={numToInput(ui, F.USER_JOB_BOOST_TYPE)}
-                            on:input={(e) => onNum(F.USER_JOB_BOOST_TYPE, e)}
+                           value={numToInput(ui, F.USER_JOB_BOOST_TYPE)}
+                           on:input={(e) => onNum(F.USER_JOB_BOOST_TYPE, e)}
                     />
                 </div>
 
                 <div class="inputRowCalc">
                     <label>Perk Amount</label>
                     <input class="field field--derived" readonly
-                            label="Perk Effect"
-                            value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
-                            on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
+                           value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
+                           on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
                     />
                 </div>
                 <!-- REFACTOR TO BOOK SELECTION -->
                 <div class="inputRowCalc">
                     <label>Active Book</label>
                     <select class="field"
-                            label="Book Name"
                             value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
                             on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
                     />
@@ -489,9 +464,8 @@
                 <div class="inputRowCalc">
                     <label>Book Effect</label>
                     <input class="field field--derived" readonly
-                            label="Book Effect"
-                            value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
-                            on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
+                           value={numToInput(ui, F.USER_JOB_BOOST_LEVEL)}
+                           on:input={(e) => onNum(F.USER_JOB_BOOST_LEVEL, e)}
                     />
                 </div>
             </div>
@@ -515,7 +489,6 @@
                     <div class="inputRowItem">
                         <label>Candy Type</label>
                         <select class="field"
-                            label="Candy Type"
                             value={numToInput(ui, F.ITEMS_CANDY_TYPE)}
                             on:input={(e) => onNum(F.ITEMS_CANDY_TYPE, e)}
                         />
@@ -528,12 +501,10 @@
                     <div class="inputRowItem">
                         <label>Candies</label>
                         <input class="field"
-                            label="Candy QTY"
                             value={numToInput(ui, F.ITEMS_CANDY_TYPE_QTY)}
                             on:input={(e) => onNum(F.ITEMS_CANDY_TYPE_QTY, e)}
                         />
                         <input class="field field--derived" readonly
-                            label="Candy Happy"
                             value={numToInput(ui, F.ITEMS_CANDY_TYPE_HAPPY)}
                             on:input={(e) => onNum(F.ITEMS_CANDY_TYPE_HAPPY, e)}
                         />
@@ -543,14 +514,12 @@
                     <div class="inputRowItem">
                         <label>Erotic DVD</label>
                         <input class="field"
-                            label="Erotic DVD"
                             value={numToInput(ui, F.ITEMS_EDVD_QTY)}
                             on:input={(e) => onNum(F.ITEMS_EDVD_QTY, e)}
                         />
                         <input class="field field--derived" readonly
-                                label="Erotic DVD"
-                                value={numToInput(ui, F.ITEMS_EDVD_HAPPY)}
-                                on:input={(e) => onNum(F.ITEMS_EDVD_HAPPY, e)}
+                               value={numToInput(ui, F.ITEMS_EDVD_HAPPY)}
+                               on:input={(e) => onNum(F.ITEMS_EDVD_HAPPY, e)}
                         />
                     </div>
                 {/if}
@@ -559,12 +528,10 @@
                     <div class="inputRowItem">
                         <label>Feathery Hotel Coupon</label>
                         <input class="field"
-                            label="Feathery Hotel Coupon"
                             value={numToInput(ui, F.ITEMS_FHC_QTY)}
                             on:input={(e) => onNum(F.ITEMS_FHC_QTY, e)}
                         />
                         <input class="field field--derived" readonly
-                            label="FHC Happy"
                             value={numToInput(ui, F.ITEMS_FHC_HAPPY)}
                             on:input={(e) => onNum(F.ITEMS_FHC_HAPPY, e)}
                         />
@@ -573,12 +540,10 @@
                     <div class="inputRowItem">
                         <label>Poison Mistletoe</label>
                         <input class="field"
-                            label="Poison Mistletoe"
                             value={numToInput(ui, F.ITEMS_POISON_MISTLETOE_QTY)}
                             on:input={(e) => onNum(F.ITEMS_POISON_MISTLETOE_QTY, e)}
                         />
                         <input class="field field--derived" readonly
-                            label="Poison Mistletoe"
                             value={numToInput(ui, F.ITEMS_POISON_MISTLETOE_HAPPY)}
                             on:input={(e) => onNum(F.ITEMS_POISON_MISTLETOE_HAPPY, e)}
                         />
@@ -588,37 +553,32 @@
                 <div class="inputRowItem">
                     <label>Xanax</label>
                     <input class="field"
-                            label="Xanax"
-                            value={numToInput(ui, F.ITEMS_XANAX_QTY)}
-                            on:input={(e) => onNum(F.ITEMS_XANAX_QTY, e)}
+                           value={numToInput(ui, F.ITEMS_XANAX_QTY)}
+                           on:input={(e) => onNum(F.ITEMS_XANAX_QTY, e)}
                     />
                     <input class="field field--derived" readonly
-                            label="Xanax"
-                            value={numToInput(ui, F.ITEMS_XANAX_HAPPY)}
-                            on:input={(e) => onNum(F.ITEMS_XANAX_HAPPY, e)}
+                           value={numToInput(ui, F.ITEMS_XANAX_HAPPY)}
+                           on:input={(e) => onNum(F.ITEMS_XANAX_HAPPY, e)}
                     />
                 </div>
 
                 <div class="inputRowItem">
                     <label>Ecstasy</label>
                     <input class="field"
-                            label="Ecstasy"
-                            value={numToInput(ui, F.ITEMS_ECSTASY_QTY)}
-                            on:input={(e) => onNum(F.ITEMS_ECSTASY_QTY, e)}
+                           value={numToInput(ui, F.ITEMS_ECSTASY_QTY)}
+                           on:input={(e) => onNum(F.ITEMS_ECSTASY_QTY, e)}
                     />
                     <input class="field field--derived" readonly
-                            label="Ecstasy"
-                            value={numToInput(ui, F.ITEMS_ECSTASY_HAPPY)}
-                            on:input={(e) => onNum(F.ITEMS_ECSTASY_HAPPY, e)}
+                           value={numToInput(ui, F.ITEMS_ECSTASY_HAPPY)}
+                           on:input={(e) => onNum(F.ITEMS_ECSTASY_HAPPY, e)}
                     />
                 </div>
 
                 <div class="inputRowOneItem">
                     <label>Total Happy</label>
                     <input class="field field--derived" readonly
-                            label="Total Happy"
-                            value={numToInput(ui, F.USER_TOTAL_HAPPY)}
-                            on:input={(e) => onNum(F.USER_TOTAL_HAPPY, e)}
+                           value={numToInput(ui, F.USER_TOTAL_HAPPY)}
+                           on:input={(e) => onNum(F.USER_TOTAL_HAPPY, e)}
                     />
                 </div>
             </div>
@@ -638,12 +598,10 @@
                     <div class="inputRowItem">
                         <label>Candy</label>
                         <input class="field"
-                            label="Candy On Hand"
                             value={numToInput(ui, F.USER_CANDY_QTY)}
                             on:input={(e) => onNum(F.USER_CANDY_QTY, e)}
                         />
                         <input class="field field--derived" readonly
-                            label="Candy Needed"
                             value={numToInput(ui, F.USER_CANDY_DELTA)}
                             on:input={(e) => onNum(F.USER_CANDY_DELTA, e)}
                         />
@@ -653,14 +611,12 @@
                     <div class="inputRowItem">
                         <label>Erotic DVD</label>
                         <input class="field"
-                                label="Erotic DVD On Hand"
-                                value={numToInput(ui, F.USER_EDVD_QTY)}
-                                on:input={(e) => onNum(F.USER_EDVD_QTY, e)}
+                               value={numToInput(ui, F.USER_EDVD_QTY)}
+                               on:input={(e) => onNum(F.USER_EDVD_QTY, e)}
                         />
                         <input class="field field--derived" readonly
-                                label="Erotic DVD Needed"
-                                value={numToInput(ui, F.USER_EDVD_DELTA)}
-                                on:input={(e) => onNum(F.USER_EDVD_DELTA, e)}
+                               value={numToInput(ui, F.USER_EDVD_DELTA)}
+                               on:input={(e) => onNum(F.USER_EDVD_DELTA, e)}
                         />
                     </div>
                 {/if}
@@ -669,26 +625,22 @@
                     <div class="inputRowItem">
                         <label>Feathery Hotel Coupon</label>
                         <input class="field"
-                                label="Feathery Hotel Coupon"
-                                value={numToInput(ui, F.USER_FHC_QTY)}
-                                on:input={(e) => onNum(F.USER_FHC_QTY, e)}
+                               value={numToInput(ui, F.USER_FHC_QTY)}
+                               on:input={(e) => onNum(F.USER_FHC_QTY, e)}
                         />
                         <input class="field field--derived" readonly
-                                label="FHC Needed"
-                                value={numToInput(ui, F.USER_FHC_DELTA)}
-                                on:input={(e) => onNum(F.USER_FHC_DELTA, e)}
+                               value={numToInput(ui, F.USER_FHC_DELTA)}
+                               on:input={(e) => onNum(F.USER_FHC_DELTA, e)}
                         />
                     </div>
 
                     <div class="inputRowItem">
                         <label>Poison Mistletoe</label>
                         <input class="field"
-                            label="Poison Mistletoe"
                             value={numToInput(ui, F.USER_POISON_MISTLETOE_QTY)}
                             on:input={(e) => onNum(F.USER_POISON_MISTLETOE_QTY, e)}
                         />
                         <input class="field field--derived" readonly
-                            label="Poison Mistletoe"
                             value={numToInput(ui, F.USER_POISON_MISTLETOE_DELTA)}
                             on:input={(e) => onNum(F.USER_POISON_MISTLETOE_DELTA, e)}
                         />
@@ -698,28 +650,24 @@
                 <div class="inputRowItem">
                     <label>Xanax</label>
                     <input class="field"
-                            label="Xanax"
-                            value={numToInput(ui, F.USER_XANAX_QTY)}
-                            on:input={(e) => onNum(F.USER_XANAX_QTY, e)}
+                           value={numToInput(ui, F.USER_XANAX_QTY)}
+                           on:input={(e) => onNum(F.USER_XANAX_QTY, e)}
                     />
                     <input class="field field--derived" readonly
-                            label="Xanax"
-                            value={numToInput(ui, F.USER_XANAX_DELTA)}
-                            on:input={(e) => onNum(F.USER_XANAX_DELTA, e)}
+                           value={numToInput(ui, F.USER_XANAX_DELTA)}
+                           on:input={(e) => onNum(F.USER_XANAX_DELTA, e)}
                     />
                 </div>
 
                 <div class="inputRowItem">
                     <label>Ecstasy</label>
                     <input class="field"
-                            label="Ecstasy"
-                            value={numToInput(ui, F.USER_ECSTASY_QTY)}
-                            on:input={(e) => onNum(F.USER_ECSTASY_QTY, e)}
+                           value={numToInput(ui, F.USER_ECSTASY_QTY)}
+                           on:input={(e) => onNum(F.USER_ECSTASY_QTY, e)}
                     />
                     <input class="field field--derived" readonly
-                            label="Ecstasy"
-                            value={numToInput(ui, F.USER_ECSTASY_DELTA)}
-                            on:input={(e) => onNum(F.USER_ECSTASY_DELTA, e)}
+                           value={numToInput(ui, F.USER_ECSTASY_DELTA)}
+                           on:input={(e) => onNum(F.USER_ECSTASY_DELTA, e)}
                     />
                 </div>
             </div>
@@ -739,12 +687,10 @@
                     <div class="inputRowItem">
                         <label>Candy</label>
                         <input class="field"
-                            label="Candy Type"
                             value={numToInput(ui, F.ITEMS_CANDY_PRICE)}
                             on:input={(e) => onNum(F.ITEMS_CANDY_PRICE, e)}
                         />
                         <input class="field field--derived" readonly
-                            label="Candy Happy"
                             value={numToInput(ui, F.USER_CANDY_COST)}
                             on:input={(e) => onNum(F.USER_CANDY_COST, e)}
                         />
@@ -754,14 +700,12 @@
                     <div class="inputRowItem">
                         <label>Erotic DVD</label>
                         <input class="field"
-                                label="Erotic DVD"
-                                value={numToInput(ui, F.ITEMS_EDVD_PRICE)}
-                                on:input={(e) => onNum(F.ITEMS_EDVD_PRICE, e)}
+                               value={numToInput(ui, F.ITEMS_EDVD_PRICE)}
+                               on:input={(e) => onNum(F.ITEMS_EDVD_PRICE, e)}
                         />
                         <input class="field field--derived" readonly
-                                label="Erotic DVD"
-                                value={numToInput(ui, F.USER_EDVD_COST)}
-                                on:input={(e) => onNum(F.USER_EDVD_COST, e)}
+                               value={numToInput(ui, F.USER_EDVD_COST)}
+                               on:input={(e) => onNum(F.USER_EDVD_COST, e)}
                         />
                     </div>
                 {/if}
@@ -770,26 +714,23 @@
                     <div class="inputRowItem">
                         <label>Feathery Hotel Coupon</label>
                         <input class="field"
-                                label="Feathery Hotel Coupon"
-                                value={numToInput(ui, F.ITEMS_FHC_PRICE)}
-                                on:input={(e) => onNum(F.ITEMS_FHC_PRICE, e)}
+                               value={numToInput(ui, F.ITEMS_FHC_PRICE)}
+                               on:input={(e) => onNum(F.ITEMS_FHC_PRICE, e)}
                         />
                         <input class="field field--derived" readonly
-                                label="FHC Happy"
-                                value={numToInput(ui, F.USER_FHC_COST)}
-                                on:input={(e) => onNum(F.USER_FHC_COST, e)}
+
+                               value={numToInput(ui, F.USER_FHC_COST)}
+                               on:input={(e) => onNum(F.USER_FHC_COST, e)}
                         />
                     </div>
 
                     <div class="inputRowItem">
                         <label>Poison Mistletoe</label>
                         <input class="field"
-                            label="Poison Mistletoe"
                             value={numToInput(ui, F.ITEMS_POISON_MISTLETOE_PRICE)}
                             on:input={(e) => onNum(F.ITEMS_POISON_MISTLETOE_PRICE, e)}
                         />
                         <input class="field field--derived" readonly
-                            label="Poison Mistletoe"
                             value={numToInput(ui, F.USER_POISON_MISTLETOE_COST)}
                             on:input={(e) => onNum(F.USER_POISON_MISTLETOE_COST, e)}
                         />
@@ -799,37 +740,32 @@
                 <div class="inputRowItem">
                     <label>Xanax</label>
                     <input class="field"
-                            label="Xanax"
-                            value={numToInput(ui, F.ITEMS_XANAX_PRICE)}
-                            on:input={(e) => onNum(F.ITEMS_XANAX_PRICE, e)}
+                           value={numToInput(ui, F.ITEMS_XANAX_PRICE)}
+                           on:input={(e) => onNum(F.ITEMS_XANAX_PRICE, e)}
                     />
                     <input class="field field--derived" readonly
-                            label="Xanax"
-                            value={numToInput(ui, F.USER_XANAX_COST)}
-                            on:input={(e) => onNum(F.USER_XANAX_COST, e)}
+                           value={numToInput(ui, F.USER_XANAX_COST)}
+                           on:input={(e) => onNum(F.USER_XANAX_COST, e)}
                     />
                 </div>
 
                 <div class="inputRowItem">
                     <label>Ecstasy</label>
                     <input class="field"
-                            label="Ecstasy"
-                            value={numToInput(ui, F.ITEMS_ECSTASY_PRICE)}
-                            on:input={(e) => onNum(F.ITEMS_ECSTASY_PRICE, e)}
+                           value={numToInput(ui, F.ITEMS_ECSTASY_PRICE)}
+                           on:input={(e) => onNum(F.ITEMS_ECSTASY_PRICE, e)}
                     />
                     <input class="field field--derived" readonly
-                            label="Ecstasy"
-                            value={numToInput(ui, F.USER_ECSTASY_COST)}
-                            on:input={(e) => onNum(F.USER_ECSTASY_COST, e)}
+                           value={numToInput(ui, F.USER_ECSTASY_COST)}
+                           on:input={(e) => onNum(F.USER_ECSTASY_COST, e)}
                     />
                 </div>
 
                 <div class="inputRowOneItem">
                     <label>Grand Total</label>
                     <input class="field field--derived" readonly
-                            label="Grand Total"
-                            value={numToInput(ui, F.USER_ITEMS_TOTAL_COST)}
-                            on:input={(e) => onNum(F.USER_ITEMS_TOTAL_COST, e)}
+                           value={numToInput(ui, F.USER_ITEMS_TOTAL_COST)}
+                           on:input={(e) => onNum(F.USER_ITEMS_TOTAL_COST, e)}
                     />
                 </div>
             </div>
